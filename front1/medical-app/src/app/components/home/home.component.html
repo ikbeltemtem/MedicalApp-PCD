@@ -1,0 +1,37 @@
+<div class="container mt-5">
+    <div class="card text-center">
+        <h1>this is home page</h1>
+
+    </div>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            
+
+            <th class="max-width">Nom</th>
+            <th class="max-width">Prénom</th>
+        
+            <th class="max-width">Email</th>
+            
+         
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rendezvou of users ">
+          
+            <td class="text-nowrap align-middle">{{rendezvou.nom}}</td>
+            <td class="text-nowrap align-middle">{{rendezvou.prenom}}</td>
+           
+            <td class="text-nowrap align-middle">{{rendezvou.email}}</td>
+          
+            
+
+         
+         
+          
+          </tr>
+
+        </tbody>
+      </table>
+</div>
+

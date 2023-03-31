@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<div *ngIf="medecin" class="row m-3 ">
+    
+    <div style="margin-top: 150px; " class="card col-md-7 ">
+        <table class="table ">
+            <tbody>
+                <tr>
+                    <th></th>
+                    <td colspan="2 " scope="row "><b>Nom et prénom</b></td>
+                    <td>{{medecin.nom}} {{medecin.prenom}} </td>
+                </tr>
+
+                <tr>
+                    <th></th>
+                    <td colspan="2 "><b>Adresse</b></td>
+                    <td>{{medecin.adresse}} </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td colspan="2 "><b>Téléphone</b></td>
+                    <td>{{medecin.telephone}} </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td colspan="2 "><b>Email</b></td>
+                    <td>{{medecin.email}}</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td colspan="2 "><b>Spécialité</b></td>
+                    <td>{{medecin.speciality}}</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td colspan="2 "><b>Contacter Docteur {{medecin.nom}} {{medecin.prenom}} ?</b></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

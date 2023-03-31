@@ -1,0 +1,22 @@
+<div style="margin-top: 200px;" class="col-md-6 offset-md-3   border border-success">
+    <h3><strong> Ajouter Thérapie </strong></h3>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input type="text" class="form-control" id="nom" placeholder="Nom de la thérapie à ajouter" [(ngModel)]="therapie.name" name="nom">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="decription" placeholder="Description de la thérapie à ajouter" [(ngModel)]="therapie.description" name="description">
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="file" (change)="onSelectFile($event)" id="image" placeholder="image de la thérapie à ajouter" [(ngModel)]="therapie.imageUrl" name="image">
+            <img [src]="imgURL" height="200px" *ngIf="imgURL">
+        </div>
+       <!-- <div class="form-group">
+            <input type="text" class="form-control" id="video" placeholder="vidéo de la thérapie à ajouter" [(ngModel)]="therapie.video" name="video">
+        </div> -->
+        <button style="margin-bottom: 10px; margin-left: 270px; width: 200px;" class="btn btn-success " type="submit">Ajouter</button>
+
+    </form>
+
+</div>

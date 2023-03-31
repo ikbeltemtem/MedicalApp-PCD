@@ -1,0 +1,390 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container" id="main-container">
+<div class="row flex-lg-nowrap">
+  <div class="col-12 col-lg-auto mb-3" style="width: 200px;">
+    <div class="card p-3">
+      <div class="e-navlist e-navlist--active-bg">
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link px-2 active" href="#"><i class="fa fa-fw fa-bar-chart mr-1"></i><span>Overview</span></a></li>
+          <li class="nav-item"><a class="nav-link px-2" href="https://www.bootdey.com/snippets/view/bs4-crud-users" target="__blank"><i class="fa fa-fw fa-th mr-1"></i><span>CRUD</span></a></li>
+          <li class="nav-item"><a class="nav-link px-2" href="https://www.bootdey.com/snippets/view/bs4-edit-profile-page" target="__blank"><i class="fa fa-fw fa-cog mr-1"></i><span>Settings</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col mb-2">
+    <div class="e-tabs mb-3 px-3">
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" href="#">Liste des Rendez-vous</a></li>
+      </ul>
+    </div>
+
+    <div class="row flex-lg-nowrap">
+      <div class="col col-xxl-auto mb-3">
+        <div class="e-panel card">
+          <div class="card-body">
+            <div class="card-title">
+              <h6 class="mr-2"><span>Users</span><small class="px-1">Liste</small></h6>
+            </div>
+            <div class="e-table">
+              <div class="table-responsive table-lg mt-3">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      
+
+                      <th class="max-width">Nom</th>
+                      <th class="max-width">Prénom</th>
+                      <th class="max-width">Age</th>
+                      <th class="max-width">Téléphone</th>
+                      <th class="max-width">Email</th>
+                      <th class="max-width">description</th>
+                      <th class="sortable">premiére disponiblité</th>
+                      <th>deuxiéme disponiblité</th>
+                  
+                      <th>Actions</th>
+                   
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let rendezvou of appointments ">
+                    
+                      <td class="text-nowrap align-middle">{{rendezvou.name}}</td>
+                      <td class="text-nowrap align-middle">{{rendezvou.prenom}}</td>
+                      <td class="text-nowrap align-middle">{{rendezvou.age}}</td>
+                      <td class="text-nowrap align-middle">{{rendezvou.number}}</td>
+                      <td class="text-nowrap align-middle">{{rendezvou.email}}</td>
+                      <td class="text-nowrap align-middle">{{rendezvou.symptoms}}</td>
+                      
+
+                      <td class="text-nowrap align-middle"><span>{{rendezvou.dispo1}}</span></td>
+                      <td class="text-nowrap align-middle"><span>{{rendezvou.dispo2}}</span></td>
+                   
+                      <td class="text-center align-middle">
+                        <div class="card-body">
+                         <!-- <button (click)="onOpenModal(rendezvou, 'edit')" class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal" data-target="#user-form-modal">Edit</button>
+                            <button (click)="onOpenModal(rendezvou, 'edit')"class="btn btn-sm btn-outline-secondary badge" type="button" >Edit</button>-->
+                            <a (click)="onOpenModal(rendezvou, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                            <button (click)="onOpenModal(rendezvou,'delete')" class="btn btn-sm btn-outline-secondary badge" type="button"><i class="fa fa-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+          
+                  </tbody>
+                </table>
+              </div>
+              <div class="d-flex justify-content-center">
+                <ul class="pagination mt-3 mb-0">
+                  <li class="disabled page-item"><a href="#" class="page-link">‹</a></li>
+                  <li class="active page-item"><a href="#" class="page-link">1</a></li>
+                  <li class="page-item"><a href="#" class="page-link">2</a></li>
+                  <li class="page-item"><a href="#" class="page-link">3</a></li>
+                  <li class="page-item"><a href="#" class="page-link">4</a></li>
+                  <li class="page-item"><a href="#" class="page-link">5</a></li>
+                  <li class="page-item"><a href="#" class="page-link">›</a></li>
+                  <li class="page-item"><a href="#" class="page-link">»</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="text-center px-xl-3">
+             <!--<button class="btn btn-success btn-block" (click)="onOpenModal(null, 'add')" type="button" >creer Rendez-vous</button>-->
+              <button class="btn btn-success btn-block" data-toggle="modal" data-target="#addAppointmentModal" type="button" >creer Rendez-vous</button>
+            </div>
+            <!--<hr class="my-3">
+            <div class="e-navlist e-navlist--active-bold">
+              <ul class="nav">
+                <li class="nav-item active"><a href="" class="nav-link"><span>All</span>&nbsp;<small>/&nbsp;32</small></a></li>
+                <li class="nav-item"><a href="" class="nav-link"><span>Active</span>&nbsp;<small>/&nbsp;16</small></a></li>
+                <li class="nav-item"><a href="" class="nav-link"><span>Selected</span>&nbsp;<small>/&nbsp;0</small></a></li>
+              </ul>
+            </div>-->
+            <hr class="my-3">
+            <div>
+              <div class="form-group">
+                <label>Date from - to:</label>
+                <div>
+                  <input id="dates-range" class="form-control flatpickr-input" placeholder="01 Dec 17 - 27 Jan 18" type="text" readonly="readonly">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Search by Name:</label>
+                <div><input class="form-control w-100" type="text" placeholder="Name" value=""></div>
+              </div>
+            </div>
+            <!--<hr class="my-3">
+            <div class="">
+              <label>Status:</label>
+              <div class="px-2">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="user-status" id="users-status-disabled">
+                  <label class="custom-control-label" for="users-status-disabled">Disabled</label>
+                </div>
+              </div>
+              <div class="px-2">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="user-status" id="users-status-active">
+                  <label class="custom-control-label" for="users-status-active">Active</label>
+                </div>
+              </div>
+              <div class="px-2">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="user-status" id="users-status-any" checked="">
+                  <label class="custom-control-label" for="users-status-any">Any</label>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editAppointmentModal" tabindex="-1" role="dialog" aria-labelledby="editAppointmentModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"id="editAppointmentModalLabel">Editer Appointment{{editAppointment?.name}}</h5>
+            <button type="button" class="btn btn-secondary" id="update-Rdv-form" data-dismiss="modal">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="py-1">
+              <form class="form" #editForm="ngForm" >
+                <div class="row">
+                  <div class="col">
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="name">Nom</label>
+                          <input class="form-control" type="text" ngModel="{{editAppointment?.name}}" name="name" placeholder="nom">
+                        </div>
+                        <input type="hidden" ngModel="{{editAppointment?.age}}" name="id" class="form-control" id="id" placeholder="Email">
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="prenom">Prenom</label>
+                          <input class="form-control" type="text" ngModel="{{editAppointment?.prenom}}" name="prenom" placeholder="prenom" >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input class="form-control" type="text" ngModel="{{editAppointment?.email}}" name="email" placeholder="user@example.com">
+                          <input type="hidden" ngModel="{{editAppointment?.id}}" name="id" class="form-control" id="id" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="email">Numéro Tel</label>
+                          <input class="form-control" type="text" ngModel="{{editAppointment?.number}}" name="number" placeholder="Numero">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                     <div class="col">
+                       <div class="form-group">
+                         <label for="age">Age</label>
+                         <input class="form-control" type="text" ngModel="{{editAppointment?.age}}" name="age" placeholder="age" >
+                       </div>
+                     </div>
+                     <div class="col">
+                       <div class="form-group">
+                         <label for="description">Description</label>
+                         <input class="form-control" type="text" ngModel="{{editAppointment?.therapie}}" name="description" placeholder="description" value="description">
+                       </div>
+                     </div>
+                   </div>
+                   <div class="row">
+                     <div class="col">
+                       <div class="form-group">
+                         <label for="dispo1">Disponibilité1</label>
+                         <input class="form-control" type="text" ngModel="{{editAppointment?.dispo1}}" name="dispo1" placeholder="dispo1" value="dispo1">
+                       </div>
+                     </div>
+                     <div class="col">
+                       <div class="form-group">
+                         <label for="dispo2">Disponibilité2</label>
+                         <input class="form-control" type="text" ngModel="{{editAppointment?.dispo2}}" name="dispo2" placeholder="dispo2" value="dispo2">
+                       </div>
+                     </div>
+                   </div>
+                    
+                  </div>
+                
+                </div>
+                <div class="row">
+                  <div class="col d-flex justify-content-end">
+                    <button  (click)="onUpdateAppointment(editForm.value)" data-dismiss="modal" class="btn btn-primary"  >Save Changes</button>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- Appointment add Modal -->
+    <div class="modal fade" role="dialog" tabindex="-1" id="addAppointmentModal" aria-labelledby="addAppointmentModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addAppointmentModalLabel">Creer Rendez-vous</h5>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="py-1">
+              <form class="form"  #addForm="ngForm" (ngSubmit)="onAddAppointment(addForm)">
+                <div class="row">
+                  <div class="col">
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="name">Nom</label>
+                          <input class="form-control" type="text" ngModel name="name" placeholder="nom">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="prenom">Prenom</label>
+                          <input class="form-control" type="text" ngModel name="prenom" placeholder="prenom" >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input class="form-control" type="text" ngModel name="email" placeholder="user@example.com">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="email">Numéro Tel</label>
+                          <input class="form-control" type="text" ngModel name="number" placeholder="Numero">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                     <div class="col">
+                       <div class="form-group">
+                         <label for="age">Age</label>
+                         <input class="form-control" type="text" ngModel name="age" placeholder="age" >
+                       </div>
+                     </div>
+                     <div class="col">
+                       <div class="form-group">
+                         <label for="symptoms">Description</label>
+                         <input class="form-control" type="text" ngModel name="symptoms" placeholder="description" value="description">
+                       </div>
+                     </div>
+                   </div>
+                   <div class="row">
+                     <div class="col">
+                       <div class="form-group">
+                         <label for="dispo1">Disponibilité1</label>
+                         <input class="form-control" type="text" ngModel name="dispo1" placeholder="dispo1" value="dispo1">
+                       </div>
+                     </div>
+                     <div class="col">
+                       <div class="form-group">
+                         <label for="dispo2">Disponibilité2</label>
+                         <input class="form-control" type="text" ngModel name="dispo2" placeholder="dispo2" value="dispo2">
+                       </div>
+                     </div>
+                   </div>
+                    
+                  </div>
+       
+                </div>
+                <div class="row">
+                  <div class="col d-flex justify-content-end">
+                    <button  [disabled]="addForm.invalid" type="submit" class="btn btn-primary" id="add-Rdv-form">Save Changes</button>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Delete Modal -->
+<div class="modal fade" id="deleteAppointmentModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title" id="deleteModelLabel">Delete Appointment</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <p>Are you sure you want to delete Appointment {{deleteAppointment?.name}}?</p>
+           <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button (click)="onDeleteAppointment(deleteAppointment?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
