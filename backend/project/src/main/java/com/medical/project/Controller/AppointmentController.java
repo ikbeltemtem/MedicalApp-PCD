@@ -1,7 +1,6 @@
 package com.medical.project.Controller;
 
 
-
 import com.medical.project.Dao.appointmentRepository;
 import com.medical.project.Entity.appointment;
 import com.medical.project.Service.AppointmentService;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(path="/api/Rdv")
 public class AppointmentController {
@@ -24,6 +22,8 @@ public class AppointmentController {
     public AppointmentController(AppointmentService appointmentService){
         this.appointmentService=appointmentService;
     }
+
+
     @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "Requestor-Type", exposedHeaders = "X-Get-Header")
     @GetMapping("/getAll")
     public List<appointment> getAppointments(){
@@ -50,10 +50,10 @@ public class AppointmentController {
         return ResponseEntity.ok(appnew);
 
     }
-    /*@DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteAppointment(@PathVariable("id") Long id){
         appointmentService.deleteAppointment(id);
         return new ResponseEntity<>(HttpStatus.OK);
-    }*/
+    }
 
 }

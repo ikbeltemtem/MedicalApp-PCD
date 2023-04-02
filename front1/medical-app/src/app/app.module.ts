@@ -33,7 +33,25 @@ import { NavMComponent } from './components/nav-m/nav-m.component';
 import { NavMPComponent } from './components/nav-mp/nav-mp.component';
 import { NavSComponent } from './components/nav-s/nav-s.component';
 import { PatientComponent } from './components/patient/patient.component';
-
+import { TherapieService } from './services/therapie.service';
+import { StaticsComponent } from './components/statics/statics.component';
+const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'inscrire',
+    component: RegisterComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {path: 'therapies/:id', component:TherapieComponent},
+  {path: 'therapies',component:TherapieListComponent},
+  {path:'patient',component:PatientComponent}
+];
 
 @NgModule({
   declarations: [
@@ -54,18 +72,20 @@ import { PatientComponent } from './components/patient/patient.component';
     NavMComponent,
     NavMPComponent,
     NavSComponent,
-    PatientComponent
+    PatientComponent,
+    StaticsComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule,
+    RouterModule.forRoot(routes),
+  
     ReactiveFormsModule
   ],
 
-  providers: [ AppointmentService ],
+  providers: [ TherapieService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

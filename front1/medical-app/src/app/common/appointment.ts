@@ -7,7 +7,7 @@ export interface Appointment {
      age:number,
       symptoms:string,
       daterdv:Date,
-       heure:Date,
+       
        number:number,
        email:string,
        therapie:string,

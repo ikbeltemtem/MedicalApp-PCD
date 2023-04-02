@@ -15,9 +15,9 @@
                     <a routerLink="/therapies/{{ temp.id}}" > 
                         <h1>{{ temp.name }}</h1>
                     </a>
+                    <br><a routerLink="" (click)="viewprofil(temp.id)">Lire plus <i class="mdi mdi-chevron-right"></i></a>
                         
-                        
-                        <button (click)="add()"  class="btn btn-primary btn-sm">Prendre Rendez-vous</button>
+                       <br> <button (click)="add()"  class="btn btn-primary btn-sm" >Prendre Rendez-vous</button>
                     </div>
 
                 </div>

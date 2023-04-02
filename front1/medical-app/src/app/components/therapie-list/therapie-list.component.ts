@@ -57,6 +57,11 @@ export class TherapieListComponent implements OnInit {
 });
 }
 
+viewprofil(idt:number) {
+  
+  this.router.navigate(['./therapies', idt], { relativeTo: this.route });
+}
+
  /* afficher(y: any, x: any) {
     //y => id de la thérapie 
     console.log(y + " " + x);

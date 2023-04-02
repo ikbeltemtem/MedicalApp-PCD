@@ -15,13 +15,21 @@ import { Appointment } from 'src/app/common/appointment';
 export class TherapieComponent implements OnInit {
    
   therapie!:Therapie;
+  id!:number;
   constructor(private therapiService: TherapieService,private appointmentService:AppointmentService,
     private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+ /*ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
-      this.handleProductDetails();
+      this.handleThDetails();
       })
+  }*/
+
+  ngOnInit(): void {
+    this.id=this.route.snapshot.params['id'];
+    this.therapiService.getTherapieById(this.id).subscribe(data =>{
+      this.therapie=data;
+    })
   }
 
   add(){
@@ -41,7 +49,7 @@ export class TherapieComponent implements OnInit {
   this.appointmentService.addAppointment(addForm.value).subscribe({
     next : (response: Appointment) => {
       console.log(response);
-      this.handleProductDetails();
+      this.handleThDetails();
       addForm.reset();
     },
     error : (error: HttpErrorResponse) => {
@@ -51,12 +59,12 @@ export class TherapieComponent implements OnInit {
 });
 }
 
- handleProductDetails() {
+ handleThDetails() {
 
   // get the "id" param string. convert string to a number using the "+" symbol
   const theTherapieId: number = +this.route.snapshot.paramMap.get('id')!;
   
-  this.therapiService.getTherapie(theTherapieId).subscribe(
+  this.therapiService.getTherapieById(theTherapieId).subscribe(
   data => {
   this.therapie = data;
   }

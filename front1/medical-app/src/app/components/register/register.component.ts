@@ -9,7 +9,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  x:number=0;
   constructor(private service:UserServiceService,private router:Router) { }
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
 
   submit(){
     this.data = this.form.value;
-  
+    this.x=this.x +1;
     console.log(this.data)
 
     this.service.adduser(this.data).subscribe(data => {

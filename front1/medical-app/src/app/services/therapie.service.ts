@@ -12,31 +12,33 @@ export class TherapieService {
   private baseUrl= 'http://localhost:8080/api/therapie';
   constructor(private httpClient: HttpClient) { }
 
-  getTherapie(theId: number): Observable<Therapie> {
-       
-    // buildURL based on therapie id
-    const therapietUrl=`${this.baseUrl}/${theId}`;
 
-    return this.httpClient.get<Therapie>(therapietUrl);
+  public getListeTherapie(): Observable<Therapie[]>{
+    return this.httpClient.get<Therapie[]>(`${this.baseUrl}/getAll`);
   }
 
-  /*public getListeTherapie(): Observable<Therapie[]>{
-    return this.httpClient.get<Therapie[]>(`${this.baseUrl}getAll`);
-  }*/
+  public getTherapieById(id:number):Observable<Therapie>{
+    return this.httpClient.get<Therapie>(`${this.baseUrl}/get/${id}`);
+  }
 
+
+
+
+/*
   getListeTherapie():Observable<Therapie[]> {
-            return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
+            return this.httpClient.get<GetResponse>('http://localhost:8080/api/therapie/getAll').pipe(
               map((response: { _embedded: { therapies: any; }; })=>response._embedded.therapies)
             );
   }
 
   public getTherapieById(id:number):Observable<Therapie>{
     return this.httpClient.get<Therapie>(`${this.baseUrl}get/${id}`);
-  }
+  }*/
 }
 
-interface GetResponse{
+/*interface GetResponse{
   _embedded:{
     therapies:Therapie[];
   }
 }
+*/

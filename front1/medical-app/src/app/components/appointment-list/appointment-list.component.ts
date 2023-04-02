@@ -14,6 +14,7 @@ export class AppointmentListComponent implements OnInit {
    appointments: Appointment[]=[];
    public deleteAppointment!:Appointment|null;
    public editAppointment! : Appointment|null;
+   x:number=0;
 
   constructor(private appointmentService: AppointmentService,
                private router:Router) { }
@@ -51,6 +52,7 @@ export class AppointmentListComponent implements OnInit {
 
   public onAddAppointment(addForm: NgForm): void {
     document.getElementById('add-Rdv-form')!.click();
+    this.x=this.x +1;
     this.appointmentService.addAppointment(addForm.value).subscribe({
       next : (response: Appointment) => {
         console.log(response);
