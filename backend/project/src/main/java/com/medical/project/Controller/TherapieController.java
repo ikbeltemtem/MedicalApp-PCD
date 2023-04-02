@@ -23,15 +23,19 @@ public class TherapieController {
     @Autowired
     private TherapieRepository therapieRepository;
 
+
+    @CrossOrigin(origins= {"*"}, maxAge = 4800,allowedHeaders = "*", allowCredentials = "false" )
+
+    //@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "Requestor-Type", exposedHeaders = "X-Get-Header")
     @PostMapping("/upload")
 
-    public Therapie uplaodImage(@RequestParam("imageFile") MultipartFile file ,@RequestParam("nomTherapie") String nomTherapie,@RequestParam("description") String description,@RequestParam("video") String video) throws IOException
+    public Therapie uplaodImage(@RequestParam("imageFile") MultipartFile file ,@RequestParam("nomTherapie") String nomTherapie,@RequestParam("description") String description) throws IOException
     {
 
         System.out.println("Original Image Byte Size - " + file.getBytes().length );
         Therapie img1= new Therapie(nomTherapie,description,file.getOriginalFilename());
 
-        String folder ="/home/ikbel/Bureau/Med_app/Pcd/front1/medical-app/src/assets/img";
+        String folder ="/home/ikbel/Bureau/Pcd-v2/front1/medical-app/src/assets/image/";
         byte [] bytes = file.getBytes();
         Path path = Paths.get(folder + file.getOriginalFilename());
         Files.write(path, bytes);
@@ -46,11 +50,13 @@ public class TherapieController {
         return therapieRepository.findAll();
     }
 
+    @CrossOrigin({"*"})
 
     @PostMapping("/createTherapie")
     public Therapie createTherapie(@RequestBody Therapie therapie) {
         return therapieRepository.save(therapie);
     }
+
 
 
     @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "Requestor-Type", exposedHeaders = "X-Get-Header")

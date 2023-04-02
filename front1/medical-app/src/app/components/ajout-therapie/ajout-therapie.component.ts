@@ -10,22 +10,22 @@ import { TherapieService } from 'src/app/services/therapie.service';
   styleUrls: ['./ajout-therapie.component.css']
 })
 export class AjoutTherapieComponent implements OnInit {
-  
-  //therapie: Therapie = new Therapie();
+  therapie: Therapie = new Therapie();
   // imageTherapie et imgURL  pour l'image de la thérapie
   imageTherapie: any;
   imgURL: any
   public imagPath: any;
-  file: File | undefined;
-  message: string | undefined;
-  constructor(private therapieService: TherapieService, private router: Router, private httpClient: HttpClient,protected therapie:Therapie) { }
+  file!: File;
+  message!: string;
+ 
+  constructor(private therapieService: TherapieService, private router: Router, private httpClient: HttpClient) { }
 
   ngOnInit(): void {
   }
   onSubmit() {
     console.log(this.file);
     const uploadImageData = new FormData();
-    uploadImageData.append('imageFile', this.file!, this.file!.name);
+    uploadImageData.append('imageFile', this.file, this.file.name);
     const nomTherapie = this.therapie.name;
     const description = this.therapie.description;
     //const video =this.therapie.video;
@@ -35,7 +35,7 @@ export class AjoutTherapieComponent implements OnInit {
     
 
 
-    this.httpClient.post('http://localhost:8080/therapie/upload', uploadImageData
+    this.httpClient.post('http://localhost:8080/api/therapie/upload', uploadImageData
       , { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {

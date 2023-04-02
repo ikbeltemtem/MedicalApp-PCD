@@ -1,6 +1,11 @@
 export class Therapie {
-      constructor(public id:number,
-                  public name:string,
-                  public imageUrl:string,
-                  public description:string){}
+    
+                  id!:number ;
+                  name!: string;
+                  description!:string ;
+                  imageUrl!:string ;
+                
+                  uploadImageData = new FormData();
+
+
 }

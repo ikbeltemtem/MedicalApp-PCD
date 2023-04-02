@@ -21,7 +21,9 @@ export class TherapieService {
     return this.httpClient.get<Therapie>(`${this.baseUrl}/get/${id}`);
   }
 
-
+  public createTherapie(therapie:Therapie):Observable<Object>{
+    return this.httpClient.post(`${this.baseUrl}createTherapie`,therapie);
+  }
 
 
 /*
