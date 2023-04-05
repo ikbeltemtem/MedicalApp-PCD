@@ -35,6 +35,10 @@ import { NavSComponent } from './components/nav-s/nav-s.component';
 import { PatientComponent } from './components/patient/patient.component';
 import { TherapieService } from './services/therapie.service';
 import { StaticsComponent } from './components/statics/statics.component';
+import { AuthGuard } from './services/auth.guard';
+import { AuthInterceptor } from './services/auth.interceptor';
+import { UserServiceService } from './services/user-service.service';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -73,7 +77,8 @@ const routes: Routes = [
     NavMPComponent,
     NavSComponent,
     PatientComponent,
-    StaticsComponent
+    StaticsComponent,
+    ForbiddenComponent
   ],
   imports: [
     AppRoutingModule,
@@ -85,7 +90,14 @@ const routes: Routes = [
     ReactiveFormsModule
   ],
 
-  providers: [ TherapieService ],
+  providers: [ TherapieService ,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    },
+    UserServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
