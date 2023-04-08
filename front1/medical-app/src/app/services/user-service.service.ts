@@ -46,4 +46,25 @@ export class UserServiceService {
     return true;
     else return false;
   }
+
+  isMedP():Boolean{
+    const userRole:any=this.userAuthService.getRole();
+    if(userRole=="ADMIN")
+    return true;
+    else return false;
+  }
+
+  isMedS():Boolean{
+    const userRole:any=this.userAuthService.getRole();
+    if(userRole=="MEDS")
+    return true;
+    else return false;
+  }
+
+  isSecretaire():Boolean{
+    const userRole:any=this.userAuthService.getRole();
+    if(userRole=="SEC")
+    return true;
+    else return false;
+  }
 }

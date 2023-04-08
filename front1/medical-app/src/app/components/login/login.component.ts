@@ -39,6 +39,12 @@ model:any={};
         }else if(rl == 'PATIENT'){
         
         this.router.navigate(['/patient'])}
+        else if(rl == 'MEDS'){
+        
+          this.router.navigate(['/doctorsec'])}
+          else if(rl == 'SEC'){
+        
+            this.router.navigate(['/secretaire'])} 
       },
      error: (error: HttpErrorResponse) => {
         alert("invalid user");

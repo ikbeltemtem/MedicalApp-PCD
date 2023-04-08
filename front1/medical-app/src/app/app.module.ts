@@ -39,6 +39,9 @@ import { AuthGuard } from './services/auth.guard';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { UserServiceService } from './services/user-service.service';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
+import { MedPComponent } from './components/med-p/med-p.component';
+import { MedSComponent } from './components/med-s/med-s.component';
+import { SecComponent } from './components/sec/sec.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -78,7 +81,10 @@ const routes: Routes = [
     NavSComponent,
     PatientComponent,
     StaticsComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    MedPComponent,
+    MedSComponent,
+    SecComponent
   ],
   imports: [
     AppRoutingModule,
