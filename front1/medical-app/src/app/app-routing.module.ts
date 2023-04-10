@@ -12,6 +12,9 @@ import { SecComponent } from "./components/sec/sec.component";
 import { TherapieListComponent } from "./components/therapie-list/therapie-list.component";
 import { TherapieComponent } from "./components/therapie/therapie.component";
 import { AuthGuard } from "./services/auth.guard";
+import { MedAuthGuard } from "./services/med-auth.guard";
+import { MedSAuthGuard } from "./services/med-sauth.guard";
+import { SecAuthGuard } from "./services/sec-auth.guard";
 
 const routes: Routes = [
   {
@@ -29,9 +32,9 @@ const routes: Routes = [
   {path: 'therapies/:id', component:TherapieComponent},
   {path: 'therapies',component:TherapieListComponent},
   {path:'patient',component:PatientComponent, canActivate:[AuthGuard]/*, data:{role:'PATIENT'}*/},
-  {path:'doctor',component:MedPComponent,canActivate:[AuthGuard]/*, data:{role:['ADMIN']}*/},
-  {path:'doctorsec',component:MedSComponent, canActivate:[AuthGuard]},
-  {path:'secretaire',component:SecComponent,canActivate:[AuthGuard]},
+  {path:'doctor',component:MedPComponent,canActivate:[MedAuthGuard]/*, data:{role:['ADMIN']}*/},
+  {path:'doctorsec',component:MedSComponent, canActivate:[MedSAuthGuard]},
+  {path:'secretaire',component:SecComponent,canActivate:[SecAuthGuard]},
   {path:'forbidden',component:ForbiddenComponent}
 ];
 

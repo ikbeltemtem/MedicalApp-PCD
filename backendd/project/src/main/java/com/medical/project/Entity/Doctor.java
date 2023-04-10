@@ -4,8 +4,6 @@ package com.medical.project.Entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
-
 @Entity
 @Table(name="doctor")
 @Data
@@ -18,7 +16,4 @@ public class Doctor {
     @Column(name="speciality")
     private String speciality;
 
-   /* @ManyToOne
-    @JoinColumn(name = "role")
-    public User user;*/
 }

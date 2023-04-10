@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,10 +17,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="type")
-//@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-
 @Table(name = "_user")
 public class User implements UserDetails {
 
@@ -35,18 +29,14 @@ public class User implements UserDetails {
     private String adresse;
     private String tel;
     private String email;
-    private String password;
     private String speciality;
+    private String password;
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
-
-   /* @OneToMany(mappedBy = "user")
-    private List<Doctor> doctors;*/
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

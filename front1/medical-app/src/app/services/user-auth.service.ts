@@ -22,7 +22,7 @@ export class UserAuthService {
     localStorage.clear();
   }
   public getToken(): string {
-    return localStorage.getItem('jwtToken')!;
+    return localStorage.getItem('token')!;
   }
     public isLoggedIn() {
       return this.getRole() && this.getToken();

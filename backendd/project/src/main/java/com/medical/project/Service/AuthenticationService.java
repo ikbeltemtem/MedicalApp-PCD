@@ -26,9 +26,9 @@ public class AuthenticationService {
                 .adresse(request.getAdresse())
                 .tel(request.getTel())
                 .email(request.getEmail())
+                .speciality(request.getSpeciality())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.PATIENT)
-                .speciality(request.getSpeciality())
                 .build();
         var savedUser = repository.save(user);
         var jwtToken = jwtService.generateToken(user);
@@ -79,46 +79,4 @@ public class AuthenticationService {
         });
         tokenRepository.saveAll(validUserTokens);
     }
-
-    /*public AuthenticationResponse initAdmin(){
-
-        var user = User.builder()
-                .firstname("medecin")
-                .lastname("xxxxx")
-                .age("40")
-                .adresse("yyyyyyy")
-                .tel("22334455")
-                .email("admin@mail.com")
-                .password(passwordEncoder.encode("1234")
-                        .role(Role.ADMIN)
-                        .build();
-        var savedUser = repository.save(user);
-        var jwtToken = jwtService.generateToken(user);
-        saveUserToken(savedUser, jwtToken);
-
-        return AuthenticationResponse.builder()
-                .token(jwtToken)
-
-                .build();
-
-    }*/
-   /* public AuthenticationResponse registerADMI () {
-        var user = User.builder()
-                .firstname("medecin")
-                .lastname("xxxxx")
-                .age("40")
-                .adresse("yyyyyyy")
-                .tel("22334455")
-                .email("admin@mail.com")
-                .password(passwordEncoder.encode("1234"))
-                .role(Role.ADMIN)
-                .build();
-        var savedUser = repository.save(user);
-        var jwtToken = jwtService.generateToken(user);
-        saveUserToken(savedUser, jwtToken);
-        return AuthenticationResponse.builder()
-                .token(jwtToken)
-
-                .build();
-    }*/
 }
