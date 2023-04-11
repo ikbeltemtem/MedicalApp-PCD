@@ -1,0 +1,29 @@
+<div style="margin-top: 200px;" class="col-md-6 offset-md-3   border border-success">
+    <h3><strong> Ajouter Médecin secondaire</strong></h3>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input type="text" class="form-control" id="nom" placeholder="Nom du médecin à ajouter" [(ngModel)]="medecin.nom" name="nom">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="prenom" placeholder="Prénom du médecin à ajouter" [(ngModel)]="medecin.prenom" name="prenom">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" id="age" placeholder="Age du médecin à ajouter" [(ngModel)]="medecin.age" name="age">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="telephone" placeholder="Téléphone du médecin à ajouter" [(ngModel)]="medecin.telephone" name="telephone">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="email" placeholder="Email du médecin à ajouter" [(ngModel)]="medecin.email" name="email">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="password" placeholder="Mot de passe du médecin à ajouter" [(ngModel)]="medecin.password" name="password">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="specialite" placeholder="Spécialité du médecin à ajouter" [(ngModel)]="medecin.speciality" name="specialite">
+        </div>
+        <button style="margin-bottom: 10px; margin-left: 270px; width: 200px;" class="btn btn-success " type="submit">Ajouter</button>
+
+    </form>
+
+</div>

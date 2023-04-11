@@ -24,6 +24,14 @@ public class AuthenticationController {
     ) {
         return ResponseEntity.ok(service.register(request));
     }
+
+    @PostMapping("/registerMed")
+    public ResponseEntity<AuthenticationResponse> registerMed(
+            @RequestBody RegisterRequest request
+    ) {
+        return ResponseEntity.ok(service.registerMed(request));
+    }
+
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(
             @RequestBody AuthenticationRequest request

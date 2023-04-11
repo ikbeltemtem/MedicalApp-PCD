@@ -39,6 +39,28 @@ public class AuthenticationService {
                 .build();
     }
 
+    public AuthenticationResponse registerMed(RegisterRequest request) {
+        var user = User.builder()
+                .firstname(request.getFirstname())
+                .lastname(request.getLastname())
+                .age(request.getAge())
+                .adresse(request.getAdresse())
+                .tel(request.getTel())
+                .email(request.getEmail())
+                .speciality(request.getSpeciality())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(Role.MEDS)
+                .build();
+        var savedUser = repository.save(user);
+        var jwtToken = jwtService.generateToken(user);
+        saveUserToken(savedUser, jwtToken);
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+
+                .build();
+    }
+
+
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(

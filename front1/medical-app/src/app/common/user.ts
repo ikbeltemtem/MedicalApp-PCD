@@ -1,7 +1,7 @@
 export class User {
 
-    nom! : string;
-    prenom! : string;
+    firstname! : string;
+    lastname! : string;
     age!:string;
     adresse! : string;
     tel! : string;

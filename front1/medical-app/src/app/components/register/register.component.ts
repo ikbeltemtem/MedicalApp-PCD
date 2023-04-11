@@ -19,8 +19,8 @@ export class RegisterComponent implements OnInit {
   data: any
 
   form = new FormGroup({
-    nom: new FormControl('', [Validators.required]),
-    prenom: new FormControl('', [Validators.required]),
+    firstname: new FormControl('', [Validators.required]),
+    lastname: new FormControl('', [Validators.required]),
     age: new FormControl('', [Validators.required]),
     adresse : new FormControl('', [Validators.required]),
     tel: new FormControl('', [Validators.required]),
@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
 
   submit(){
     this.data = this.form.value;
-    this.x=this.x +1;
+   // this.x=this.x +1;
     console.log(this.data)
 
     this.service.adduser(this.data).subscribe(data => {

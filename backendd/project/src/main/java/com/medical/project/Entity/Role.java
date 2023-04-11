@@ -1,7 +1,8 @@
 package com.medical.project.Entity;
 
 public enum Role {
-    USER,
-    ADMIN,
-    PATIENT
+    ADMIN, //medecin principal
+    PATIENT,
+    MEDS, //medecin secondaire
+    SEC //secretaire
 }
