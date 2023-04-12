@@ -42,6 +42,8 @@ import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { MedPComponent } from './components/med-p/med-p.component';
 import { MedSComponent } from './components/med-s/med-s.component';
 import { SecComponent } from './components/sec/sec.component';
+import { AjoutMedComponent } from './components/ajout-med/ajout-med.component';
+import { AjoutSecComponent } from './components/ajout-sec/ajout-sec.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -70,6 +72,7 @@ const routes: Routes = [
     TherapieComponent,
     TherapieListComponent,
     AjoutTherapieComponent,
+    AjoutMedComponent,
     ProfileDoctorComponent,
     ProfileSecretaireComponent,
     LoginComponent,
@@ -84,7 +87,8 @@ const routes: Routes = [
     ForbiddenComponent,
     MedPComponent,
     MedSComponent,
-    SecComponent
+    SecComponent,
+    AjoutSecComponent
   ],
   imports: [
     AppRoutingModule,

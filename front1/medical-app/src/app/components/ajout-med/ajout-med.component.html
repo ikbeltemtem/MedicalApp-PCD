@@ -1,17 +1,17 @@
-<div style="margin-top: 200px;" class="col-md-6 offset-md-3   border border-success">
+<!--<div style="margin-top: 200px;" class="col-md-6 offset-md-3   border border-success">
     <h3><strong> Ajouter Médecin secondaire</strong></h3>
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <input type="text" class="form-control" id="nom" placeholder="Nom du médecin à ajouter" [(ngModel)]="medecin.nom" name="nom">
+            <input type="text" class="form-control" id="firstname" placeholder="Nom du médecin à ajouter" [(ngModel)]="medecin.firstname" name="firstname">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" id="prenom" placeholder="Prénom du médecin à ajouter" [(ngModel)]="medecin.prenom" name="prenom">
+            <input type="text" class="form-control" id="lastname" placeholder="Prénom du médecin à ajouter" [(ngModel)]="medecin.lastname" name="lastname">
         </div>
         <div class="form-group">
             <input type="number" class="form-control" id="age" placeholder="Age du médecin à ajouter" [(ngModel)]="medecin.age" name="age">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" id="telephone" placeholder="Téléphone du médecin à ajouter" [(ngModel)]="medecin.telephone" name="telephone">
+            <input type="text" class="form-control" id="tel" placeholder="Téléphone du médecin à ajouter" [(ngModel)]="medecin.tel" name="tel">
         </div>
         <div class="form-group">
             <input type="text" class="form-control" id="email" placeholder="Email du médecin à ajouter" [(ngModel)]="medecin.email" name="email">
@@ -26,4 +26,51 @@
 
     </form>
 
+</div>-->
+
+<div class="container mycontainer" >
+    <div class="card justify-content-md-center">
+        <div class="card-header text-center">
+            <h3> Ajouter un Médecin Secondaire</h3>
+        </div>
+        <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="firstname" placeholder="nom" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="lastname" placeholder="prenom" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="age" placeholder="Age" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="tel" placeholder="Téléphone" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="adresse" placeholder="Adresse" required>
+            
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="speciality" placeholder="specialite" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="email" placeholder="E-mail" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" formControlName="password" placeholder="Mot de passe" required>
+            </div>
+        
+            
+              
+            <div class="mb-3 d-flex justify-content-between">
+                
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Ajouter</button>
+            </div>
+        </form>
+        </div>
+    </div>
 </div>
+
+
+

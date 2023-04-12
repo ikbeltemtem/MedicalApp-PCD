@@ -8,7 +8,7 @@ export interface Doctor {
     tel:string ;
     email:string ;
     password:string ;
-    adresse:string
+    adresse:string;
   
     
   }

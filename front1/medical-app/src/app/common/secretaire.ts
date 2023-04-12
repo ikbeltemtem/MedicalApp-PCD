@@ -1,14 +1,14 @@
 export interface Secretaire {
     ids: number;
-    cin: number;
-    nom: string;
-    prenom:string ;
+    firstname: string;
+    
+    
+    lastname:string ;
     age:number ;
-    telephone:string ;
+    tel:string ;
     email:string ;
     password:string ;
     adresse:string;
-    role:string;
    
   
     

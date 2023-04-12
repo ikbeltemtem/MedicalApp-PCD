@@ -21,7 +21,17 @@ export class UserServiceService {
 
   adduser(user: User){
     
+    return this.http.post<User>(`${this.baseUrl}/register`, user)
+  }
+
+  addMed(user: User){
+    
     return this.http.post<User>(`${this.baseUrl}/registerMed`, user)
+  }
+
+addSec(user: User){
+    
+    return this.http.post<User>(`${this.baseUrl}/registerSec`, user)
   }
 
   login(email: string, password: string) : Observable<any> {

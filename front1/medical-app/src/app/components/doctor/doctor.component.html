@@ -42,7 +42,7 @@
                       <th class="max-width">Age</th>
                       <th class="max-width">Téléphone</th>
                       <th class="max-width">Email</th>
-                      
+                      <th class="max-width">Adresse</th>
                       <th class="max-width">speciality</th>
                   
                       <th>Actions</th>
@@ -51,17 +51,13 @@
                   <tbody>
                     <tr *ngFor="let doctor of doctors ">
 
-                        <td class="text-nowrap align-middle"></td>
-                        <td class="text-nowrap align-middle"></td>
-                        <td class="text-nowrap align-middle"></td>
-                        <td class="text-nowrap align-middle"></td>
-                        <td class="text-nowrap align-middle"></td>
-                    
+                       
                       <td class="text-nowrap align-middle">{{doctor.firstname}}</td>
                       <td class="text-nowrap align-middle">{{doctor.lastname}}</td>
                       <td class="text-nowrap align-middle">{{doctor.age}}</td>
                       <td class="text-nowrap align-middle">{{doctor.tel}}</td>
                       <td class="text-nowrap align-middle">{{doctor.email}}</td>
+                      <td class="text-nowrap align-middle">{{doctor.adresse}}</td>
                         <td class="text-nowrap align-middle">{{doctor.speciality}}</td>
                        
                      
