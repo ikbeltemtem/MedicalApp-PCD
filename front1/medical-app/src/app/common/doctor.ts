@@ -1,11 +1,11 @@
 export interface Doctor {
     id_doctor: number;
-    nom: string;
+    firstname: string;
     speciality: string;
-    niveau:string;
-    prenom:string ;
+    
+    lastname:string ;
     age:number ;
-    telephone:string ;
+    tel:string ;
     email:string ;
     password:string ;
     adresse:string

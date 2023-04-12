@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AppointmentListComponent } from "./components/appointment-list/appointment-list.component";
 import { DoctorComponent } from "./components/doctor/doctor.component";
 import { ForbiddenComponent } from "./components/forbidden/forbidden.component";
 import { HomeComponent } from "./components/home/home.component";
@@ -33,7 +34,11 @@ const routes: Routes = [
   {path: 'therapies',component:TherapieListComponent},
   {path:'patient',component:PatientComponent, canActivate:[AuthGuard]/*, data:{role:'PATIENT'}*/},
   {path:'doctor',component:MedPComponent,canActivate:[MedAuthGuard]/*, data:{role:['ADMIN']}*/},
-  {path:'doctorsec',component:MedSComponent, canActivate:[MedSAuthGuard]},
+  {path:'doctorsec',component:MedSComponent, 
+       children:[
+        {path: 'appointments',component:AppointmentListComponent,canActivate:[MedSAuthGuard]},
+        {path: 'doctors',component:DoctorComponent,canActivate:[MedSAuthGuard]}
+       ]},
   {path:'secretaire',component:SecComponent,canActivate:[SecAuthGuard]},
   {path:'forbidden',component:ForbiddenComponent}
 ];

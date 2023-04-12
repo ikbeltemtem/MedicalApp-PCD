@@ -7,7 +7,7 @@ import { Appointment } from '../common/appointment';
   providedIn: 'root'
 })
 export class AppointmentService {
-   private baseUrl = 'http://localhost:8080/api/Rdv';
+   private baseUrl = 'http://localhost:8080/api/v1/auth/Rdv';
   constructor(private httpClient: HttpClient) { }
 
   getAppointmentList():Observable<Appointment[]> {
