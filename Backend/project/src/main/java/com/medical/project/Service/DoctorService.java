@@ -11,6 +11,7 @@ public interface DoctorService {
     public Doctor updateDoctor(int id_doctor,Doctor doc);
     public Doctor findDoctorById(int id_doctor);
     public Doctor createDoctor(Doctor doc);
+    public Doctor findMedecinByEmail(String email );
 
     /*public void deleteDoctor(int id_doctor);*/
 }

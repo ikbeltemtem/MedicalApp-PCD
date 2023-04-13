@@ -25,7 +25,11 @@ export class SecretaireService {
     return this.httpClient.delete<void>(`${this.baseUrl}/delete/${secretaireId}`);
   }
   public getSecretaireById(id:number):Observable<Secretaire>{
-    return this.httpClient.get<Secretaire>(`${this.baseUrl}get/${id}`);
+    return this.httpClient.get<Secretaire>(`${this.baseUrl}/get/${id}`);
+
+  }
+  public findSecByEmail(email:string):Observable<Secretaire>{
+    return this.httpClient.get<Secretaire>(`${this.baseUrl}/find/${email}`);
   }
 }
   

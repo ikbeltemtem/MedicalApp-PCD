@@ -8,8 +8,10 @@ import { LoginComponent } from "./components/login/login.component";
 import { MedPComponent } from "./components/med-p/med-p.component";
 import { MedSComponent } from "./components/med-s/med-s.component";
 import { PatientComponent } from "./components/patient/patient.component";
+import { ProfileComponent } from "./components/profile/profile.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { SecComponent } from "./components/sec/sec.component";
+import { SecretaireComponent } from "./components/secretaire/secretaire.component";
 import { TherapieListComponent } from "./components/therapie-list/therapie-list.component";
 import { TherapieComponent } from "./components/therapie/therapie.component";
 import { AuthGuard } from "./services/auth.guard";
@@ -34,12 +36,18 @@ const routes: Routes = [
   {path: 'therapies',component:TherapieListComponent},
   {path:'patient',component:PatientComponent, canActivate:[AuthGuard]/*, data:{role:'PATIENT'}*/},
   {path:'doctor',component:MedPComponent,canActivate:[MedAuthGuard]/*, data:{role:['ADMIN']}*/},
-  {path:'doctorsec',component:MedSComponent, 
+  {path:'doctorsec',component:MedSComponent, canActivate:[MedSAuthGuard],
        children:[
-        {path: 'appointments',component:AppointmentListComponent,canActivate:[MedSAuthGuard]},
-        {path: 'doctors',component:DoctorComponent,canActivate:[MedSAuthGuard]}
+        {path: 'appointments',component:AppointmentListComponent /*,canActivate:[MedSAuthGuard]*/},
+        {path: 'doctors',component:DoctorComponent /*,canActivate:[MedSAuthGuard]*/},
+        {path: 'profile',component:ProfileComponent}
        ]},
-  {path:'secretaire',component:SecComponent,canActivate:[SecAuthGuard]},
+  {path:'secretaire',component:SecComponent,canActivate:[SecAuthGuard],
+        children:[
+          {path:'profile',component:ProfileComponent},
+          {path: 'home',component: HomeComponent},
+          {path: 'secretaires',component:SecretaireComponent}
+        ]},
   {path:'forbidden',component:ForbiddenComponent}
 ];
 

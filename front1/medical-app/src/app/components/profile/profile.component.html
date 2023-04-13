@@ -1,0 +1,14 @@
+<p>profile works!</p>
+<div *ngIf="medecin" class="row m-3 ">
+<div>
+    <h2>{{medecin.firstname}} {{medecin.lastname}}</h2>
+    <small class="form-text text-muted ">{{medecin.adresse}}</small>
+</div>
+</div>
+
+<div *ngIf="secretaire" class="row m-3 ">
+<div>
+    <h2>{{secretaire.firstname}} {{secretaire.lastname}}</h2>
+    <small class="form-text text-muted ">{{secretaire.adresse}}</small>
+</div>
+</div>

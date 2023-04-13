@@ -16,7 +16,7 @@ users:User[]=[];
   constructor(private userService:UserServiceService,private router:Router) { }
 
   ngOnInit(): void {
-    this.getUsers()
+    //this.getUsers()
   }
   public getUsers(): void {
     this.userService.getAppointmentList().subscribe({

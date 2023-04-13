@@ -1,6 +1,7 @@
 package com.medical.project.Service;
 
 import com.medical.project.Dao.SecretaireRepository;
+import com.medical.project.Entity.Doctor;
 import com.medical.project.Entity.Secretaire;
 import com.medical.project.Exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
@@ -41,10 +42,16 @@ public class SecretaireServiceImp  implements SecretaireService{
         return secRepo.save(secr);
     }
 
-    public Secretaire findSecretaireById(long ids){
-        return secRepo.findById(ids).orElseThrow(()-> new ResourceNotFoundException ("patient non trouvé avec l'id :"+ids));
-
+    public Secretaire findSecretaireById(long ids) {
+        return secRepo.findById(ids).orElseThrow(() -> new ResourceNotFoundException("patient non trouvé avec l'id :" + ids));
     }
+
+        public Secretaire findSecByEmail(String email ){
+            return secRepo.findByEmail(email).orElseThrow(()-> new ResourceNotFoundException ("Médecin non trouvé avec l'email :"+email));
+
+        }
+
+
     /*public void deleteSecretaire(int ids){
       /*  secRepo.deleteSecretaireById(ids);
     }*/

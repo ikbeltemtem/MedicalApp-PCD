@@ -45,6 +45,12 @@ public class DoctorServiceImp  implements DoctorService{
         return docRepo.findById(id_doctor).orElseThrow(()-> new ResourceNotFoundException ("patient non trouvé avec l'id :"+id_doctor));
 
     }
+
+
+    public Doctor findMedecinByEmail(String email ){
+        return docRepo.findByEmail(email).orElseThrow(()-> new ResourceNotFoundException ("Médecin non trouvé avec l'email :"+email));
+
+    }
     /*public void deleteDoctor(int id_doctor){
        docRepo.deleteDoctorById(id_doctor);
     }*/

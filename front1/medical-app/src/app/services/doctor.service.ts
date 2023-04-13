@@ -25,7 +25,12 @@ export class DoctorService {
     return this.httpClient.delete<void>(`${this.baseUrl}/delete/${doctorId}`);
   }
   public getMedecinById(id:number):Observable<Doctor>{
-    return this.httpClient.get<Doctor>(`${this.baseUrl}get/${id}`);
+    return this.httpClient.get<Doctor>(`${this.baseUrl}/get/${id}`);
+
+  }
+
+  public findMedecinByEmail(email:string):Observable<Doctor>{
+    return this.httpClient.get<Doctor>(`${this.baseUrl}/find/${email}`);
   }
 }
   

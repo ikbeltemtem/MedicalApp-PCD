@@ -29,10 +29,15 @@ public class DoctorController {
         return doctorService.getDoctors();
     }
 
-    @GetMapping("/find/{id_doctor}")
+    @GetMapping("/get/{id_doctor}")
     public ResponseEntity<Doctor> getDoctorById(@PathVariable("id_doctor") int id_doctor){
         Doctor doc=doctorService.findDoctorById(id_doctor);
         return new ResponseEntity<>(doc, HttpStatus.OK);
+    }
+    @GetMapping("/find/{email}")
+    public ResponseEntity<Doctor> findMedecinByEmail(@PathVariable String email ){
+        Doctor medecin = doctorService.findMedecinByEmail(email);
+        return ResponseEntity.ok(medecin);
     }
 
     @PostMapping("/add")

@@ -2,6 +2,7 @@ package com.medical.project.Controller;
 
 
 import com.medical.project.Dao.SecretaireRepository;
+import com.medical.project.Entity.Doctor;
 import com.medical.project.Entity.Secretaire;
 import com.medical.project.Service.SecretaireService;
 import com.medical.project.Service.SecretaireServiceImp;
@@ -29,10 +30,16 @@ public class SecretaireController {
         return secretaireService.getSecretaires();
     }
 
-    @GetMapping("/find/{ids}")
+    @GetMapping("/get/{ids}")
     public ResponseEntity<Secretaire> getSecretaireById(@PathVariable("ids") long ids){
         Secretaire sec=secretaireService.findSecretaireById(ids);
         return new ResponseEntity<>(sec, HttpStatus.OK);
+    }
+
+    @GetMapping("/find/{email}")
+    public ResponseEntity<Secretaire> findMedecinByEmail(@PathVariable String email ){
+        Secretaire sec = secretaireService.findSecByEmail(email);
+        return ResponseEntity.ok(sec);
     }
 
     @PostMapping("/add")
