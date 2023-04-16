@@ -1,205 +1,35 @@
-*{
-    margin:0;
-    padding:0;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box
+/********************* Shopping Demo-4 **********************/
+.product-grid4,.product-grid4 .product-image4{position:relative}
+.product-grid4{font-family:Poppins,sans-serif;text-align:center;border-radius:5px;overflow:hidden;z-index:1;transition:all .3s ease 0s}
+.product-grid4:hover{box-shadow:0 0 10px rgba(0,0,0,.2)}
+.product-grid4 .product-image4 a{display:block}
+.product-grid4 .product-image4 img{width:100%;height:auto}
+.product-grid4 .pic-1{opacity:1;transition:all .5s ease-out 0s}
+.product-grid4:hover .pic-1{opacity:0}
+.product-grid4 .pic-2{position:absolute;top:0;left:0;opacity:0;transition:all .5s ease-out 0s}
+.product-grid4:hover .pic-2{opacity:1}
+.product-grid4 .social{width:180px;padding:0;margin:0 auto;list-style:none;position:absolute;right:0;left:0;top:50%;transform:translateY(-50%);transition:all .3s ease 0s}
+.product-grid4 .social li{display:inline-block;opacity:0;transition:all .7s}
+.product-grid4 .social li:nth-child(1){transition-delay:.15s}
+.product-grid4 .social li:nth-child(2){transition-delay:.3s}
+.product-grid4 .social li:nth-child(3){transition-delay:.45s}
+.product-grid4:hover .social li{opacity:1}
+.product-grid4 .social li a{color:#222;background:#fff;font-size:17px;line-height:36px;width:40px;height:36px;border-radius:2px;margin:0 5px;display:block;transition:all .3s ease 0s}
+.product-grid4 .social li a:hover{color:#fff;background:#16a085}
+.product-grid4 .social li a:after,.product-grid4 .social li a:before{content:attr(data-tip);color:#fff;background-color:#000;font-size:12px;line-height:20px;border-radius:3px;padding:0 5px;white-space:nowrap;opacity:0;transform:translateX(-50%);position:absolute;left:50%;top:-30px}
+.product-grid4 .social li a:after{content:'';height:15px;width:15px;border-radius:0;transform:translateX(-50%) rotate(45deg);top:-22px;z-index:-1}
+.product-grid4 .social li a:hover:after,.product-grid4 .social li a:hover:before{opacity:1}
+.product-grid4 .product-discount-label,.product-grid4 .product-new-label{color:#fff;background-color:#16a085;font-size:13px;font-weight:800;text-transform:uppercase;line-height:45px;height:45px;width:45px;border-radius:50%;position:absolute;left:10px;top:15px;transition:all .3s}
+.product-grid4 .product-discount-label{left:auto;right:10px;background-color:#d7292a}
+.product-grid4:hover .product-new-label{opacity:0}
+.product-grid4 .product-content{padding:25px}
+.product-grid4 .title{font-size:15px;font-weight:400;text-transform:capitalize;margin:0 0 7px;transition:all .3s ease 0s}
+.product-grid4 .title a{color:#222}
+.product-grid4 .title a:hover{color:#16a085}
+.product-grid4 .price{color:#16a085;font-size:17px;font-weight:700;margin:0 2px 15px 0;display:block}
+.product-grid4 .price span{color:#909090;font-size:13px;font-weight:400;letter-spacing:0;text-decoration:line-through;text-align:left;vertical-align:middle;display:inline-block}
+.product-grid4 .add-to-cart{border:1px solid #e5e5e5;display:inline-block;padding:10px 20px;color:#888;font-weight:600;font-size:14px;border-radius:4px;transition:all .3s}
+.product-grid4:hover .add-to-cart{border:1px solid transparent;background:#16a085;color:#fff}
+.product-grid4 .add-to-cart:hover{background-color:#505050;box-shadow:0 0 10px rgba(0,0,0,.5)}
+@media only screen and (max-width:990px){.product-grid4{margin-bottom:30px}
 }
-
-body{
-    font-family:Poppins,sans-serif;
-    font-weight:400;
-    font-size:16px;
-    line-height:1.625;
-    color:rgb(182, 179, 179);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale
-}
-
-ul{
-    margin:0
-}
-
-button,input[type=button]{
-    cursor:pointer
-}
-
-button:focus,input:focus{
-    outline:0
-}
-
-input{
-    border:none
-}
-
-button{
-    border:none;
-    background:0 0
-}
-
-img{
-    max-width:70%;
-    height:auto
-}
-
-p{
-    margin:0
-}
-
-h1,h2,h3,h4,h5,h6{
-    color:#333;
-    font-weight:700;
-    margin:0;
-    line-height:1.2
-}
-
-h1{
-    font-size:36px
-}
-
-h2{
-    font-size:30px
-}
-
-h3{
-    font-size:24px
-}
-
-h4{
-    font-size:18px
-}
-
-h5{
-    font-size:15px
-}
-
-h6{
-    font-size:13px
-}
-
-a{
-    display:inline-block
-}
-
-a:active,a:focus,a:hover{
-    text-decoration:none;
-    outline:0
-}
-
-a,a:hover{
-    -webkit-transition:all .3s ease;
-    -o-transition:all .3s ease;
-    -moz-transition:all .3s ease;
-    transition:all .3s ease
-}
-
-/*Layout Css*/
-.section-content-p35{
-    padding:0 35px
-}
-
-.page-wrapper{
-    overflow:hidden;
-    background:#e5e5e5;
-    padding-bottom:8vh
-}
-
-.page-container{
-    background:#e5e5e5;
-    padding-left:200px
-}
-
-.main-content{
-    padding-top:116px;
-    min-height:100vh
-}
-
-/* 
- * ----------------------------
- * Products List
- * ----------------------------
- */
-
- .product-box img {
-    width: 150px;
-}
-
-.items select {
-    width: 100px;
-    height: 40px;
-    border-radius: 40px;
-    padding-left: 15px;
-    margin-bottom: 10px;
-    outline: 0;
-    margin-left: 5px;
-}
-.product-box{
-    margin-bottom:60px
-}
-.price{
-    margin:15px 0 0;
-    font-weight:800;
-    color:#e48e0ddc
-}
-.product-box h1{
-    font-size:18px;
-    border-bottom:1px solid #ccc;
-    padding-bottom:5px;
-    font-weight:600;
-    padding-top:12px;
-    margin-bottom:7px
-}
-.product-box h2{
-    font-size:15px;
-    padding-bottom:0;
-    font-weight:500;
-    color:#585858
-}
-
-/* 
- * ----------------------------
- * Buttons
- * ----------------------------
- */
-
- .btn-info{
-    color:#fff;
-    background-color:#4e370d!important;
-    border-color:#4e370d!important
-}
-a.primary-btn{
-    background:#05143f;
-    padding:7px 20px;
-    text-align:center;
-    display:inline-block;
-    color:#fff;
-    border-radius:2px;
-    font-size:14px;
-    margin-top:5px
-}
-a.primary-btn:hover{
-    background:#4e3807;
-    color:#fff
-}
-
-.active-link {
-  font-weight: bold;
-}
-/* 
- * ----------------------------
- * Product Details
- * ----------------------------
- */
-
- .price{
-    margin:15px 0 0;
-    font-weight:800;
-    color:#ee9b1f
-}
-.detail-section{
-    margin-top:60px
-}
-.detail-img{
-    width: 30%;
-}
-/**/

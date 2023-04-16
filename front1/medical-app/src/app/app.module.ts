@@ -47,6 +47,7 @@ import { AjoutSecComponent } from './components/ajout-sec/ajout-sec.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ModifSecComponent } from './components/modif-sec/modif-sec.component';
 import { ModifMedsComponent } from './components/modif-meds/modif-meds.component';
+import { AppointmentComponent } from './components/appointment/appointment.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -94,7 +95,8 @@ const routes: Routes = [
     AjoutSecComponent,
     ProfileComponent,
     ModifSecComponent,
-    ModifMedsComponent
+    ModifMedsComponent,
+    AppointmentComponent
   ],
   imports: [
     AppRoutingModule,
@@ -106,7 +108,7 @@ const routes: Routes = [
     ReactiveFormsModule
   ],
 
-  providers: [ TherapieService ,
+  providers: [ 
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,

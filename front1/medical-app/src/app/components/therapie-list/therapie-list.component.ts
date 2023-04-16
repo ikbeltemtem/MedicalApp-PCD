@@ -29,37 +29,17 @@ export class TherapieListComponent implements OnInit {
     });
   }
 
-  add(){
-    const container = document.getElementById('main-container');
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
-    button.setAttribute('data-target', '#addAppointmentModal');
-    container!.appendChild(button);
-    button.click();
+  add(id:number){
+ this.router.navigate(['../appointment',id])
 
     
  }
 
- public onAddAppointment(addForm: NgForm): void {
-  document.getElementById('add-Rdv-form')!.click();
-  this.appointmentService.addAppointment(addForm.value).subscribe({
-    next : (response: Appointment) => {
-      console.log(response);
-      this.getTherapies();
-      addForm.reset();
-    },
-    error : (error: HttpErrorResponse) => {
-      alert(error.message);
-      addForm.reset();
-    }
-});
-}
+ 
 
-viewprofil(idt:number) {
+viewprofil(id:number) {
   
-  this.router.navigate(['./therapies', idt], { relativeTo: this.route });
+  this.router.navigate(['./therapie', id], { relativeTo: this.route });
 }
 
  /* afficher(y: any, x: any) {

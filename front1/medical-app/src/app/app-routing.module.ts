@@ -4,6 +4,7 @@ import { AjoutMedComponent } from "./components/ajout-med/ajout-med.component";
 import { AjoutSecComponent } from "./components/ajout-sec/ajout-sec.component";
 import { AjoutTherapieComponent } from "./components/ajout-therapie/ajout-therapie.component";
 import { AppointmentListComponent } from "./components/appointment-list/appointment-list.component";
+import { AppointmentComponent } from "./components/appointment/appointment.component";
 import { DoctorComponent } from "./components/doctor/doctor.component";
 import { ForbiddenComponent } from "./components/forbidden/forbidden.component";
 import { HomeComponent } from "./components/home/home.component";
@@ -38,12 +39,14 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
   },
+  {path:'appointment/:id',component:AppointmentComponent},
+
   {path:'navbar',component:NavComponent},
   {path:'ajouterMedecin',component:AjoutMedComponent,canActivate:[AuthGuard]},
   {path:'ajouterSecretaire',component:AjoutSecComponent,canActivate:[AuthGuard]},
   {path:'ajouterTherapie',component:AjoutTherapieComponent,canActivate:[AuthGuard]},
   {path: 'therapie/:id', component:TherapieComponent},
-  {path: 'therapies',component:TherapieListComponent},
+  {path: '',component:TherapieListComponent},
   {path:'patient',component:PatientComponent, canActivate:[AuthGuard]/*, data:{role:'PATIENT'}*/},
   {path:'doctor',component:MedPComponent,canActivate:[MedAuthGuard]/*, data:{role:['ADMIN']}*/},
   {path:'doctorsec',component:MedSComponent, canActivate:[MedSAuthGuard],
