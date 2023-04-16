@@ -1,0 +1,26 @@
+<div style="margin-top: 200px;" class="col-md-6 offset-md-3   border border-success">
+    <h3><strong> Modifier Sécretaire </strong></h3>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input type="text" class="form-control" id="nom" placeholder="Nom du sécretaire à ajouter" [(ngModel)]="doctor.firstname" name="nom">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="prenom" placeholder="Prénom du sécretaire à ajouter" [(ngModel)]="doctor.lastname" name="prenom">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" id="age" placeholder="Age du sécretaire à ajouter" [(ngModel)]="doctor.age" name="age">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="telephone" placeholder="Téléphone du sécretaire à ajouter" [(ngModel)]="doctor.tel" name="telephone">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="email" placeholder="Email du sécretaire à ajouter" [(ngModel)]="doctor.email" name="email">
+        </div>
+        <div class="form-group">
+            <input hidden type="text" class="form-control" id="password" placeholder="Mot de passe du sécretaire à ajouter" [(ngModel)]="doctor.password" name="password">
+        </div>
+        <button style="margin-bottom: 10px; margin-left: 270px; width: 200px;" class="btn btn-success " type="submit">Valider</button>
+
+    </form>
+
+</div>

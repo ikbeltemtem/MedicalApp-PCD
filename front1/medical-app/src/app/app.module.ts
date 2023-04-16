@@ -45,6 +45,8 @@ import { SecComponent } from './components/sec/sec.component';
 import { AjoutMedComponent } from './components/ajout-med/ajout-med.component';
 import { AjoutSecComponent } from './components/ajout-sec/ajout-sec.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ModifSecComponent } from './components/modif-sec/modif-sec.component';
+import { ModifMedsComponent } from './components/modif-meds/modif-meds.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -90,7 +92,9 @@ const routes: Routes = [
     MedSComponent,
     SecComponent,
     AjoutSecComponent,
-    ProfileComponent
+    ProfileComponent,
+    ModifSecComponent,
+    ModifMedsComponent
   ],
   imports: [
     AppRoutingModule,

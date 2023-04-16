@@ -1,0 +1,95 @@
+
+ <!---       <div style="margin-top: 200px;" class="col-md-6 offset-md-3   border border-success">
+            <h3><strong> Modifier Sécretaire : {{editSecretaire!.firstname}} </strong></h3>
+         
+          
+        
+        
+        
+            <form class="form" #editForm="ngForm" >
+              <div class="row">
+                <div class="col">
+                  <div class="row">
+                    <div class="col">
+                      
+  
+                      
+  
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="age">Adreese</label>
+                          <input class="form-control" type="text" ngModel="{{editSecretaire!.adresse}}" name="age" placeholder="age" >
+                        </div>
+                      </div>
+  
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="Tel">Téléphone</label>
+                          <input class="form-control" type="text" ngModel="{{editSecretaire!.tel}}" name="Tel" placeholder="Tel" >
+                        </div>
+                      </div>
+
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="age">Age</label>
+                          <input class="form-control" type="text" ngModel="{{editSecretaire!.age}}" name="age" placeholder="age" >
+                        </div>
+                      </div>
+  
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input class="form-control" type="text" ngModel="{{editSecretaire!.email}}" name="email" placeholder="email" >
+                        </div>
+                      </div>
+  
+                     
+                     
+                    </div>
+                    
+                  </div>
+                 
+               
+               
+                  
+                </div>
+              
+              </div>
+              <div class="row">
+                <div class="col d-flex justify-content-end">
+                  <button  (click)="onUpdateSecretaire(editForm.value)"  class="btn btn-primary"  >Save Changes</button>
+                </div>
+              </div>
+            </form>
+          </div>  -->
+
+          <div style="margin-top: 200px;" class="col-md-6 offset-md-3   border border-success">
+            <h3><strong> Modifier Sécretaire </strong></h3>
+            <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="nom" placeholder="Nom du sécretaire à ajouter" [(ngModel)]="secretaire.firstname" name="nom">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="prenom" placeholder="Prénom du sécretaire à ajouter" [(ngModel)]="secretaire.lastname" name="prenom">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="age" placeholder="Age du sécretaire à ajouter" [(ngModel)]="secretaire.age" name="age">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="telephone" placeholder="Téléphone du sécretaire à ajouter" [(ngModel)]="secretaire.tel" name="telephone">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="email" placeholder="Email du sécretaire à ajouter" [(ngModel)]="secretaire.email" name="email">
+                </div>
+                <div class="form-group">
+                    <input hidden type="text" class="form-control" id="password" placeholder="Mot de passe du sécretaire à ajouter" [(ngModel)]="secretaire.password" name="password">
+                </div>
+                <button style="margin-bottom: 10px; margin-left: 270px; width: 200px;" class="btn btn-success " type="submit">Valider</button>
+        
+            </form>
+        
+        </div>
+  
+          
+    
+     

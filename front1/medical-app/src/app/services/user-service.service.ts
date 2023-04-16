@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Doctor } from '../common/doctor';
+import { Secretaire } from '../common/secretaire';
 import { User } from '../common/user';
 import { UserAuthService } from './user-auth.service';
 
@@ -37,6 +39,14 @@ addSec(user: User){
   login(email: string, password: string) : Observable<any> {
     return this.http.post(`${this.baseUrl}/authenticate`, { email, password });
       
+  }
+
+  updateSec(email : string,user:Secretaire){
+    return this.http.put<User>(`${this.baseUrl}/updateSec/${email}`, user)
+  }
+
+  updateMed(email : string,user:Doctor){
+    return this.http.put<User>(`${this.baseUrl}/updateMEDS/${email}`, user)
   }
 
   public roleMatch(allowedRole:any):boolean{

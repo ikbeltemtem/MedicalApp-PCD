@@ -18,7 +18,7 @@ medecin:Doctor | undefined;
 secretaire:Secretaire | undefined;
 idm!:number;
 ids!:number;
-  constructor(private route:Router,private userService:UserServiceService,private doctorService :DoctorService,private secretaireService :SecretaireService,private activatedRoute:ActivatedRoute,private loginService:LoginService) { }
+  constructor(private router:Router,private userService:UserServiceService,private doctorService :DoctorService,private secretaireService :SecretaireService,private activatedRoute:ActivatedRoute,private loginService:LoginService) { }
 
   ngOnInit(): void {
     console.log(this.loginService.loggedUser + " est conncte");
@@ -40,5 +40,13 @@ ids!:number;
     this.secretaireService.findSecByEmail(this.loginService.loggedUser).pipe(
       map((secretaire: Secretaire) => this.secretaire =secretaire)
     ).subscribe()
+  }
+
+  modifierMedecin(mail:string,id:number){
+    this.router.navigate(['../modifierMedecin',mail],{relativeTo:this.activatedRoute});
+  }
+
+  modifierSecretaire(mail:string,id:number){
+    this.router.navigate(['../modifierSecretaire',mail],{relativeTo:this.activatedRoute});
   }
 }

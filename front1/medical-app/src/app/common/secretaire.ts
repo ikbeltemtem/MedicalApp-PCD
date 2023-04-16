@@ -4,7 +4,7 @@ export interface Secretaire {
     
     
     lastname:string ;
-    age:number ;
+    age:string ;
     tel:string ;
     email:string ;
     password:string ;
