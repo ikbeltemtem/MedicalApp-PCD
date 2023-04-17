@@ -48,6 +48,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ModifSecComponent } from './components/modif-sec/modif-sec.component';
 import { ModifMedsComponent } from './components/modif-meds/modif-meds.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
+import { FooterComponent } from './components/footer/footer.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -96,7 +97,8 @@ const routes: Routes = [
     ProfileComponent,
     ModifSecComponent,
     ModifMedsComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    FooterComponent
   ],
   imports: [
     AppRoutingModule,

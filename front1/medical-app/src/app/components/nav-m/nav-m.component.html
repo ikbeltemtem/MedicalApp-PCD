@@ -1,12 +1,34 @@
-<nav class="navbar navbar-expand-md navbar-light bg-success border fixed-top">
-    <ul class="navbar-nav">
-      
-     
-        <li style="margin-left: 40px" class=" nav-item "><a style="font-size :20px; " class="nav-link text-light px-5 " routerLink="./appointments">Liste des rendez-vous</a></li>
-        <li style="margin-left: 40px" class=" nav-item "><a style="font-size :20px; " class="nav-link text-light px-5 " routerLink="./doctors">Liste des medecins</a></li>
-        <li style="margin-left: 100px;margin-right: 10px; " class="nav-item "><a style="font-size :20px; " class="nav-link text-light pm-5 pe-0 " routerLink="home" (click)="logOut() ">Se déconnecter</a>
-        </li>
 
-        
-    </ul>
-</nav>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<nav class="navbar navbar-expand-md navbar-light bg-success border fixed-top" style="background-color: #8ebcdd;">
+    <div class="container-fluid">
+    
+      <a class="navbar-brand">Secretaire</a>
+      <form class="d-flex" role="search">
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; " routerLink="./home" (click)="logOut() ">Se Deconnecter</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "routerLink="./appointments">Liste des rendez-vous</button>
+      </form>
+    </div>
+  </nav>
+
+  <div id="wrapper" class="wrapper-content">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    Bootdey.com
+                </a>
+            </li>
+            <li class="active">
+                <a href="/profile">Profile</a>
+            </li>
+            <li>
+                <a routerLink="/therapies">Services</a>
+            </li>
+            <li>
+                <a href="#">Home</a>
+            </li>
+        </ul>
+    </div>
+  </div>

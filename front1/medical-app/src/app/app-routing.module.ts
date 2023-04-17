@@ -35,11 +35,8 @@ const routes: Routes = [
     path: 'inscrire',
     component: RegisterComponent
   },
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {path:'appointment/:id',component:AppointmentComponent},
+  {path: '',component: HomeComponent},
+  {path:'appointment',component:AppointmentComponent},
 
   {path:'navbar',component:NavComponent},
   {path:'ajouterMedecin',component:AjoutMedComponent,canActivate:[AuthGuard]},
@@ -47,10 +44,18 @@ const routes: Routes = [
   {path:'ajouterTherapie',component:AjoutTherapieComponent,canActivate:[AuthGuard]},
   {path: 'therapie/:id', component:TherapieComponent},
   {path: 'therpaies',component:TherapieListComponent},
-  {path:'patient',component:PatientComponent, canActivate:[AuthGuard]/*, data:{role:'PATIENT'}*/},
+  {path:'patient',component:PatientComponent, canActivate:[AuthGuard],
+  children:[
+    {path: '',component: HomeComponent},
+    {path:'appointment',component:AppointmentComponent},
+    {path:'navbar',component:NavComponent},
+    {path:'therapie/:id',component:TherapieComponent},
+    {path: 'therpaies',component:TherapieListComponent},]
+},
   {path:'doctor',component:MedPComponent,canActivate:[MedAuthGuard]/*, data:{role:['ADMIN']}*/},
   {path:'doctorsec',component:MedSComponent, canActivate:[MedSAuthGuard],
        children:[
+        {path: '',component: HomeComponent},
         {path: 'appointments',component:AppointmentListComponent /*,canActivate:[MedSAuthGuard]*/},
         {path: 'doctors',component:DoctorComponent /*,canActivate:[MedSAuthGuard]*/},
         {path: 'profile',component:ProfileComponent},
@@ -60,8 +65,9 @@ const routes: Routes = [
        ]},
   {path:'secretaire',component:SecComponent,canActivate:[SecAuthGuard],
         children:[
+          {path: '',component: HomeComponent},
           {path:'profile',component:ProfileComponent},
-          {path: 'home',component: HomeComponent},
+          {path: 'therpaies',component:TherapieListComponent},
           {path:'modifierSecretaire/:email',component:ModifSecComponent},
           {path: 'secretaires',component:SecretaireComponent},
           {path:'navbar',component:NavComponent},

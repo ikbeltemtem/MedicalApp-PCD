@@ -19,10 +19,10 @@ rendezvous!:Appointment;
 
   ngOnInit(): void {
    
-    this.id=this.route.snapshot.params['id'];
+   /* this.id=this.route.snapshot.params['id'];
     this.therapieService.getTherapieById(this.id).subscribe(data =>{
       this.therapie=data;
-    })
+    })*/
   }
 
   getTherapies():void{

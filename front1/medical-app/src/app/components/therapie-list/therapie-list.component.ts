@@ -30,7 +30,7 @@ export class TherapieListComponent implements OnInit {
   }
 
   add(id:number){
- this.router.navigate(['../appointment',id])
+ this.router.navigate(['../appointment'])
 
     
  }
