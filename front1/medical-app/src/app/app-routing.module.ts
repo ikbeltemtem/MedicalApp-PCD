@@ -36,7 +36,7 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'home',
+    path: '',
     component: HomeComponent
   },
   {path:'appointment/:id',component:AppointmentComponent},
@@ -46,7 +46,7 @@ const routes: Routes = [
   {path:'ajouterSecretaire',component:AjoutSecComponent,canActivate:[AuthGuard]},
   {path:'ajouterTherapie',component:AjoutTherapieComponent,canActivate:[AuthGuard]},
   {path: 'therapie/:id', component:TherapieComponent},
-  {path: '',component:TherapieListComponent},
+  {path: 'therpaies',component:TherapieListComponent},
   {path:'patient',component:PatientComponent, canActivate:[AuthGuard]/*, data:{role:'PATIENT'}*/},
   {path:'doctor',component:MedPComponent,canActivate:[MedAuthGuard]/*, data:{role:['ADMIN']}*/},
   {path:'doctorsec',component:MedSComponent, canActivate:[MedSAuthGuard],
