@@ -1,19 +1,19 @@
-export interface Appointment {
+export class Appointment {
     
-       id:number,
-      name:string,
-      prenom:string,
+       id!:number
+      name!:string
+      prenom!:string
       
-     age:number,
-      symptoms:string,
-      daterdv:Date,
+     age!:string
+      symptoms!:string
+      daterdv!:string
        
-       number:number,
-       email:string,
-       therapie:string,
-       dispo1:string,
-       dispo2:string,
-       dispo3:string
+       number!:string
+       email!:string
+       therapie!:string
+       dispo1!:string
+       dispo2!:string
+    
 
     
 }

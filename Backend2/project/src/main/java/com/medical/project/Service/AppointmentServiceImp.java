@@ -38,6 +38,7 @@ public class AppointmentServiceImp  implements AppointmentService{
         appt.setDispo2(appoint.getDispo2());
         appt.setEmail(appoint.getEmail());
         appt.setNumber(appoint.getNumber());
+        appt.setTherapie(appoint.getTherapie());
         return appRepo.save(appt);
     }
 

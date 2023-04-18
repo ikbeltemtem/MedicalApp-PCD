@@ -28,15 +28,15 @@ public class appointment {
     private String email;
 
     @Column(name="daterdv")
-    @CreationTimestamp  //hibernate automatisation
-    private Date daterdv;
+
+    private String daterdv;
 
 
     @Column(name="number")
-    private long number;
+    private String number;
 
-   @Column(name="Symptoms")
-    private String Symptoms;
+   @Column(name="symptoms")
+    private String symptoms;
 
 
     @Column(name="dispo1")

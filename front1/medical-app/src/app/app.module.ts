@@ -8,8 +8,15 @@ import {HttpClient, HttpClientModule , HTTP_INTERCEPTORS}  from '@angular/common
 import { AppointmentService } from './services/appointment.service';
 import { HomeComponent } from './components/home/home.component';
 
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
+import {MatNativeDateModule} from '@angular/material/core';
 
+import { MatSliderModule } from '@angular/material/slider';
+
+import { MatInputModule } from '@angular/material/input';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 import { RouterModule, Routes } from '@angular/router';
@@ -49,6 +56,8 @@ import { ModifSecComponent } from './components/modif-sec/modif-sec.component';
 import { ModifMedsComponent } from './components/modif-meds/modif-meds.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material.module';
 const routes: Routes = [
   {
     path: 'login',
@@ -106,8 +115,10 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(routes),
-  
-    ReactiveFormsModule
+ 
+    AngularMaterialModule,
+    ReactiveFormsModule,
+          BrowserAnimationsModule
   ],
 
   providers: [ 
