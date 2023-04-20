@@ -1,0 +1,27 @@
+<h1><strong>Liste des thérapies</strong></h1>
+<nav class="navbar">
+    <input class="form-control" type="text" name="nom" [(ngModel)]="nom" (ngModelChange)="search()" placeholder="Nom de la thérapie à chercher !">
+</nav>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Decription</th>
+            <th>Action1</th>
+            <th>Action2</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let therapie of therapies ">
+            <td>{{therapie.name}}</td>
+            <td>{{therapie.description}}</td>
+            <td>
+                <button (click)="updateTherapie(therapie.id_t)" class="btn btn-success">Mettre à jour</button>
+            </td>
+            <td>
+                <button (click)="deleteTherapie(therapie.id_t)" style="margin-left: 0px;width:120px" class="btn btn-success">Supprimer</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

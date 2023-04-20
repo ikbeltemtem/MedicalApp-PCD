@@ -40,7 +40,7 @@ import { NavMComponent } from './components/nav-m/nav-m.component';
 import { NavMPComponent } from './components/nav-mp/nav-mp.component';
 import { NavSComponent } from './components/nav-s/nav-s.component';
 import { PatientComponent } from './components/patient/patient.component';
-import { TherapieService } from './services/therapie.service';
+import { TherapieListModifComponent } from './components/therapie-list-modif/therapie-list-modif.component';
 import { StaticsComponent } from './components/statics/statics.component';
 import { AuthGuard } from './services/auth.guard';
 import { AuthInterceptor } from './services/auth.interceptor';
@@ -54,10 +54,12 @@ import { AjoutSecComponent } from './components/ajout-sec/ajout-sec.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ModifSecComponent } from './components/modif-sec/modif-sec.component';
 import { ModifMedsComponent } from './components/modif-meds/modif-meds.component';
+import { ModifTherapieComponent } from './components/modif-therapie/modif-therapie.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 const routes: Routes = [
   {
     path: 'login',
@@ -106,7 +108,9 @@ const routes: Routes = [
     ProfileComponent,
     ModifSecComponent,
     ModifMedsComponent,
+    ModifTherapieComponent,
     AppointmentComponent,
+    TherapieListModifComponent,
     FooterComponent
   ],
   imports: [
@@ -115,7 +119,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(routes),
- 
+    NgbModule,
     AngularMaterialModule,
     ReactiveFormsModule,
           BrowserAnimationsModule

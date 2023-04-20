@@ -1,0 +1,20 @@
+<div style="margin-top: 200px;" class="col-md-6 offset-md-3   border border-success">
+    <h3><strong> Modifier Thérapie </strong></h3>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input type="text" class="form-control" id="name" placeholder="Nom de la thérapie " ngModel name="name">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="decription" placeholder="Description de la thérapie " ngModel  name="description">
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="file" (change)="onSelectFile($event)" id="imageUrl" placeholder="image de la thérapie " ngModel  name="imageUrl">
+            <img [src]="imgURL" height="200px" *ngIf="imgURL">
+        </div>
+       
+        <button style="margin-bottom: 10px; margin-left: 270px; width: 200px;" class="btn btn-success " type="submit">Valider</button>
+
+    </form>
+
+</div>

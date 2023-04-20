@@ -29,14 +29,39 @@ public class Therapie {
     @Column(name="image_url")
     private String imageUrl;
 
-    /*@ManyToMany(fetch =FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name="therapie_image",joinColumns = {@JoinColumn(name="t_id")}, inverseJoinColumns = {@JoinColumn(name="id")})
-    private Set<ImageModel> therapieImage;*/
+    @Column(name=" ratefive")
+    private long  ratefive;
+
+    @Column(name="ratefour")
+    private long ratefour;
+
+    @Column(name="ratethree")
+    private long ratethree;
+
+    @Column(name="ratetwo")
+    private long ratetwo;
+
+    @Column(name="rateone")
+    private long rateone;
+
+    @Column(name="star")
+    private long star;
+
+    @Column(name="rateall")
+    private long rateall;
 
 
-    public Therapie(String name, String description, String imageUrl) {
+    public Therapie(String name, String description, String imageUrl, long ratefive, long ratefour, long ratethree, long ratetwo, long rateone,
+                    long starRating, long rateall) {
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
+        this.ratefive=ratefive;
+        this.ratefour=ratefour;
+        this.ratethree = ratethree;
+        this.ratetwo = ratetwo;
+        this.rateone = rateone;
+        this.star = starRating;
+        this.rateall = rateall;
     }
 }

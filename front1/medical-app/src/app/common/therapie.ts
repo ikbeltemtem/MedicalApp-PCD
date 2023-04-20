@@ -1,11 +1,19 @@
 export class Therapie {
     
-                  id!:number ;
+                  id_t:any ;
                   name!: string;
                   description!:string ;
                   imageUrl!:string ;
                 
                   uploadImageData = new FormData();
+                  star:any;
+                  ratefive:any;
+                  ratefour:any;
+                  ratethree:any;
+                  ratetwo:any;
+                  rateone:any;
+                  rateall: any;
+                  listRate!:Array<string>;
 
 
 }

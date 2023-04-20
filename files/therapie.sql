@@ -15,16 +15,19 @@ CREATE TABLE IF NOT EXISTS `medical-management`.`therapie` (
   `description` VARCHAR(255) DEFAULT NULL,
  
   `image_url` VARCHAR(255) DEFAULT NULL,
-  `active` BIT DEFAULT 1,
- 
-   `date_created` DATETIME(6) DEFAULT NULL,
-  `last_updated` DATETIME(6) DEFAULT NULL,
+ `ratefive` bigint(20) ,
+ `ratefour` bigint(20) ,
+ `ratethree` bigint(20) ,
+ `ratetwo` bigint(20) ,
+ `rateone` bigint(20) ,
+ `star` bigint(20) ,
+ `rateall` bigint(20) ,
 
   PRIMARY KEY (`id_t`)
 ) 
 ENGINE=InnoDB
 AUTO_INCREMENT = 1;
 
-INSERT INTO therapie (`id_t`, `name` ,`description` , `image_url` , `active` , `date_created`)
-VALUES (1, 'meso' , 'xxxxxxxx' , 'assets/image/t1.jpg' , 1 , NOW());
+INSERT INTO therapie (`id_t`, `name` ,`description` , `image_url` , `ratefive` , `ratefour`,`ratethree`,`ratetwo`,`rateone`,`star`,`rateall`)
+VALUES (1, 'meso' , 'xxxxxxxx' , 'assets/image/t1.jpg' ,0,0,0,0,0,0,0);
 

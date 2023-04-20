@@ -15,7 +15,7 @@ import { TherapieService } from 'src/app/services/therapie.service';
 export class TherapieListComponent implements OnInit {
 
   therapies: Therapie[]=[];
-  
+  therapie: Therapie=new Therapie();
 
   constructor(private therapieService :TherapieService,private appointmentService:AppointmentService,
               private route :ActivatedRoute,private router:Router) { }
@@ -35,6 +35,26 @@ export class TherapieListComponent implements OnInit {
     
  }
 
+ get(a: { value: any; }) {
+  console.log(a.value);
+}
+
+ afficher(y: any, x: any) {
+  //y => id de la thérapie 
+  console.log(y + " " + x);
+  this.therapieService.getTherapieById(y).subscribe(data => {
+    this.therapie = data;
+    this.therapie.star = x;
+
+
+    this.therapieService.updateTherapieRate(y, this.therapie).subscribe(data => {
+      //this.router.navigate(['']);
+
+    })
+  })
+
+
+}
  
 
 viewprofil(id:number) {
@@ -42,19 +62,5 @@ viewprofil(id:number) {
   this.router.navigate(['./therapie', id], { relativeTo: this.route });
 }
 
- /* afficher(y: any, x: any) {
-    //y => id de la thérapie 
-    console.log(y + " " + x);
-    this.therapieService.getTherapieById(y).subscribe(data => {
-      this.therapie = data;
-      //this.therapie.starRating = x;
-
-
-      /*this.therapieService.updateTherapieRate(y, this.therapie).subscribe(data => {
-        //this.router.navigate(['']);
-
-      })
-    })
-
-}*/
+ 
 }

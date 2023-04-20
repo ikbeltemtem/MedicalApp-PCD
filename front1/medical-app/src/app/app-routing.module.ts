@@ -13,6 +13,7 @@ import { MedPComponent } from "./components/med-p/med-p.component";
 import { MedSComponent } from "./components/med-s/med-s.component";
 import { ModifMedsComponent } from "./components/modif-meds/modif-meds.component";
 import { ModifSecComponent } from "./components/modif-sec/modif-sec.component";
+import { ModifTherapieComponent } from "./components/modif-therapie/modif-therapie.component";
 import { NavComponent } from "./components/nav/nav.component";
 import { PatientComponent } from "./components/patient/patient.component";
 import { ProfileComponent } from "./components/profile/profile.component";
@@ -35,9 +36,9 @@ const routes: Routes = [
     path: 'inscrire',
     component: RegisterComponent
   },
-  {path: '',component: HomeComponent},
+  {path: 'home',component: HomeComponent},
   {path:'appointment',component:AppointmentComponent},
-
+   {path:'updateTherapie/:id',component:ModifTherapieComponent},
   {path:'navbar',component:NavComponent},
   {path:'ajouterMedecin',component:AjoutMedComponent,canActivate:[AuthGuard]},
   {path:'ajouterSecretaire',component:AjoutSecComponent,canActivate:[AuthGuard]},
@@ -46,7 +47,7 @@ const routes: Routes = [
   {path: 'therpaies',component:TherapieListComponent},
   {path:'patient',component:PatientComponent, canActivate:[AuthGuard],
   children:[
-    {path: '',component: HomeComponent},
+    {path: 'home',component: HomeComponent},
     {path:'appointment',component:AppointmentComponent},
     {path:'navbar',component:NavComponent},
     {path:'therapie/:id',component:TherapieComponent},
@@ -54,7 +55,7 @@ const routes: Routes = [
 },
   {path:'doctor',component:MedPComponent,canActivate:[MedAuthGuard],
   children:[
-    {path: '',component: HomeComponent},
+    {path: 'home',component: HomeComponent},
     {path:'ajouterTherapie',component:AjoutTherapieComponent},
     {path:'ajouterMedecin',component:AjoutMedComponent},
     {path:'ajouterSecretaire',component:AjoutSecComponent},
@@ -77,7 +78,7 @@ const routes: Routes = [
        ]},
   {path:'secretaire',component:SecComponent,canActivate:[SecAuthGuard],
         children:[
-          {path: '',component: HomeComponent},
+          {path: 'home',component: HomeComponent},
           {path:'profile',component:ProfileComponent},
           {path: 'therpaies',component:TherapieListComponent},
           {path:'modifierSecretaire/:email',component:ModifSecComponent},

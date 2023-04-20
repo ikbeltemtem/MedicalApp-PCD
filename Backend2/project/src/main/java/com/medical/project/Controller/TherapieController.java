@@ -22,7 +22,7 @@ public class TherapieController {
 
     @Autowired
     private TherapieRepository therapieRepository;
-
+    public int d;
 
     @CrossOrigin(origins= {"*"}, maxAge = 4800,allowedHeaders = "*", allowCredentials = "false" )
 
@@ -33,7 +33,7 @@ public class TherapieController {
     {
 
         System.out.println("Original Image Byte Size - " + file.getBytes().length );
-        Therapie img1= new Therapie(nomTherapie,description,file.getOriginalFilename());
+        Therapie img1= new Therapie(nomTherapie,description,file.getOriginalFilename(),0,0,0,0,0,0,0);
 
         String folder ="/home/ikbel/Bureau/Pcd-v2/front1/medical-app/src/assets/image/";
         byte [] bytes = file.getBytes();
@@ -65,6 +65,7 @@ public class TherapieController {
         Therapie therapie = therapieRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Therapie non trouvé avec l'id :"+id));
         return ResponseEntity.ok(therapie);
     }
+    @CrossOrigin(origins= {"*"}, maxAge = 4800,allowedHeaders = "*", allowCredentials = "false" )
     @PutMapping("/update/{id}")
     public ResponseEntity<Therapie> updateTherapie(@PathVariable Long id,@RequestBody Therapie therapieInfo){
         Therapie therapie = therapieRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException ("Therapie non trouvé avec l'id :"+id));
@@ -86,6 +87,34 @@ public class TherapieController {
         rep.put("deleted",Boolean.TRUE);
         return ResponseEntity.ok(rep);
 
+    }
+
+    @PutMapping("/updateRate/{id}")
+    public ResponseEntity<Therapie> updateTherapieRate(@PathVariable Long id,@RequestBody Therapie therapieInfo){
+        Therapie therapie = therapieRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException ("Therapie non trouvé avec l'id :"+id));
+
+        switch ((int)therapieInfo.getStar()) {
+            case 1:
+                therapie.setRateone(therapie.getRateone()+1);
+                break;
+            case 2:
+                therapie.setRatetwo(therapie.getRatetwo()+1);
+                break;
+            case 3:
+                therapie.setRatethree(therapie.getRatethree()+1);
+                break;
+            case 4:
+                therapie.setRatefour(therapie.getRatefour()+1);
+                break;
+            case 5:
+                therapie.setRatefive(therapie.getRatefive()+1);
+                break;
+            default: System.out.println("In next half");}
+        this.d=(int) ((5*therapie.getRatefive() + 4*therapie.getRatefour() + 3*therapie.getRatethree()+ 2*therapie.getRatetwo() + 1*therapie.getRateone())/(therapie.getRatefive() + therapie.getRatefour() + therapie.getRatethree()+ therapie.getRatetwo()+therapie.getRateone()));
+        therapie.setStar(this.d);
+        therapie.setRateall(this.d);
+        Therapie therapieAjour = therapieRepository.save(therapie);
+        return ResponseEntity.ok(therapieAjour);
     }
 
 }
