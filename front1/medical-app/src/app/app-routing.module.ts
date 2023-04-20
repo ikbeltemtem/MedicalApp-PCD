@@ -52,12 +52,24 @@ const routes: Routes = [
     {path:'therapie/:id',component:TherapieComponent},
     {path: 'therpaies',component:TherapieListComponent},]
 },
-  {path:'doctor',component:MedPComponent,canActivate:[MedAuthGuard]/*, data:{role:['ADMIN']}*/},
+  {path:'doctor',component:MedPComponent,canActivate:[MedAuthGuard],
+  children:[
+    {path: '',component: HomeComponent},
+    {path:'ajouterTherapie',component:AjoutTherapieComponent},
+    {path:'ajouterMedecin',component:AjoutMedComponent},
+    {path:'ajouterSecretaire',component:AjoutSecComponent},
+    {path: 'profile',component:ProfileComponent},
+    {path:'navbar',component:NavComponent},
+    {path:'therapie/:id',component:TherapieComponent},
+    {path:'modifierMedecin/:email',component:ModifMedsComponent},
+    {path:'doctors',component:DoctorComponent},
+    {path:'secretaires',component:SecretaireComponent}
+   ]},
   {path:'doctorsec',component:MedSComponent, canActivate:[MedSAuthGuard],
        children:[
-        {path: '',component: HomeComponent},
-        {path: 'appointments',component:AppointmentListComponent /*,canActivate:[MedSAuthGuard]*/},
-        {path: 'doctors',component:DoctorComponent /*,canActivate:[MedSAuthGuard]*/},
+        {path: 'home',component: HomeComponent},
+        {path:'ajouterTherapie',component:AjoutTherapieComponent},
+        {path:'appointment',component:AppointmentComponent},
         {path: 'profile',component:ProfileComponent},
         {path:'navbar',component:NavComponent},
         {path:'therapie/:id',component:TherapieComponent},
@@ -69,11 +81,12 @@ const routes: Routes = [
           {path:'profile',component:ProfileComponent},
           {path: 'therpaies',component:TherapieListComponent},
           {path:'modifierSecretaire/:email',component:ModifSecComponent},
-          {path: 'secretaires',component:SecretaireComponent},
+          {path:'appointment',component:AppointmentComponent},
           {path:'navbar',component:NavComponent},
           {path:'therapie/:id',component:TherapieComponent},
-          {path: 'appointments',component:AppointmentListComponent /*,canActivate:[MedSAuthGuard]*/}
+          {path: 'appointments',component:AppointmentListComponent }
         ]},
+
   {path:'forbidden',component:ForbiddenComponent}
 ];
 

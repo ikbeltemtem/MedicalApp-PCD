@@ -1,11 +1,11 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <nav class="navbar navbar-expand-md navbar-light bg-success border fixed-top" style="background-color: #8ebcdd;">
     <div class="container-fluid">
     
       <a class="navbar-brand">Navbar</a>
       <form class="d-flex" role="search">
-        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; ">Search</button>
-        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; ">Search</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; " routerLink="./home" (click)="logOut() ">Se Deconnecter</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "routerLink="./home">Home</button>
       </form>
     </div>
   </nav>
@@ -19,8 +19,15 @@
                 </a>
             </li>
             <li class="active">
-                <a href="/profile">Profile</a>
+                <a routerLink="/profile">Profile</a>
             </li>
+            <li>
+                <a routerLink="/doctors">Liste des Médecins</a>
+            </li>
+            <li>
+                <a routerLink="/secretaires">Liste des Secretaires</a>
+            </li>
+          
             <li>
                 <a routerLink="/therapies">Services</a>
             </li>
@@ -29,4 +36,15 @@
             </li>
         </ul>
     </div>
-  </div>
+  </div>-->
+
+  <nav class="navbar" style="background-color: #8ebcdd;">
+    <div class="container-fluid">
+      <a class="navbar-brand">Navbar</a>
+      <form class="d-flex" role="search">
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; " routerLink="./home">home</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "routerLink="./appointment">prise</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "routerLink="./therapies">Services</button>
+      </form>
+    </div>
+  </nav>

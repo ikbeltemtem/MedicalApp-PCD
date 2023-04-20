@@ -38,7 +38,7 @@ export class ModifMedsComponent implements OnInit {
       else{
        
         this.userService.updateMed(this.email,this.doctor).subscribe(data=>{
-          this.router.navigate(['secretaire']);
+          this.router.navigate(['doctorsec']);
            })
     
   

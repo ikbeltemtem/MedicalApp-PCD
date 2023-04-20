@@ -66,6 +66,10 @@ export class AppointmentListComponent implements OnInit {
   });
   }
 
+  public add(){
+    this.router.navigate(['/appointment']);
+  }
+
   public onOpenModal(appointment: Appointment , mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');

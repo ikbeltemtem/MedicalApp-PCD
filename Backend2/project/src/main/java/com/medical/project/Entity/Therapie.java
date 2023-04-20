@@ -16,7 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Therapie {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id_t;
 
