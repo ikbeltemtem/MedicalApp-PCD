@@ -1,6 +1,12 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { map } from 'rxjs';
+import { Patient } from '../common/patient';
+import { Secretaire } from '../common/secretaire';
+import { PatientService } from './patient.service';
+import { SecretaireService } from './secretaire.service';
 import { UserAuthService } from './user-auth.service';
 import { UserServiceService } from './user-service.service';
 
@@ -12,41 +18,13 @@ export class LoginService {
   public loggedUser!:string;
 public isLoggedIn: Boolean = false;
 public rol!:string;
+secretaire:Secretaire | undefined;
+patient:Patient | undefined;
 
-  constructor(private userAuthService: UserAuthService,private userService:UserServiceService,private router:Router) { }
 
- /* public login(email:string,password:string) {
+  constructor(private userAuthService: UserAuthService,private toastr:ToastrService,private userService:UserServiceService,private router:Router,private secService:SecretaireService,private patService:PatientService) { }
 
-    var client = email;
-    var password =password;
-    
-    
-  
-     
-    this.userService.login(client, password)
-      .subscribe({next:(res : any) => {
-        
-        console.log('res',res)
-      //  this.userAuthService.setToken(res.token);
-       // this.userAuthService.setRole(res.role);
-        //localStorage.setItem('token',res.token);
-        //localStorage.setItem('role',JSON.stringify(res.user.role));
-        this.loggedUser=client;
-        localStorage.setItem('loggedUser',String(this.loggedUser));
-
-       
-        
-      this.isLoggedIn=true;
-      localStorage.setItem('isLoggedIn', String(this.isLoggedIn))//car elle est boolean
-      
-    },
-     error: (error: HttpErrorResponse) => {
-        alert("invalid user");
-        console.log(error);
-      }
-    })
-    
-    }*/
+ 
 
     login(email:string,password:string) {
 
@@ -70,16 +48,20 @@ public rol!:string;
           const rl=res.role;
           this.rol=res.role;
           if(rl=='ADMIN'){
-            this.router.navigate(['/doctor'])
+            this.router.navigate(['/doctor']);
+            this.toastr.success('Welcome!!!!!')
           }else if(rl == 'PATIENT'){
           
-          this.router.navigate(['/patient'])}
+          this.router.navigate(['/patient']);
+    
+          this.toastr.success('Welcome!!!!!  '+this.patient?.firstname)}
           else if(rl == 'MEDS'){
           
             this.router.navigate(['/doctorsec'])}
             else if(rl == 'SEC'){
           
-              this.router.navigate(['/secretaire'])} 
+              this.router.navigate(['/secretaire'])
+              this.toastr.success('Welcome!!!!!  '+this.secretaire?.firstname)} 
         
       },
        error: (error: HttpErrorResponse) => {
@@ -101,5 +83,16 @@ logout(){
 
 }
 
+getSec(){
+  this.secService.findSecByEmail(this.loggedUser).pipe(
+    map((secretaire: Secretaire) => this.secretaire =secretaire)
+  ).subscribe()
+}
+
+getPatient(){
+  this.patService.findPatientByEmail(this.loggedUser).pipe(
+    map((medecin: Patient) => this.patient = medecin)
+  ).subscribe()
+}
 
 }

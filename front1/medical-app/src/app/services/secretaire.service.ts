@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import{map} from 'rxjs/operators';
+import { Appointment } from '../common/appointment';
 import { Secretaire } from '../common/secretaire';
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,14 @@ export class SecretaireService {
   }
   public findSecByEmail(email:string):Observable<Secretaire>{
     return this.httpClient.get<Secretaire>(`${this.baseUrl}/find/${email}`);
+  }
+
+  public getNotif(app:Appointment):Appointment{
+    return app;
+  }
+
+  public addAppointment(appointment: Appointment): Observable<Appointment> {
+    return this.httpClient.post<Appointment>(`${this.baseUrl}/add`, appointment);
   }
 }
   

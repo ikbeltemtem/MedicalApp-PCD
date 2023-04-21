@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Appointment } from 'src/app/common/appointment';
 import { Therapie } from 'src/app/common/therapie';
 import { AppointmentService } from 'src/app/services/appointment.service';
+import { SecretaireService } from 'src/app/services/secretaire.service';
 import { TherapieService } from 'src/app/services/therapie.service';
 
 
@@ -18,7 +19,7 @@ public therapies!:Therapie[];
 therapie!:Therapie;
   id!:number;
 rendezvous!:Appointment;
-  constructor(private router:Router,private therapieService:TherapieService,private appointmentService:AppointmentService,private route:ActivatedRoute) { }
+  constructor(private router:Router,private therapieService:TherapieService,private SecService:SecretaireService,private appointmentService:AppointmentService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
   //this.getTherapies();
@@ -37,9 +38,11 @@ rendezvous!:Appointment;
   onSubmit(addForm: NgForm){
     this.appointmentService.addAppointment(addForm.value).subscribe(data=>{
      console.log(data);
+     
      this.router.navigate(['patient']);
  
-   })
+   });
+ 
    }
 
    /*public onAddAppointment(addForm: NgForm): void {

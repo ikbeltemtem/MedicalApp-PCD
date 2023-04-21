@@ -17,7 +17,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { ToastrModule } from 'ngx-toastr';
 
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -120,6 +120,10 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    ToastrModule.forRoot({
+      timeOut:20000,
+      positionClass:"toast-bottom-right"
+}),
     NgbModule,
     AngularMaterialModule,
     ReactiveFormsModule,
