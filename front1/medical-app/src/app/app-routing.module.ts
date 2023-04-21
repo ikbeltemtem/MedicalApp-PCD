@@ -50,8 +50,8 @@ const routes: Routes = [
     {path: 'home',component: HomeComponent},
     {path:'appointment',component:AppointmentComponent},
     {path:'navbar',component:NavComponent},
-    {path:'therapie/:id',component:TherapieComponent},
-    {path: 'therpaies',component:TherapieListComponent},]
+    {path:'therapies/therapie/:id',component:TherapieComponent},
+    {path: 'therapies',component:TherapieListComponent},]
 },
   {path:'doctor',component:MedPComponent,canActivate:[MedAuthGuard],
   children:[
@@ -73,7 +73,7 @@ const routes: Routes = [
         {path:'appointment',component:AppointmentComponent},
         {path: 'profile',component:ProfileComponent},
         {path:'navbar',component:NavComponent},
-        {path:'therapie/:id',component:TherapieComponent},
+        {path:'therapies/therapie/:id',component:TherapieComponent},
         {path:'modifierMedecin/:email',component:ModifMedsComponent}
        ]},
   {path:'secretaire',component:SecComponent,canActivate:[SecAuthGuard],

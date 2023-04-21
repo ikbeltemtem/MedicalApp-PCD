@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @CrossOrigin({"*"})
 @RestController
-@RequestMapping(path="/api/v1/auth/Rdv")
+@RequestMapping(path="/api/Rdv")
 public class AppointmentController {
 
     @Autowired
@@ -30,6 +30,12 @@ public class AppointmentController {
     public List<appointment> getAppointments(){
 
         return appointmentService.getAppointments();
+    }
+
+    @GetMapping("/getAllArrive")
+    public List<appointment> getArriv(){
+
+        return appointmentService.getArrive();
     }
 
     @GetMapping("/find/{id}")

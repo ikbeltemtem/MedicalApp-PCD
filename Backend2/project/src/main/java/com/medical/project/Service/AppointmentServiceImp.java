@@ -28,6 +28,11 @@ public class AppointmentServiceImp  implements AppointmentService{
 
         return appRepo.findAll();
     }
+    public List<appointment> getArrive(){
+        appRepo=null;
+        String arrivee = "en cours";
+        return appRepo.findByArrivee(arrivee);
+    }
     public appointment updateAppoint(Long id,appointment appoint){
         appointment appt=appRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException("patient non trouvé avec l'id :"+id));
         appt.setName(appoint.getName());
@@ -39,6 +44,7 @@ public class AppointmentServiceImp  implements AppointmentService{
         appt.setEmail(appoint.getEmail());
         appt.setNumber(appoint.getNumber());
         appt.setTherapie(appoint.getTherapie());
+        appt.setArrivee(appoint.getArrivee());
         return appRepo.save(appt);
     }
 

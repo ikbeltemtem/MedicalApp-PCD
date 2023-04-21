@@ -13,6 +13,8 @@ public interface AppointmentService {
     public appointment updateAppoint(Long id,appointment appoint);
     public appointment findAppointmentById(Long id);
     public appointment createAppointment(appointment appoint);
+    public List<appointment> getArrive();
 
-    public void deleteAppointment(Long id);
+
+        public void deleteAppointment(Long id);
 }

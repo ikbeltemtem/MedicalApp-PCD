@@ -51,6 +51,9 @@ public class appointment {
     @Column(name="therapie")
     private String therapie;
 
+    @Column(name="arrivee")
+    private String arrivee;
+
 
 
 

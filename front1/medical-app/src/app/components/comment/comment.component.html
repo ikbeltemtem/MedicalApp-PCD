@@ -1,0 +1,51 @@
+<textarea></textarea>
+<br/>
+<br/>
+<button>Comment</button>
+<hr>
+<div *ngFor="let temp of comments">
+    <p>{{ temp.email }}</p>
+    <p>{{ temp.text }}</p>
+</div>
+<div *ngIf="comments?.length ==0" class="alert alert-warning col-md-12" role="alert">
+  No Comment found
+  
+  </div>
+
+
+<form class="example-form" (ngSubmit)="onSubmit(addForm)"  #addForm="ngForm">
+
+  
+    <mat-form-field class="example-full-width" >
+      <mat-label>Leave a comment</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..." class="form-control " type="text " [(ngModel)]="comment.text" name="text"></textarea>
+    </mat-form-field>
+    <button [disabled]="addForm.invalid" style="margin-bottom: 10px; margin-left: 270px; width: 200px;" class="btn btn-success " type="submit">Envoyer</button>
+  </form>
+
+
+
+ <!--- <div class="comment" *ngFor="let temp of comments">
+    <div class="comment-image-container">
+      <img src="/assets/user-icon.png" />
+    </div>
+    <div class="comment-right-part">
+      <div class="comment-content">
+        <div class="comment-author">{{ temp.user }}</div>
+        <div>{{ temp.createdDate }}</div>
+      </div>
+      <div class="comment-text" >{{ temp.text }}</div>
+
+      <form (ngSubmit)="onSubmit(addForm)"  #addForm="ngForm">
+        <textarea class="comment-form-textarea" formControlName="title" name="text"></textarea>
+        <button class="comment-form-button" type="submit" [disabled]="form.invalid">
+          Laisser Un commentaire
+        </button>
+       
+      </form>
+    </div>
+    <div *ngIf="comments?.length ==0" class="alert alert-warning col-md-12" role="alert">
+        No Comment found
+        
+        </div>
+  </div> -->

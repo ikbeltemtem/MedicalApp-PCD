@@ -24,7 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { SecretaireComponent } from './components/secretaire/secretaire.component';
-
+import { CommentComponent } from './components/comment/comment.component';
 
 import { TherapieComponent } from './components/therapie/therapie.component';
 import { TherapieListComponent } from './components/therapie-list/therapie-list.component';
@@ -111,7 +111,8 @@ const routes: Routes = [
     ModifTherapieComponent,
     AppointmentComponent,
     TherapieListModifComponent,
-    FooterComponent
+    FooterComponent,
+    CommentComponent
   ],
   imports: [
     AppRoutingModule,

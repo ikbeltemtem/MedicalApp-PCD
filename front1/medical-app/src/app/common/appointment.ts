@@ -13,6 +13,8 @@ export class Appointment {
        therapie!:string
        dispo1!:string
        dispo2!:string
+       arrivee!:string
+
     
 
     

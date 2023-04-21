@@ -14,13 +14,25 @@ export class AppointmentListComponent implements OnInit {
    appointments: Appointment[]=[];
    public deleteAppointment!:Appointment|null;
    public editAppointment! : Appointment|null;
-   x:number=0;
+  // x:number=0;
+   _arrivelist!: arrive[];
+   x!: string;
+   getarrive() {
+     this._arrivelist = [
+       { id: 1, name: "en cours", isselected: false },
+       { id: 2, name: "en attente", isselected: false },
+       { id: 3, name: "pas arrivee", isselected: false }
+     ]
+   }
+ 
 
   constructor(private appointmentService: AppointmentService,
                private router:Router) { }
 
   ngOnInit(): void {
     this.getAppointments();
+    this.getarrive();
+
   }
   
 
@@ -103,4 +115,17 @@ export class AppointmentListComponent implements OnInit {
       }
   });
   }
+
+  onchange() {
+
+    this.x = this._arrivelist.filter(x => x.isselected == true).map(x => x.name).toString();
+    this.editAppointment!.arrivee = this.x;
+    console.log(this.editAppointment!.arrivee);
+  }
+}
+
+class arrive {
+  id!: number;
+  name!: string;
+  isselected!: boolean;
 }
