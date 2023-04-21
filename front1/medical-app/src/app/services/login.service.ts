@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs';
+import { Appointment } from '../common/appointment';
 import { Patient } from '../common/patient';
 import { Secretaire } from '../common/secretaire';
 import { PatientService } from './patient.service';
@@ -20,6 +21,8 @@ public isLoggedIn: Boolean = false;
 public rol!:string;
 secretaire:Secretaire | undefined;
 patient:Patient | undefined;
+
+
 
 
   constructor(private userAuthService: UserAuthService,private toastr:ToastrService,private userService:UserServiceService,private router:Router,private secService:SecretaireService,private patService:PatientService) { }
@@ -59,9 +62,11 @@ patient:Patient | undefined;
           
             this.router.navigate(['/doctorsec'])}
             else if(rl == 'SEC'){
-          
+             
+            
               this.router.navigate(['/secretaire'])
-              this.toastr.success('Welcome!!!!!  '+this.secretaire?.firstname)} 
+              
+              } 
         
       },
        error: (error: HttpErrorResponse) => {

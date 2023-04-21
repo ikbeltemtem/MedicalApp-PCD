@@ -21,7 +21,7 @@
                     {{temp.description.substr(0,40)}}
                     <ngb-rating [max]="5" [resettable]="true" [(rate)]="therapie.star" [(ngModel)]="therapie.star" (click)="afficher(therapie.id_t,therapie.star)" [readonly]="false"></ngb-rating>
                   </div>
-                  <a class="add-to-cart"  (click)="add(temp.id_t)" href="">Prendre Rendez-Vous</a>
+                  <a class="add-to-cart"  (click)="add(temp.id_t)" >Prendre Rendez-Vous</a>
               </div>
           </div>
       </div>

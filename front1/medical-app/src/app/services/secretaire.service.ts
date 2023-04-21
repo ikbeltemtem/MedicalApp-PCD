@@ -9,6 +9,7 @@ import { Secretaire } from '../common/secretaire';
 })
 export class SecretaireService {
    private baseUrl = 'http://localhost:8080/api/secretaire';
+   apps:Appointment[]=[];
   constructor(private httpClient: HttpClient) { }
 
   getSecretaireList():Observable<Secretaire[]> {
@@ -33,13 +34,8 @@ export class SecretaireService {
     return this.httpClient.get<Secretaire>(`${this.baseUrl}/find/${email}`);
   }
 
-  public getNotif(app:Appointment):Appointment{
-    return app;
-  }
-
-  public addAppointment(appointment: Appointment): Observable<Appointment> {
-    return this.httpClient.post<Appointment>(`${this.baseUrl}/add`, appointment);
-  }
+ 
+  
 }
   
   

@@ -20,6 +20,7 @@ export class AppointmentService {
   }
 
   public addAppointment(appointment: Appointment): Observable<Appointment> {
+    
     return this.httpClient.post<Appointment>(`${this.baseUrl}/add`, appointment);
   }
   public updateAppointment(id:number,appointment : Appointment): Observable<Appointment> {

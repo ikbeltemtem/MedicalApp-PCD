@@ -18,6 +18,7 @@ export class AppointmentComponent implements OnInit {
 public therapies!:Therapie[];
 therapie!:Therapie;
   id!:number;
+  x:number=0;
 rendezvous!:Appointment;
   constructor(private router:Router,private therapieService:TherapieService,private SecService:SecretaireService,private appointmentService:AppointmentService,private route:ActivatedRoute) { }
 
