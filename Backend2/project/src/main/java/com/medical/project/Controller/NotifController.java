@@ -5,7 +5,9 @@ import com.medical.project.Dao.NotifRepository;
 import com.medical.project.Entity.Notif;
 import com.medical.project.Entity.Therapie;
 import com.medical.project.Exception.ResourceNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,7 +44,7 @@ public class NotifController {
         return notifRepository.save(secretaire);
     }
 
-    @DeleteMapping("/delete/{id}")
+    /*@DeleteMapping("/delete/{id}")
     public ResponseEntity<Map<String,Boolean>> deleteMedecin(@PathVariable Long id){
 
         Notif therapie = notifRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException ("Notif non trouvé avec l'id :"+id));
@@ -53,5 +55,21 @@ public class NotifController {
         rep.put("deleted",Boolean.TRUE);
         return ResponseEntity.ok(rep);
 
+    }*/
+    @Transactional
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteNotif(@PathVariable("id") Long id){
+        notifRepository.deleteNotifById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @Transactional
+
+    @DeleteMapping("/deleteAll")
+    public ResponseEntity<?> deleteAll(){
+        notifRepository.deleteAll();
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

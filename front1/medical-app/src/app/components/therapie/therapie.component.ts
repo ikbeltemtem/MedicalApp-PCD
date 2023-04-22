@@ -64,7 +64,7 @@ export class TherapieComponent implements OnInit {
   
    }}
   add(){
-    this.router.navigate(['./appointment'])
+    this.router.navigate(['../../appointment'], { relativeTo: this.route });
    
        
     }

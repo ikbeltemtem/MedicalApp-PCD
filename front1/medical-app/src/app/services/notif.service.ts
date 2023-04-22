@@ -26,4 +26,9 @@ export class NotifService {
   public deleteNotif(id:number) : Observable<Object>{
     return this.httpClient.delete(`${this.baseUrl}/delete/${id}`);
   }
+
+  public deleteAll() : Observable<void>{
+    return this.httpClient.delete<void>(`${this.baseUrl}/deleteAll`);
+  }
+
 }

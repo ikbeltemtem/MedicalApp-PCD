@@ -25,10 +25,11 @@ secretaire:Secretaire | undefined;
 patient:Patient=new Patient();
 
 public notifs:Notif[]=[];
-
+message:string="";
 
   constructor(private userAuthService: UserAuthService,private notifService:NotifService,private toastr:ToastrService,private userService:UserServiceService,private router:Router,private secService:SecretaireService,private patService:PatientService) { 
     this.getNotifs();
+    console.log(this.notifs);
    
   }
 
@@ -68,9 +69,14 @@ public notifs:Notif[]=[];
             this.router.navigate(['/doctorsec'])}
             else if(rl == 'SEC'){
              
-              console.log(this.notifs[0].dispo1);
+             
+             
               this.router.navigate(['/secretaire']);
-              this.toastr.success(this.notifs[0].dispo1);
+              for(let nt of this.notifs){
+                this.toastr.success(this.getMsg(nt) );
+              }
+              this.notifs=[];
+             
               } 
         
       },
@@ -80,8 +86,11 @@ public notifs:Notif[]=[];
         }
       })
         }
+
+      
   
 logout(){
+
   this.isLoggedIn = false;
   this.loggedUser = "";
   this.rol = "";
@@ -113,5 +122,18 @@ getNotifs():void{
    });
   
   }
+ getMsg(nott:Notif):string{
+ 
+     this.message="Un nouveau Rendez-vous pris en: "+nott.daterdv + "\n"
+     + "sous le nom: "+nott.name + " pour le: "+nott.dispo1 + "\n" + "Verifier sa disponibilité!";
+  return this.message;
+ }
+
+ deleteNotif():void{
+  for(let n of this.notifs){
+    this.notifService.deleteNotif(n.id);
+  }
+  
+ }
 }
 

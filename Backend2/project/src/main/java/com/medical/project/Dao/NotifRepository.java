@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface NotifRepository extends JpaRepository<Notif,Long> {
+    void deleteNotifById(Long id);
+
 }
