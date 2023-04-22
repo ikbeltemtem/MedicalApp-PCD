@@ -1,5 +1,5 @@
 export interface Secretaire {
-    ids: number;
+    id: number;
     firstname: string;
     
     

@@ -11,7 +11,7 @@ public class Secretaire {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="ids")
-    private int ids;
+    private Long id;
 
     @Column(name="firstname")
     private String firstname;

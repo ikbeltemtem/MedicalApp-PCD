@@ -1,5 +1,5 @@
 export interface Doctor {
-    id_doctor: number;
+    id: number;
     firstname: string;
     speciality: string;
     

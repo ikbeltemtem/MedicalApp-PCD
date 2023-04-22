@@ -30,7 +30,7 @@ public class DoctorController {
     }
 
     @GetMapping("/get/{id_doctor}")
-    public ResponseEntity<Doctor> getDoctorById(@PathVariable("id_doctor") int id_doctor){
+    public ResponseEntity<Doctor> getDoctorById(@PathVariable("id_doctor") Long id_doctor){
         Doctor doc=doctorService.findDoctorById(id_doctor);
         return new ResponseEntity<>(doc, HttpStatus.OK);
     }
@@ -48,15 +48,15 @@ public class DoctorController {
     }
 
     @PutMapping("/update/{id_doctor}")
-    public ResponseEntity<Doctor> updateDoctor(@PathVariable("id_doctor") int id_doctor,@RequestBody Doctor doc){
+    public ResponseEntity<Doctor> updateDoctor(@PathVariable("id_doctor") Long id_doctor,@RequestBody Doctor doc){
         Doctor docnew=doctorService.updateDoctor(id_doctor,doc);
         return ResponseEntity.ok(docnew);
 
     }
-    /*@DeleteMapping("/delete/{id_doctor}")
-    public ResponseEntity<?> deleteDoctor(@PathVariable("id_doctor") int id_doctor){
+    @DeleteMapping("/delete/{id_doctor}")
+    public ResponseEntity<?> deleteDoctor(@PathVariable("id_doctor") Long id_doctor){
         doctorService.deleteDoctor(id_doctor);
         return new ResponseEntity<>(HttpStatus.OK);
-    }*/
+    }
 
 }

@@ -28,7 +28,7 @@ public class DoctorServiceImp  implements DoctorService{
 
         return docRepo.findAll();
     }
-    public Doctor updateDoctor(int id_doctor,Doctor doctor){
+    public Doctor updateDoctor(Long id_doctor,Doctor doctor){
         Doctor doct=docRepo.findById(id_doctor).orElseThrow(()-> new ResourceNotFoundException("patient non trouvé avec l'id :"+id_doctor));
 
         doct.setSpeciality(doctor.getSpeciality());
@@ -41,7 +41,7 @@ public class DoctorServiceImp  implements DoctorService{
         return docRepo.save(doct);
     }
 
-    public Doctor findDoctorById(int id_doctor){
+    public Doctor findDoctorById(Long id_doctor){
         return docRepo.findById(id_doctor).orElseThrow(()-> new ResourceNotFoundException ("patient non trouvé avec l'id :"+id_doctor));
 
     }
@@ -51,9 +51,10 @@ public class DoctorServiceImp  implements DoctorService{
         return docRepo.findByEmail(email).orElseThrow(()-> new ResourceNotFoundException ("Médecin non trouvé avec l'email :"+email));
 
     }
-    /*public void deleteDoctor(int id_doctor){
+    public void deleteDoctor(Long id_doctor){
        docRepo.deleteDoctorById(id_doctor);
-    }*/
+    }
+
 
 
 }

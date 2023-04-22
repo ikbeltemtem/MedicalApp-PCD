@@ -9,10 +9,10 @@ public interface SecretaireService {
 
 
     public List<Secretaire> getSecretaires();
-    public Secretaire updateSecretaire(long ids,Secretaire sec);
-    public Secretaire findSecretaireById(long ids);
+    public Secretaire updateSecretaire(Long ids,Secretaire sec);
+    public Secretaire findSecretaireById(Long ids);
     public Secretaire createSecretaire(Secretaire sec);
     public Secretaire findSecByEmail(String email );
 
-    /*public void deleteSecretaire(int ids);*/
+    public void deleteSecretaire(Long ids);
 }

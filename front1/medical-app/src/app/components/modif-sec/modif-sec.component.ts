@@ -33,7 +33,7 @@ id!:number;
  
 
 onSubmit(){
-  this.secretaireService.updateSecretaire(this.editSecretaire.ids,this.secretaire).subscribe(data=>{
+  this.secretaireService.updateSecretaire(this.editSecretaire.id,this.secretaire).subscribe(data=>{
     if(this.userService.isMedP()){
      
       this.userService.updateSec(this.email,this.secretaire).subscribe(data=>{

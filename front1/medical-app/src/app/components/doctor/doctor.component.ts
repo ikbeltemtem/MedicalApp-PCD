@@ -37,7 +37,7 @@ export class DoctorComponent implements OnInit {
   }
   public onUpdateDoctor(doctor: Doctor): void {
     this.editDoctor = doctor;
-    this.doctorService.updateDoctor(this.editDoctor.id_doctor,this.editDoctor).subscribe({
+    this.doctorService.updateDoctor(this.editDoctor.id,this.editDoctor).subscribe({
       next : (response: Doctor) => {
         console.log(response);
         this.getDoctors();

@@ -29,7 +29,7 @@ public class SecretaireServiceImp  implements SecretaireService{
 
         return secRepo.findAll();
     }
-    public Secretaire updateSecretaire(long ids,Secretaire secretaire){
+    public Secretaire updateSecretaire(Long ids,Secretaire secretaire){
         Secretaire secr=secRepo.findById(ids).orElseThrow(()-> new ResourceNotFoundException("patient non trouvé avec l'id :"+ids));
         secr.setFirstname(secretaire.getFirstname());
         secr.setLastname(secretaire.getLastname());
@@ -42,7 +42,7 @@ public class SecretaireServiceImp  implements SecretaireService{
         return secRepo.save(secr);
     }
 
-    public Secretaire findSecretaireById(long ids) {
+    public Secretaire findSecretaireById(Long ids) {
         return secRepo.findById(ids).orElseThrow(() -> new ResourceNotFoundException("patient non trouvé avec l'id :" + ids));
     }
 
@@ -52,9 +52,9 @@ public class SecretaireServiceImp  implements SecretaireService{
         }
 
 
-    /*public void deleteSecretaire(int ids){
-      /*  secRepo.deleteSecretaireById(ids);
-    }*/
+    public void deleteSecretaire(Long ids){
+        secRepo.deleteSecretaireById(ids);
+    }
 
 
 }

@@ -27,7 +27,7 @@ export class ModifMedsComponent implements OnInit {
   }
 
   onSubmit(){
-    this.doctorService.updateDoctor(this.editDoctor.id_doctor,this.doctor).subscribe(data=>{
+    this.doctorService.updateDoctor(this.editDoctor.id,this.doctor).subscribe(data=>{
       if(this.userService.isMedP()){
        
         this.userService.updateMed(this.email,this.doctor).subscribe(data=>{

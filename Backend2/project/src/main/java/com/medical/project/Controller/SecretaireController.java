@@ -31,7 +31,7 @@ public class SecretaireController {
     }
 
     @GetMapping("/get/{ids}")
-    public ResponseEntity<Secretaire> getSecretaireById(@PathVariable("ids") long ids){
+    public ResponseEntity<Secretaire> getSecretaireById(@PathVariable("ids") Long ids){
         Secretaire sec=secretaireService.findSecretaireById(ids);
         return new ResponseEntity<>(sec, HttpStatus.OK);
     }
@@ -50,15 +50,15 @@ public class SecretaireController {
     }
 
     @PutMapping("/update/{ids}")
-    public ResponseEntity<Secretaire> updateSecretaire(@PathVariable("ids") long ids,@RequestBody Secretaire sec){
+    public ResponseEntity<Secretaire> updateSecretaire(@PathVariable("ids") Long ids,@RequestBody Secretaire sec){
         Secretaire secnew=secretaireService.updateSecretaire(ids,sec);
         return ResponseEntity.ok(secnew);
 
     }
-   /* @DeleteMapping("/delete/{ids}")
-    public ResponseEntity<?> deleteSecretaire(@PathVariable("ids") long ids){
+    @DeleteMapping("/delete/{ids}")
+    public ResponseEntity<?> deleteSecretaire(@PathVariable("ids") Long ids){
         secretaireService.deleteSecretaire(ids);
         return new ResponseEntity<>(HttpStatus.OK);
-    }*/
+    }
 
 }

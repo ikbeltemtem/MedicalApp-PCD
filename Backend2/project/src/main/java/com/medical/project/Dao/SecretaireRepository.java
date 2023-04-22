@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface SecretaireRepository extends JpaRepository<Secretaire,Long> {
-    /*void deleteSecretaireById(long ids);*/
+    void deleteSecretaireById(Long ids);
 
     public Optional<Secretaire> findByEmail(String email);
 

@@ -9,7 +9,8 @@ import java.util.Optional;
 
 
 @Repository
-public interface DoctorRepository extends JpaRepository<Doctor,Integer> {
+public interface DoctorRepository extends JpaRepository<Doctor,Long> {
+    void deleteDoctorById(Long id);
 
     public Optional<Doctor> findByEmail(String email);
 }

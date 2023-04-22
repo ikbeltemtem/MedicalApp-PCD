@@ -37,7 +37,7 @@ export class SecretaireComponent implements OnInit {
   }
   public onUpdateSecretaire(secretaire: Secretaire): void {
     this.editSecretaire = secretaire;
-    this.secretaireService.updateSecretaire(this.editSecretaire.ids,this.editSecretaire).subscribe({
+    this.secretaireService.updateSecretaire(this.editSecretaire.id,this.editSecretaire).subscribe({
       next : (response: Secretaire) => {
         console.log(response);
         this.getSecretaires();
