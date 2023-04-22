@@ -1,7 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Static } from 'src/app/common/static';
 import { PatientService } from 'src/app/services/patient.service';
+import { StaticService } from 'src/app/services/static.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
@@ -11,9 +14,11 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 })
 export class RegisterComponent implements OnInit {
   x:number=0;
-  constructor(private service:UserServiceService,private router:Router,private patientService:PatientService) { }
+  statistics:Static[]=[];
+  constructor(private service:UserServiceService, private staticService:StaticService,private router:Router,private patientService:PatientService) { }
 
   ngOnInit(): void {
+    this.getStatics();
   }
 
 
@@ -38,7 +43,11 @@ export class RegisterComponent implements OnInit {
     this.service.adduser(this.data).subscribe(data => {
       console.log(data)
     })
-
+    this.statistics[0].amount++;
+    this.staticService.updateStat(1,this.statistics[0]).subscribe(data=>{
+    
+           })
+    
     
     this.patientService.addPatient(this.data).subscribe(data=>{
       console.log(data)
@@ -48,5 +57,15 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['/login']);
   }
   
-
+  public getStatics(): void {
+    this.staticService.getStat().subscribe({
+     next: (response: Static[]) => {
+        this.statistics = response;
+        console.log(this.statistics);
+      },
+      error:(error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+  });
+  }
 }

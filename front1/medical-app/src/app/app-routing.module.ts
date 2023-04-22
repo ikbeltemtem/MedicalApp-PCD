@@ -20,6 +20,7 @@ import { ProfileComponent } from "./components/profile/profile.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { SecComponent } from "./components/sec/sec.component";
 import { SecretaireComponent } from "./components/secretaire/secretaire.component";
+import { StaticsComponent } from "./components/statics/statics.component";
 import { TherapieListComponent } from "./components/therapie-list/therapie-list.component";
 import { TherapieComponent } from "./components/therapie/therapie.component";
 import { AuthGuard } from "./services/auth.guard";
@@ -62,7 +63,7 @@ const routes: Routes = [
     {path: 'profile',component:ProfileComponent},
     {path:'navbar',component:NavComponent},
     {path: '',component:TherapieListComponent},
-
+    {path:'static',component:StaticsComponent},
     {path:'therapie/:id',component:TherapieComponent},
     {path:'modifierMedecin/:email',component:ModifMedsComponent},
     {path:'doctors',component:DoctorComponent},
@@ -75,6 +76,7 @@ const routes: Routes = [
         {path: 'profile',component:ProfileComponent},
         {path:'navbar',component:NavComponent},
         {path: 'therapies',component:TherapieListComponent},
+        {path:'static',component:StaticsComponent},
 
         {path:'therapies/therapie/:id',component:TherapieComponent},
         {path:'modifierMedecin/:email',component:ModifMedsComponent}
