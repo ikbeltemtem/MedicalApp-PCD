@@ -15,5 +15,13 @@
         <a routerLink="/therapies" class="mt-5">Back to Therapie List</a>
     </div>
 
-    <app-comment></app-comment>
+    
 </div>
+<div *ngFor="let temp of comments">
+    <p>{{ temp.email }}</p>
+    <p>{{ temp.text }}</p>
+</div>
+<div *ngIf="comments?.length ==0" class="alert alert-warning col-md-12" role="alert">
+  No Comment found
+  
+  </div>

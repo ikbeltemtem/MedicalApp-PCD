@@ -6,17 +6,19 @@ import { NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { Appointment } from 'src/app/common/appointment';
-
+import { CommentService } from 'src/app/services/comment.service';
+import { Comment } from 'src/app/common/comment';
 @Component({
   selector: 'app-therapie',
   templateUrl: './therapie.component.html',
   styleUrls: ['./therapie.component.css']
 })
 export class TherapieComponent implements OnInit {
-   
-  therapie!:Therapie;
+  comment:Comment=new Comment();
+  comments:Comment[]=[];
+  therapie:Therapie=new Therapie();
   id!:number;
-  constructor(private therapiService: TherapieService,private appointmentService:AppointmentService,
+  constructor(private therapiService: TherapieService,private appointmentService:AppointmentService,private commentService:CommentService,
     private route: ActivatedRoute) { }
 
  /*ngOnInit(): void {
@@ -29,7 +31,11 @@ export class TherapieComponent implements OnInit {
     this.id=this.route.snapshot.params['id'];
     this.therapiService.getTherapieById(this.id).subscribe(data =>{
       this.therapie=data;
-    })
+      this.commentService.getCommentByThId(this.therapie.name).subscribe(data => {
+        this.comments=data;
+      });
+    });
+   
   }
 
   add(){
@@ -58,7 +64,12 @@ export class TherapieComponent implements OnInit {
     }
 });
 }
-
+/*getComments(): void {
+  this.commentService.getCommentByThId(this.therapie.name).subscribe(data => {
+    this.comments=data;
+  });
+}
+*/
  handleThDetails() {
 
   // get the "id" param string. convert string to a number using the "+" symbol

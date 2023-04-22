@@ -4,21 +4,21 @@
     </div>
     <div class="card-body ">
         <form (ngSubmit)="onSubmit(addForm)"  #addForm="ngForm">
-            <input class="form-control " type="text " placeholder="nom du patient " ngModel required name="name ">
+            <input class="form-control" type="text" placeholder="nom du patient " ngModel required name="name">
 
 
-            <input class="form-control " type="text " placeholder="prénom du patient " ngModel required name="prenom ">
-            <input class="form-control " type="text " placeholder="age du patient " ngModel required name="age ">
-            <input class="form-control " type="text " placeholder="téléphone du patient " ngModel required name="number" >
-            <input class="form-control " type="text " placeholder="email du patient " ngModel name="email " >
-            <textarea class="form-control " type="text " placeholder="description de l 'état du patient" ngModel name="symptoms" ></textarea>
+            <input class="form-control" type="text" placeholder="prénom du patient " ngModel required name="prenom">
+            <input class="form-control" type="text" placeholder="age du patient " ngModel required name="age">
+            <input class="form-control" type="text" placeholder="téléphone du patient " ngModel required name="number" >
+            <input class="form-control" type="text" placeholder="email du patient " ngModel name="email" >
+            <textarea class="form-control" type="text " placeholder="description de l 'état du patient" ngModel name="symptoms" ></textarea>
             <small><u>Première disponibilité</u></small>
             <input class="form-control" name="dispo1" ngModel type="date">
            
          
 
             <small><u>Deuxième disponibilité</u></small>
-            <input class="form-control" name="date2" ngModel type="date" >
+            <input class="form-control" name="dispo2" ngModel type="date" >
           
 
           
@@ -33,7 +33,7 @@
                           <input class="form-control" type="text " placeholder="therapie " required name="therapie "[(ngModel)]="rendezvous.therapie">
 
         -->
-            <button [disabled]="addForm.invalid" style="margin-bottom: 10px; margin-left: 270px; width: 200px;" class="btn btn-success " type="submit">Envoyer</button>
+            <button [disabled]="addForm.invalid" style="margin-bottom: 10px; margin-left: 270px; width: 200px;" class="btn btn-success" type="submit">Envoyer</button>
         </form>
     </div>
     <div class="card-footer text-muted">
@@ -45,43 +45,3 @@
 
 
 
-<!--
-<div id="bas" style="margin-top: 500px;">
-    <h1>
-        <strong>Détails du rendez-vous</strong>
-    </h1>
-    <table class="table table-striped ">
-        <thead>
-            <tr>
-                <th>Nom du patient</th>
-                <th>Prénom du patient </th>
-                <th>Age</th>
-                <th>Téléphone</th>
-                <th>Email</th>
-                <th>Première Disponibilité</th>
-                <th>Deuxième Disponibilité</th>
-                <th>Troisième Disponibilité</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{nom}}</td>
-                <td>{{prenom}}</td>
-                <td>{{age}}</td>
-                <td>{{telephone}}</td>
-                <td>{{email}}</td>
-                <td>{{d1}} à {{t1}}</td>
-                <td>{{d2}} à {{t2}}</td>
-                <td>{{d3}} à {{t3}}</td>
-
-            </tr>
-        </tbody>
-    </table>
-    <div class="form-group ">
-        <input style="width: 200px;" type="submit " value="Se connecter " class="btn float-right login_btn btn-success ">
-    </div>
-    <div>
-        <a href="#haut">Modifier le contenu</a>
-    </div>
-</div>
--->

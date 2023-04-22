@@ -1,7 +1,7 @@
 export class Appointment {
     
        id!:number
-      name!:string
+      name:any
       prenom!:string
       
      age!:string

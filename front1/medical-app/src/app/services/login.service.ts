@@ -4,8 +4,10 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs';
 import { Appointment } from '../common/appointment';
+import { Notif } from '../common/notif';
 import { Patient } from '../common/patient';
 import { Secretaire } from '../common/secretaire';
+import { NotifService } from './notif.service';
 import { PatientService } from './patient.service';
 import { SecretaireService } from './secretaire.service';
 import { UserAuthService } from './user-auth.service';
@@ -20,12 +22,15 @@ export class LoginService {
 public isLoggedIn: Boolean = false;
 public rol!:string;
 secretaire:Secretaire | undefined;
-patient:Patient | undefined;
+patient:Patient=new Patient();
+
+public notifs:Notif[]=[];
 
 
-
-
-  constructor(private userAuthService: UserAuthService,private toastr:ToastrService,private userService:UserServiceService,private router:Router,private secService:SecretaireService,private patService:PatientService) { }
+  constructor(private userAuthService: UserAuthService,private notifService:NotifService,private toastr:ToastrService,private userService:UserServiceService,private router:Router,private secService:SecretaireService,private patService:PatientService) { 
+    this.getNotifs();
+   
+  }
 
  
 
@@ -54,18 +59,18 @@ patient:Patient | undefined;
             this.router.navigate(['/doctor']);
             this.toastr.success('Welcome!!!!!')
           }else if(rl == 'PATIENT'){
-          
+          this.getPatient();
           this.router.navigate(['/patient']);
     
-          this.toastr.success('Welcome!!!!!  '+this.patient?.firstname)}
+          this.toastr.success('Welcome!!!!!  '+this.patient.firstname)}
           else if(rl == 'MEDS'){
           
             this.router.navigate(['/doctorsec'])}
             else if(rl == 'SEC'){
              
-            
-              this.router.navigate(['/secretaire'])
-              
+              console.log(this.notifs[0].dispo1);
+              this.router.navigate(['/secretaire']);
+              this.toastr.success(this.notifs[0].dispo1);
               } 
         
       },
@@ -100,4 +105,11 @@ getPatient(){
   ).subscribe()
 }
 
+getNotifs():void{
+   this.notifService.getListeNotif().subscribe(data=>{
+    this.notifs=data;
+   });
+  
+  }
 }
+
