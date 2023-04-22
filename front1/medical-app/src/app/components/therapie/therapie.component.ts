@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Therapie } from 'src/app/common/therapie';
 import { TherapieService } from 'src/app/services/therapie.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { Appointment } from 'src/app/common/appointment';
 import { CommentService } from 'src/app/services/comment.service';
 import { Comment } from 'src/app/common/comment';
+import { LoginService } from 'src/app/services/login.service';
+import { UserServiceService } from 'src/app/services/user-service.service';
+import { PatientService } from 'src/app/services/patient.service';
+import { Patient } from 'src/app/common/patient';
+import { map } from 'rxjs';
 @Component({
   selector: 'app-therapie',
   templateUrl: './therapie.component.html',
@@ -18,67 +23,55 @@ export class TherapieComponent implements OnInit {
   comments:Comment[]=[];
   therapie:Therapie=new Therapie();
   id!:number;
+  patient:Patient=new Patient();
   constructor(private therapiService: TherapieService,private appointmentService:AppointmentService,private commentService:CommentService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,private router:Router,private loginService:LoginService,private login:UserServiceService,private patientService:PatientService) { this.getPatient()}
 
- /*ngOnInit(): void {
-    this.route.paramMap.subscribe(() => {
-      this.handleThDetails();
-      })
-  }*/
 
-  ngOnInit(): void {
+     ngOnInit(): void {
     this.id=this.route.snapshot.params['id'];
     this.therapiService.getTherapieById(this.id).subscribe(data =>{
+      console.log(data);
       this.therapie=data;
-      this.commentService.getCommentByThId(this.therapie.name).subscribe(data => {
-        this.comments=data;
+      console.log(this.therapie.name);
+      this.comment.therapie=this.therapie.name;
+      this.commentService.getCommentByThId(this.therapie.name).subscribe(dat => {
+        this.comments=dat;
       });
     });
-   
-  }
+    console.log(this.loginService.loggedUser + " est conncte");
+     if(this.loginService.rol=="PATIENT"){
+      this.patientService.findPatientByEmail(this.loginService.loggedUser).pipe(
+        map((medecin: Patient) => this.patient = medecin)
+      ).subscribe();
+  console.log("login role "+this.loginService.rol)
 
-  add(){
-    const container = document.getElementById('main-container');
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
-    button.setAttribute('data-target', '#addAppointmentModal');
-    container!.appendChild(button);
-    button.click();
-
+}
+}
+  onSubmit(addForm: NgForm){
+    if(this.login.isPatient()){
+    this.comment.text=addForm.value.text;
+     //this.comment.therapie=this.therapie.name;
     
- }
- public onAddAppointment(addForm: NgForm): void {
-  document.getElementById('add-Rdv-form')!.click();
-  this.appointmentService.addAppointment(addForm.value).subscribe({
-    next : (response: Appointment) => {
-      console.log(response);
-      this.handleThDetails();
-      addForm.reset();
-    },
-    error : (error: HttpErrorResponse) => {
-      alert(error.message);
-      addForm.reset();
-    }
-});
-}
-/*getComments(): void {
-  this.commentService.getCommentByThId(this.therapie.name).subscribe(data => {
-    this.comments=data;
-  });
-}
-*/
- handleThDetails() {
-
-  // get the "id" param string. convert string to a number using the "+" symbol
-  const theTherapieId: number = +this.route.snapshot.paramMap.get('id')!;
+     
+     this.comment.email=this.patient.email;
+    
+    this.commentService.createComment(this.comment).subscribe(data=>{
+     console.log(data);
+     this.router.navigate(['patient']);
   
-  this.therapiService.getTherapieById(theTherapieId).subscribe(
-  data => {
-  this.therapie = data;
-  }
-  )
+   });
+  
+   }}
+  add(){
+    this.router.navigate(['./appointment'])
+   
+       
+    }
+
+  getPatient(){
+    this.patientService.findPatientByEmail(this.loginService.loggedUser).pipe(
+      map((medecin: Patient) => this.patient = medecin)
+    ).subscribe()
   }
 }

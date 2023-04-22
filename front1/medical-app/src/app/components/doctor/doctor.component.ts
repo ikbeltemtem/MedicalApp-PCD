@@ -63,6 +63,9 @@ export class DoctorComponent implements OnInit {
       }
   });
   }
+  public add(){
+    this.router.navigate(['/ajouterMedecin']);
+  }
 
   public onOpenModal(doctor: Doctor , mode: string): void {
     const container = document.getElementById('main-container');

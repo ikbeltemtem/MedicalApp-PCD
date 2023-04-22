@@ -25,7 +25,7 @@ therapie:Therapie=new Therapie();
 patient!:Patient;
 form!: FormGroup;
 constructor(private commentService:CommentService,private login:UserServiceService,private loginService:LoginService,
-  private router:Router,private patientService:PatientService,private route:ActivatedRoute,private therapiService:TherapieService) { this.getComments()}
+  private router:Router,private patientService:PatientService,private route:ActivatedRoute,private therapiService:TherapieService) { }
 
 ngOnInit(): void {
   this.id=this.route.snapshot.params['id'];
@@ -46,18 +46,18 @@ if(this.loginService.rol=="PATIENT"){
 }
 }
 
-getComments(): void {
+/*getComments(): void {
   this.commentService.getCommentByThId(this.therapie.name).subscribe(data => {
     this.comments=data;
   });
-}
+}*/
 
 onSubmit(addForm: NgForm){
   if(this.login.isPatient()){
    this.comment.text=addForm.value.text;
    this.comment.therapie=this.therapie.name;
    this.comment.email=this.patient.email;
-   
+  
   this.commentService.createComment(this.comment).subscribe(data=>{
    console.log(data);
    this.router.navigate(['patient']);

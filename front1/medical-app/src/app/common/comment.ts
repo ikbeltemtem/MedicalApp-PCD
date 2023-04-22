@@ -3,8 +3,8 @@
 export class Comment {
 
     id!:number;
-    therapie!:String;
-    email!:String;
+    therapie:any;
+    email:any;
     text:any;
     createdDate!:String
 }

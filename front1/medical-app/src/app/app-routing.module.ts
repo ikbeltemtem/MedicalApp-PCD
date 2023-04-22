@@ -36,8 +36,7 @@ const routes: Routes = [
     path: 'inscrire',
     component: RegisterComponent
   },
-  {path: 'home',component: HomeComponent},
-  {path:'appointment',component:AppointmentComponent},
+  {path: '',component: HomeComponent},
    {path:'updateTherapie/:id',component:ModifTherapieComponent},
   {path:'navbar',component:NavComponent},
   {path:'ajouterMedecin',component:AjoutMedComponent,canActivate:[AuthGuard]},
@@ -50,17 +49,20 @@ const routes: Routes = [
     {path: 'home',component: HomeComponent},
     {path:'appointment',component:AppointmentComponent},
     {path:'navbar',component:NavComponent},
-    {path:'therapies/therapie/:id',component:TherapieComponent},
-    {path: 'therapies',component:TherapieListComponent},]
+    {path:'therapie/:id',component:TherapieComponent},
+    {path: '',component:TherapieListComponent},]
 },
   {path:'doctor',component:MedPComponent,canActivate:[MedAuthGuard],
   children:[
     {path: 'home',component: HomeComponent},
     {path:'ajouterTherapie',component:AjoutTherapieComponent},
+    {path: 'modifierTherapie',component:ModifTherapieComponent},
     {path:'ajouterMedecin',component:AjoutMedComponent},
     {path:'ajouterSecretaire',component:AjoutSecComponent},
     {path: 'profile',component:ProfileComponent},
     {path:'navbar',component:NavComponent},
+    {path: '',component:TherapieListComponent},
+
     {path:'therapie/:id',component:TherapieComponent},
     {path:'modifierMedecin/:email',component:ModifMedsComponent},
     {path:'doctors',component:DoctorComponent},
@@ -70,9 +72,10 @@ const routes: Routes = [
        children:[
         {path: 'home',component: HomeComponent},
         {path:'ajouterTherapie',component:AjoutTherapieComponent},
-        {path:'appointment',component:AppointmentComponent},
         {path: 'profile',component:ProfileComponent},
         {path:'navbar',component:NavComponent},
+        {path: 'therapies',component:TherapieListComponent},
+
         {path:'therapies/therapie/:id',component:TherapieComponent},
         {path:'modifierMedecin/:email',component:ModifMedsComponent}
        ]},
@@ -82,9 +85,8 @@ const routes: Routes = [
           {path:'profile',component:ProfileComponent},
           {path: 'therpaies',component:TherapieListComponent},
           {path:'modifierSecretaire/:email',component:ModifSecComponent},
-          {path:'appointment',component:AppointmentComponent},
           {path:'navbar',component:NavComponent},
-          {path:'therapie/:id',component:TherapieComponent},
+          {path:'therapies/therapie/:id',component:TherapieComponent},
           {path: 'appointments',component:AppointmentListComponent }
         ]},
 

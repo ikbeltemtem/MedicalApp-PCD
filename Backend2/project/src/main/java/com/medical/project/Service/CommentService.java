@@ -27,13 +27,13 @@ public class CommentService {
 
     public Comment save(CommentDto commentDto) {
         Comment comment = new Comment();
-        String therapieId=commentDto.getTherapieId();
+        String therapieId=commentDto.getTherapie();
 
 
         comment.setId(commentDto.getId());
         comment.setTherapie(therapieId);
         comment.setText(commentDto.getText());
-        comment.setEmail(commentDto.getUser());
+        comment.setEmail(commentDto.getEmail());
         if (comment.getId() == null){
              now = ZonedDateTime.now();
 

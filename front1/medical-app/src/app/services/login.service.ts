@@ -90,6 +90,8 @@ logout(){
   localStorage.removeItem('role');
 
   localStorage.setItem('isLoggedIn',String(this.isLoggedIn));
+  this.router.navigate(['./navbar']);
+
 
 }
 

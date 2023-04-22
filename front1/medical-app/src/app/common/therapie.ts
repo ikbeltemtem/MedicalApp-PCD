@@ -1,7 +1,7 @@
 export class Therapie {
     
                   id_t:any ;
-                  name: any;
+                  name:any;
                   description!:string ;
                   imageUrl!:string ;
                 

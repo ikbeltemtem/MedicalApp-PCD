@@ -17,11 +17,35 @@
 
     
 </div>
-<div *ngFor="let temp of comments">
-    <p>{{ temp.email }}</p>
-    <p>{{ temp.text }}</p>
-</div>
-<div *ngIf="comments?.length ==0" class="alert alert-warning col-md-12" role="alert">
-  No Comment found
+
+
+  <div class="comments">
+    <h3 class="comments-title">Comments</h3>
+    <div class="comment-form-title">Write comment</div>
+    <form class="example-form" (ngSubmit)="onSubmit(addForm)"  #addForm="ngForm">
+
   
+        <mat-form-field class="example-full-width" >
+          <mat-label>Leave a comment</mat-label>
+          <textarea matInput placeholder="Ex. It makes me feel..." class="form-control " type="text " [(ngModel)]="comment.text" name="text"></textarea>
+        </mat-form-field>
+        <button [disabled]="addForm.invalid" style="margin-bottom: 10px; margin-left: 270px; width: 200px;" class="btn btn-success " type="submit">Envoyer</button>
+      </form>
+      <div *ngIf="comments?.length ==0" class="alert alert-warning col-md-12" role="alert">
+        No Comment found
+        
+        </div>
+  <div class="comment" *ngFor="let com of comments">
+    <div class="comment-image-container">
+      <img src="../../../assets/user-icon.png" />
+    </div>
+    <div class="comment-right-part">
+      <div class="comment-content">
+        <div class="comment-author">{{ patient.firstname }}</div>
+        <div>{{ com.createdDate }}</div>
+      </div>
+      <div class="comment-text" >{{ com.text }}</div>
+    </div>
   </div>
+  </div>
+  

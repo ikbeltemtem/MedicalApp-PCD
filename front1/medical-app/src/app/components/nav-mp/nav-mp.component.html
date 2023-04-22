@@ -38,13 +38,19 @@
     </div>
   </div>-->
 
-  <nav class="navbar" style="background-color: #8ebcdd;">
+  <nav class="navbar navbar-expand-md navbar-light bg-success border fixed-top" style="background-color: #8ebcdd;">
     <div class="container-fluid">
-      <a class="navbar-brand">Navbar</a>
+      <a class="navbar-brand">Home Medecin</a>
       <form class="d-flex" role="search">
         <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; " routerLink="./home">home</button>
-        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "routerLink="./appointment">prise</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "(click)="logOut()" routerLink="./home">Logout</button>
+
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "routerLink="./profile">Profile</button>
         <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "routerLink="./therapies">Services</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "routerLink="./secretaires">Liste Secretaires</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "routerLink="./doctors">Liste Medecins</button>
+
+
       </form>
     </div>
   </nav>

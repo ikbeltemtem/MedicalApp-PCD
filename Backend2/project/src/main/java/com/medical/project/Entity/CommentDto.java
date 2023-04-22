@@ -4,17 +4,25 @@ import java.time.ZonedDateTime;
 
 public class CommentDto {
     private Long id;
-    private String therapieId;
+    private String therapie;
     private String text;
-    private String user;
+    private String email;
     private String createdDate;
 
-    public String getTherapieId() {
-        return therapieId;
+    public Long getId() {
+        return id;
     }
 
-    public void setTherapieId(String assignmentId) {
-        this.therapieId = assignmentId;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTherapie() {
+        return therapie;
+    }
+
+    public void setTherapie(String therapie) {
+        this.therapie = therapie;
     }
 
     public String getText() {
@@ -25,20 +33,12 @@ public class CommentDto {
         this.text = text;
     }
 
-    public String getUser() {
-        return user;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getCreatedDate() {
@@ -51,7 +51,7 @@ public class CommentDto {
 
     @Override
     public String toString() {
-        return "CommentDto [id=" + id + ", assignmentId=" + therapieId + ", text=" + text + ", user=" + user
+        return "CommentDto [id=" + id + ", assignmentId=" + therapie + ", text=" + text + ", user=" + email
                 + ", createdDate=" + createdDate + "]";
     }
 }
