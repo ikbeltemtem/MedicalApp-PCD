@@ -86,6 +86,8 @@ const routes: Routes = [
         children:[
           {path: 'home',component: HomeComponent},
           {path:'profile',component:ProfileComponent},
+          {path:'',component:ProfileComponent},
+
           {path: 'therpaies',component:TherapieListComponent},
           {path:'modifierSecretaire/:email',component:ModifSecComponent},
           {path:'navbar',component:NavComponent},
