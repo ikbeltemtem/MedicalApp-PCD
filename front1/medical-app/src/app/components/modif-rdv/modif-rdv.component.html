@@ -1,0 +1,33 @@
+<div id="haut" class=" card bg-light mb-3 ">
+    <div class="card-header ">
+        <h2>Modifier état du rendez-vous</h2>
+    </div>
+    <div class="card-body ">
+        <form (ngSubmit)="onSubmit()">
+            <input class="form-control " hidden type="text " placeholder="nom du patient " required name="name" [(ngModel)]="rendezvous.name ">
+            <input class="form-control " hidden type="text " placeholder="prénom du patient " required name="prenom" [(ngModel)]="rendezvous.prenom ">
+            <input class="form-control " hidden type="text " placeholder="age du patient " required name="age" [(ngModel)]="rendezvous.age ">
+            <input class="form-control " hidden type="text " placeholder="téléphone du patient " required name="number" [(ngModel)]="rendezvous.number">
+            <input class="form-control " hidden type="text " placeholder="email du patient " name="email" [(ngModel)]="rendezvous.email ">
+            <textarea class="form-control " hidden type="text " placeholder="description de l 'état du patient" name="symptoms" [(ngModel)]="rendezvous.symptoms"></textarea>
+            <small hidden><u>Première disponibilité</u></small>
+            <input class="form-control" hidden name="dispo1" type="date" [(ngModel)]="rendezvous.dispo1">
+
+            <small hidden><u>Deuxième disponibilité</u></small>
+            <input class="form-control" hidden name="dispo2" type="date" [(ngModel)]="rendezvous.dispo2">
+           
+
+    
+            <br>
+            <input class="form-control" hidden type="text " placeholder="therapie " required name="therapie " [(ngModel)]="rendezvous.therapie">
+
+            <div class="form-check" *ngFor="let item of _arrivelist">
+                <input class="form-check-input" type="checkbox" name="item.name" (change)="onchange()" [(ngModel)]="item.isselected">{{item.name}}
+
+            </div>
+
+            <button style="margin-bottom: 10px; margin-left: 270px; width: 200px;" class="btn btn-success " type="submit">Confirmer</button>
+        </form>
+    </div>
+
+</div>

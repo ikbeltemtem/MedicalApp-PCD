@@ -21,7 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ModifRdvComponent } from './components/modif-rdv/modif-rdv.component';
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { SecretaireComponent } from './components/secretaire/secretaire.component';
 import { CommentComponent } from './components/comment/comment.component';
@@ -112,7 +112,8 @@ const routes: Routes = [
     AppointmentComponent,
     TherapieListModifComponent,
     FooterComponent,
-    CommentComponent
+    CommentComponent,
+    ModifRdvComponent
   ],
   imports: [
     AppRoutingModule,

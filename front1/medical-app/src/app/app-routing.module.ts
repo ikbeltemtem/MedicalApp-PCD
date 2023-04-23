@@ -12,6 +12,7 @@ import { LoginComponent } from "./components/login/login.component";
 import { MedPComponent } from "./components/med-p/med-p.component";
 import { MedSComponent } from "./components/med-s/med-s.component";
 import { ModifMedsComponent } from "./components/modif-meds/modif-meds.component";
+import { ModifRdvComponent } from "./components/modif-rdv/modif-rdv.component";
 import { ModifSecComponent } from "./components/modif-sec/modif-sec.component";
 import { ModifTherapieComponent } from "./components/modif-therapie/modif-therapie.component";
 import { NavComponent } from "./components/nav/nav.component";
@@ -89,7 +90,8 @@ const routes: Routes = [
           {path:'modifierSecretaire/:email',component:ModifSecComponent},
           {path:'navbar',component:NavComponent},
           {path:'therapies/therapie/:id',component:TherapieComponent},
-          {path: 'appointments',component:AppointmentListComponent }
+          {path: 'appointments',component:AppointmentListComponent },
+          {path:'appointments/modif/:id',component:ModifRdvComponent}
         ]},
 
   {path:'forbidden',component:ForbiddenComponent}

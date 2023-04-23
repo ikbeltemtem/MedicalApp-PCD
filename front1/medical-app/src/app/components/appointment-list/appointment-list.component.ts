@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Appointment } from 'src/app/common/appointment';
 import { AppointmentService } from 'src/app/services/appointment.service';
 
@@ -26,7 +26,7 @@ export class AppointmentListComponent implements OnInit {
    }
  
 
-  constructor(private appointmentService: AppointmentService,
+  constructor(private appointmentService: AppointmentService,private route:ActivatedRoute,
                private router:Router) { }
 
   ngOnInit(): void {
@@ -81,7 +81,12 @@ export class AppointmentListComponent implements OnInit {
   public add(){
     this.router.navigate(['/appointment']);
   }
+  edit(id:number){
+   
+    this.router.navigate(['./modif', id], { relativeTo: this.route });
 
+       
+    }
   public onOpenModal(appointment: Appointment , mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
