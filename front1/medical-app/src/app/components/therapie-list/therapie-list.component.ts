@@ -39,10 +39,11 @@ export class TherapieListComponent implements OnInit {
   console.log(a.value);
 }
 
- afficher(y: any, x: any) {
+ afficher(y: number, x: any) {
   //y => id de la thérapie 
   console.log(y + " " + x);
   this.therapieService.getTherapieById(y).subscribe(data => {
+    console.log(this.therapie.id_t);
     this.therapie = data;
     this.therapie.star = x;
 

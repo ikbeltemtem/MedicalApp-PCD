@@ -217,9 +217,13 @@
                          <input class="form-control" type="text" ngModel="{{editAppointment?.dispo2}}" name="dispo2" placeholder="dispo2" value="dispo2">
                        </div>
                      </div>
+                     <div class="col">
+                   
                      <div class="form-check" *ngFor="let item of _arrivelist">
+                      <label for="item.name">Etat</label>
                       <input class="form-check-input" type="checkbox" name="item.name" (change)="onchange()" [(ngModel)]="item.isselected">{{item.name}}
-      
+     
+                      </div>
                   </div>
                    </div>
                     

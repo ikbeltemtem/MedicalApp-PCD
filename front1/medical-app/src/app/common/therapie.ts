@@ -1,6 +1,6 @@
 export class Therapie {
     
-                  id_t:any ;
+                  id_t!:number ;
                   name:any;
                   description!:string ;
                   imageUrl!:string ;
