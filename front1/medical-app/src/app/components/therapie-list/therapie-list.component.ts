@@ -31,9 +31,7 @@ export class TherapieListComponent implements OnInit {
 
   add(id:number){
  this.router.navigate(['../appointment'])
-
-    
- }
+}
 
  get(a: { value: any; }) {
   console.log(a.value);

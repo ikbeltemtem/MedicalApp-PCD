@@ -30,7 +30,7 @@ public class AppointmentServiceImp  implements AppointmentService{
     }
     public List<appointment> getArrive(){
         appRepo=null;
-        String arrivee = "en cours";
+        String arrivee = "arrivee";
         return appRepo.findByArrivee(arrivee);
     }
     public appointment updateAppoint(Long id,appointment appoint){

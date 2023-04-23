@@ -38,11 +38,11 @@ export class StaticsComponent implements OnInit {
       data: {
         labels: labeldata,
         datasets: [{
-          label: '# of Votes',
+          label: '# nombre',
           data: maindata,
           backgroundColor: colordata,
           borderColor: [
-            'rgba(255, 99, 132, 1)'
+            ''
           ],
           borderWidth: 1
         }]
