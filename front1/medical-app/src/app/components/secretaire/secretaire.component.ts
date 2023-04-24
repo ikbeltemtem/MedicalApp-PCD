@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Secretaire } from 'src/app/common/secretaire';
 import { SecretaireService } from 'src/app/services/secretaire.service';
 
@@ -15,7 +15,7 @@ export class SecretaireComponent implements OnInit {
    public deleteSecretaire!:Secretaire|null;
    public editSecretaire! : Secretaire|null;
 
-  constructor(private secretaireService: SecretaireService,
+  constructor(private secretaireService: SecretaireService,private route :ActivatedRoute,
                private router:Router) { }
 
   ngOnInit(): void {
@@ -47,7 +47,15 @@ export class SecretaireComponent implements OnInit {
       }
   });
 }
+edit(id:string){
+   
+  this.router.navigate(['./modifierSecretaire', id], { relativeTo: this.route });
 
+     
+  }
+  public add(){
+    this.router.navigate(['../ajouterSecretaire'], { relativeTo: this.route });
+  }
 
   public onAddSecretaire(addForm: NgForm): void {
     document.getElementById('add-secretaire-form')!.click();

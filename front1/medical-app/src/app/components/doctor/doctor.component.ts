@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from 'src/app/common/doctor';
 import { DoctorService } from 'src/app/services/doctor.service';
 
@@ -15,7 +15,7 @@ export class DoctorComponent implements OnInit {
    public deleteDoctor!:Doctor|null;
    public editDoctor! : Doctor|null;
 
-  constructor(private doctorService: DoctorService,
+  constructor(private doctorService: DoctorService,private route:ActivatedRoute,
                private router:Router) { }
 
   ngOnInit(): void {
@@ -47,7 +47,12 @@ export class DoctorComponent implements OnInit {
       }
   });
 }
+edit(id:string){
+   
+  this.router.navigate(['./modifierMedecin', id], { relativeTo: this.route });
 
+     
+  }
 
   public onAddDoctor(addForm: NgForm): void {
     document.getElementById('add-doctor-form')!.click();
@@ -64,7 +69,7 @@ export class DoctorComponent implements OnInit {
   });
   }
   public add(){
-    this.router.navigate(['/ajouterMedecin']);
+    this.router.navigate(['../ajouterMedecin'], { relativeTo: this.route });
   }
 
   public onOpenModal(doctor: Doctor , mode: string): void {

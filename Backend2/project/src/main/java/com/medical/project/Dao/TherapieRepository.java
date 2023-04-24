@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface TherapieRepository extends JpaRepository<Therapie,Long> {
+public interface TherapieRepository extends JpaRepository<Therapie,Integer> {
 
 
 

@@ -1,14 +1,14 @@
-export interface Doctor {
-    id: number;
-    firstname: string;
-    speciality: string;
+export class Doctor {
+    id!: number;
+    firstname: any;
+    speciality!: string;
     
-    lastname:string ;
-    age:number ;
-    tel:string ;
-    email:string ;
-    password:string ;
-    adresse:string;
+    lastname!:string ;
+    age!:number ;
+    tel!:string ;
+    email!:string ;
+    password!:string ;
+    adresse!:string;
   
     
   }

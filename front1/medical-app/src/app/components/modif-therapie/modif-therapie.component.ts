@@ -10,7 +10,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
   styleUrls: ['./modif-therapie.component.css']
 })
 export class ModifTherapieComponent implements OnInit {
-  therapie!:Therapie;
+  therapie:Therapie=new Therapie();
   id:any;
 
   imageTherapie:any;
@@ -36,11 +36,7 @@ export class ModifTherapieComponent implements OnInit {
       else if(this.login.isSecretaire()){
         this.router.navigate(['secretaire']);
       }
-      else {
-        this.router.navigate(['patient']);
-      }
-      
-      
+  
     })
   }
 

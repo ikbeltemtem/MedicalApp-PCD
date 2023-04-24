@@ -2,14 +2,14 @@
     <h3><strong> Modifier Thérapie </strong></h3>
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <input type="text" class="form-control" id="name" placeholder="Nom de la thérapie " ngModel name="name">
+            <input type="text" class="form-control" id="name" placeholder="Nom de la thérapie " [(ngModel)]="therapie.name" name="name">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" id="decription" placeholder="Description de la thérapie " ngModel  name="description">
+            <input type="text" class="form-control" id="decription" placeholder="Description de la thérapie " [(ngModel)]="therapie.description"  name="description">
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="file" (change)="onSelectFile($event)" id="imageUrl" placeholder="image de la thérapie " ngModel  name="imageUrl">
+            <input class="form-control" type="file" (change)="onSelectFile($event)" id="imageUrl" placeholder="image de la thérapie "   name="imageUrl">
             <img [src]="imgURL" height="200px" *ngIf="imgURL">
         </div>
        

@@ -61,13 +61,13 @@ public class TherapieController {
 
     @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "Requestor-Type", exposedHeaders = "X-Get-Header")
     @GetMapping("/get/{id}")
-    public ResponseEntity<Therapie> getTherapieById(@PathVariable("id") Long id){
+    public ResponseEntity<Therapie> getTherapieById(@PathVariable("id") Integer id){
         Therapie therapie = therapieRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Therapie non trouvé avec l'id :"+id));
         return ResponseEntity.ok(therapie);
     }
     @CrossOrigin(origins= {"*"}, maxAge = 4800,allowedHeaders = "*", allowCredentials = "false" )
     @PutMapping("/update/{id}")
-    public ResponseEntity<Therapie> updateTherapie(@PathVariable Long id,@RequestBody Therapie therapieInfo){
+    public ResponseEntity<Therapie> updateTherapie(@PathVariable Integer id,@RequestBody Therapie therapieInfo){
         Therapie therapie = therapieRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException ("Therapie non trouvé avec l'id :"+id));
         therapie.setName(therapieInfo.getName());
         therapie.setDescription(therapieInfo.getDescription());
@@ -77,7 +77,7 @@ public class TherapieController {
 
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Map<String,Boolean>> deleteMedecin(@PathVariable Long id){
+    public ResponseEntity<Map<String,Boolean>> deleteMedecin(@PathVariable Integer id){
 
         Therapie therapie = therapieRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException ("Thérapie non trouvé avec l'id :"+id));
         therapieRepository.delete(therapie);
@@ -90,7 +90,7 @@ public class TherapieController {
     }
 
     @PutMapping("/updateRate/{id}")
-    public ResponseEntity<Therapie> updateTherapieRate(@PathVariable Long id,@RequestBody Therapie therapieInfo){
+    public ResponseEntity<Therapie> updateTherapieRate(@PathVariable Integer id,@RequestBody Therapie therapieInfo){
         Therapie therapie = therapieRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException ("Therapie non trouvé avec l'id :"+id));
 
         switch ((int)therapieInfo.getStar()) {

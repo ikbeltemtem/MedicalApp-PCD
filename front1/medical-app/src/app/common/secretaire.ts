@@ -1,14 +1,14 @@
-export interface Secretaire {
-    id: number;
-    firstname: string;
+export class Secretaire {
+    id!: number;
+    firstname!: any;
     
     
-    lastname:string ;
-    age:string ;
-    tel:string ;
-    email:string ;
-    password:string ;
-    adresse:string;
+    lastname!:string ;
+    age!:string ;
+    tel!:string ;
+    email!:string ;
+    password!:string ;
+    adresse!:string;
    
   
     

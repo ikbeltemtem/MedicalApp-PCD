@@ -24,7 +24,7 @@ nom:any;
 
   updateTherapie(id:any){
 
-    this.router.navigate(['/updateTherapie',id],{relativeTo:this.route});
+    this.router.navigate(['../updateTherapie',id],{relativeTo:this.route});
   }
 
 

@@ -14,7 +14,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 })
 export class AjoutMedComponent implements OnInit {
 
-medecin!:Doctor;
+medecin:Doctor=new Doctor();
 user:User=new User();
   constructor(private router:Router,private userService:UserServiceService,private doctorService:DoctorService) { }
 
@@ -72,7 +72,7 @@ user:User=new User();
 
    // this.form.reset();
     
-    this.router.navigate(['/doctorsec']);
+    this.router.navigate(['/doctor']);
   }
 
 }

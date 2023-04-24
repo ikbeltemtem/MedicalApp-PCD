@@ -21,16 +21,17 @@ import { TherapieService } from 'src/app/services/therapie.service';
 })
 export class AppointmentComponent implements OnInit {
 public therapies!:Therapie[];
-therapie!:Therapie;
+therapie:Therapie=new Therapie();
   id!:number;
   statistics:Static[]=[];
 
-rendezvous!:Appointment;
+rendezvous:Appointment=new Appointment();
   public notif: Notif=new Notif();
   constructor(private router:Router,private therapieService:TherapieService,private staticService:StaticService,private notifService:NotifService,private appointmentService:AppointmentService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
 this.getStatics();
+this.getTherapies();
   }
 
   getTherapies():void{

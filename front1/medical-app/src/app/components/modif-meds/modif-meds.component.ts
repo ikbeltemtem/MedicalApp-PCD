@@ -10,8 +10,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
   styleUrls: ['./modif-meds.component.css']
 })
 export class ModifMedsComponent implements OnInit {
-  editDoctor!:Doctor;
-  doctor!:Doctor;
+  doctor:Doctor=new Doctor();
   //user!:User;
   email!:string;
   id!:number;
@@ -21,17 +20,16 @@ export class ModifMedsComponent implements OnInit {
     this.email=this.route.snapshot.params['email'];
       this.doctorService.findMedecinByEmail(this.email).subscribe(data=>{
         this.doctor=data;
-        this.editDoctor=data;
        
       })
   }
 
   onSubmit(){
-    this.doctorService.updateDoctor(this.editDoctor.id,this.doctor).subscribe(data=>{
+    this.doctorService.updateDoctor(this.doctor.id,this.doctor).subscribe(data=>{
       if(this.userService.isMedP()){
        
         this.userService.updateMed(this.email,this.doctor).subscribe(data=>{
-          this.router.navigate(['medecinPrincipal']);
+          this.router.navigate(['doctor']);
         })
         
       }

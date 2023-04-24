@@ -46,7 +46,7 @@ export class AjoutSecComponent implements OnInit {
 
    // this.form.reset();
     
-    this.router.navigate(['/doctorsec']);
+    this.router.navigate(['/doctor']);
   }
 
 }

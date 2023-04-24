@@ -47,8 +47,8 @@ public class DoctorController {
 
     }
 
-    @PutMapping("/update/{id_doctor}")
-    public ResponseEntity<Doctor> updateDoctor(@PathVariable("id_doctor") Long id_doctor,@RequestBody Doctor doc){
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Doctor> updateDoctor(@PathVariable("id") Long id_doctor,@RequestBody Doctor doc){
         Doctor docnew=doctorService.updateDoctor(id_doctor,doc);
         return ResponseEntity.ok(docnew);
 

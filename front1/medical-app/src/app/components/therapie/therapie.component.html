@@ -1,13 +1,13 @@
 
 <div class="detail-section">
     <div class="container-fluid">
-       <p>THerapi!!!!!!!!!!</p>
+      
         <img src="{{ therapie.imageUrl }}" class="detail-img">
 
         <h3>{{ therapie.name }}</h3>
-        
+        <div *ngIf="islogged">
         <button (click)="add()" class="btn btn-primary btn-sm">Prendre Rendez-vous</button>
-
+</div>
         <hr>
         <h4>Description</h4>
         <p>{{ therapie.description }}</p>
@@ -21,8 +21,8 @@
 
   <div class="comments">
     <h3 class="comments-title">Comments</h3>
-    <div class="comment-form-title">Write comment</div>
-    <form class="example-form" (ngSubmit)="onSubmit(addForm)"  #addForm="ngForm">
+    <div *ngIf="islogged" class="comment-form-title">Write comment</div>
+    <form *ngIf="islogged" class="example-form" (ngSubmit)="onSubmit(addForm)"  #addForm="ngForm">
 
   
         <mat-form-field class="example-full-width" >

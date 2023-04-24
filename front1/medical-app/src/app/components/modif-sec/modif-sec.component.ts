@@ -13,8 +13,7 @@ import { UserAuthService } from 'src/app/services/user-auth.service';
   styleUrls: ['./modif-sec.component.css']
 })
 export class ModifSecComponent implements OnInit {
-editSecretaire!:Secretaire;
-secretaire!:Secretaire;
+secretaire:Secretaire=new Secretaire();
 user!:User;
 email!:string;
 id!:number;
@@ -25,7 +24,6 @@ id!:number;
       this.email=this.route.snapshot.params['email'];
       this.secretaireService.findSecByEmail(this.email).subscribe(data=>{
         this.secretaire=data;
-        this.editSecretaire=data;
        
       })
   }
@@ -33,11 +31,11 @@ id!:number;
  
 
 onSubmit(){
-  this.secretaireService.updateSecretaire(this.editSecretaire.id,this.secretaire).subscribe(data=>{
+  this.secretaireService.updateSecretaire(this.secretaire.id,this.secretaire).subscribe(data=>{
     if(this.userService.isMedP()){
      
       this.userService.updateSec(this.email,this.secretaire).subscribe(data=>{
-        this.router.navigate(['medecinPrincipal']);
+        this.router.navigate(['doctor']);
       })
       
     }

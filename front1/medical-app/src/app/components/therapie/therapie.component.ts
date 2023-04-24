@@ -23,6 +23,7 @@ export class TherapieComponent implements OnInit {
   comments:Comment[]=[];
   therapie:Therapie=new Therapie();
   id!:number;
+  islogged:Boolean=false;
   patient:Patient=new Patient();
   constructor(private therapiService: TherapieService,private appointmentService:AppointmentService,private commentService:CommentService,
     private route: ActivatedRoute,private router:Router,private loginService:LoginService,private login:UserServiceService,private patientService:PatientService) { this.getPatient()}
@@ -45,7 +46,7 @@ export class TherapieComponent implements OnInit {
         map((medecin: Patient) => this.patient = medecin)
       ).subscribe();
   console.log("login role "+this.loginService.rol)
-
+  this.islogged=this.loginService.isLoggedIn;
 }
 }
   onSubmit(addForm: NgForm){

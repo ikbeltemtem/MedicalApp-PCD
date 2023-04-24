@@ -34,6 +34,7 @@ public class DoctorServiceImp  implements DoctorService{
         doct.setSpeciality(doctor.getSpeciality());
         doct.setFirstname(doctor.getFirstname());
         doct.setLastname(doctor.getLastname());
+        doct.setTel(doctor.getTel());
         doct.setAge(doctor.getAge());
         doct.setAdresse(doctor.getAdresse());
         doct.setEmail(doctor.getEmail());

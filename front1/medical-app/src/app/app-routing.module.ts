@@ -22,6 +22,7 @@ import { RegisterComponent } from "./components/register/register.component";
 import { SecComponent } from "./components/sec/sec.component";
 import { SecretaireComponent } from "./components/secretaire/secretaire.component";
 import { StaticsComponent } from "./components/statics/statics.component";
+import { TherapieListModifComponent } from "./components/therapie-list-modif/therapie-list-modif.component";
 import { TherapieListComponent } from "./components/therapie-list/therapie-list.component";
 import { TherapieComponent } from "./components/therapie/therapie.component";
 import { AuthGuard } from "./services/auth.guard";
@@ -39,12 +40,8 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {path: '',component: HomeComponent},
-   {path:'updateTherapie/:id',component:ModifTherapieComponent},
   {path:'navbar',component:NavComponent},
-  {path:'ajouterMedecin',component:AjoutMedComponent,canActivate:[AuthGuard]},
-  {path:'ajouterSecretaire',component:AjoutSecComponent,canActivate:[AuthGuard]},
-  {path:'ajouterTherapie',component:AjoutTherapieComponent,canActivate:[AuthGuard]},
-  {path: 'therapie/:id', component:TherapieComponent},
+  {path: 'therapies/therapie/:id', component:TherapieComponent},
   {path: 'therpaies',component:TherapieListComponent},
   {path:'patient',component:PatientComponent, canActivate:[AuthGuard],
   children:[
@@ -66,9 +63,13 @@ const routes: Routes = [
     {path: '',component:TherapieListComponent},
     {path:'static',component:StaticsComponent},
     {path:'therapie/:id',component:TherapieComponent},
-    {path:'modifierMedecin/:email',component:ModifMedsComponent},
+    {path:'doctors/modifierMedecin/:email',component:ModifMedsComponent},
     {path:'doctors',component:DoctorComponent},
-    {path:'secretaires',component:SecretaireComponent}
+    {path:'secretaires/modifierSecretaire/:email',component:ModifSecComponent},
+     {path:'therapiesModif',component:TherapieListModifComponent},
+    {path:'secretaires',component:SecretaireComponent},
+    {path:'updateTherapie/:id',component:ModifTherapieComponent},
+
    ]},
   {path:'doctorsec',component:MedSComponent, canActivate:[MedSAuthGuard],
        children:[

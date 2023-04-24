@@ -18,8 +18,8 @@ export class DoctorService {
   public addDoctor(doctor: Doctor): Observable<Doctor> {
     return this.httpClient.post<Doctor>(`${this.baseUrl}/add`, doctor);
   }
-  public updateDoctor(id_doctor:number,doctor : Doctor): Observable<Doctor> {
-    return this.httpClient.put<Doctor>(`${this.baseUrl}/update/${id_doctor}`, doctor);
+  public updateDoctor(id:number,doctor : Doctor): Observable<Doctor> {
+    return this.httpClient.put<Doctor>(`${this.baseUrl}/update/${id}`, doctor);
   }
   public deleteDoctor(doctorId: number): Observable<void> {
     return this.httpClient.delete<void>(`${this.baseUrl}/delete/${doctorId}`);

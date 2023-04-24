@@ -2,10 +2,15 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs';
 import { Appointment } from 'src/app/common/appointment';
+import { Patient } from 'src/app/common/patient';
 import { Therapie } from 'src/app/common/therapie';
 import { AppointmentService } from 'src/app/services/appointment.service';
+import { LoginService } from 'src/app/services/login.service';
+import { PatientService } from 'src/app/services/patient.service';
 import { TherapieService } from 'src/app/services/therapie.service';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-therapie-list',
@@ -16,13 +21,21 @@ export class TherapieListComponent implements OnInit {
 
   therapies: Therapie[]=[];
   therapie: Therapie=new Therapie();
-
+  islogged:Boolean=false;
+  patient:Patient=new Patient();
   constructor(private therapieService :TherapieService,private appointmentService:AppointmentService,
-              private route :ActivatedRoute,private router:Router) { }
+              private route :ActivatedRoute,private router:Router,private loginService:LoginService,private login:UserServiceService,private patientService:PatientService) { }
 
   ngOnInit(): void {
     this.getTherapies();
-  }
+    console.log(this.loginService.loggedUser + " est conncte");
+    if(this.loginService.rol=="PATIENT"){
+     this.patientService.findPatientByEmail(this.loginService.loggedUser).pipe(
+       map((medecin: Patient) => this.patient = medecin)
+     ).subscribe();
+ console.log("login role "+this.loginService.rol)
+ this.islogged=this.loginService.isLoggedIn;
+  }}
    getTherapies(): void {
     this.therapieService.getListeTherapie().subscribe(data => {
       this.therapies = data;
@@ -30,7 +43,11 @@ export class TherapieListComponent implements OnInit {
   }
 
   add(id:number){
- this.router.navigate(['../appointment'])
+    if(this.islogged){
+ this.router.navigate(['../appointment'])}
+ else{
+  this.router.navigate(['../login'])
+ }
 }
 
  get(a: { value: any; }) {
