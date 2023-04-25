@@ -18,6 +18,7 @@ export class ModifRdvComponent implements OnInit{
       this.rendezvous = data;
     })
     this.getarrive();
+    this.getStatics();
   }
   constructor(private rendezvousservice: AppointmentService,  private staticService:StaticService,private route: ActivatedRoute, private router: Router) { }
 
@@ -36,22 +37,29 @@ export class ModifRdvComponent implements OnInit{
   onSubmit() {
 
     this.rendezvousservice.updateAppointment(this.id, this.rendezvous).subscribe(data => {
-      this.router.navigate(['secretaire']);
-      
-    })
-    if(this.rendezvous.arrivee=="arrivee"){
-      this.statistics[2].amount++;
-    this.staticService.updateStat(1,this.statistics[2]).subscribe(data=>{
-     })
-    }else if(this.rendezvous.arrivee=="en attente"){
-      this.statistics[3].amount++;
-    this.staticService.updateStat(1,this.statistics[3]).subscribe(data=>{
-     })
-    }else{
-      this.statistics[4].amount++;
-      this.staticService.updateStat(1,this.statistics[4]).subscribe(data=>{
+      this.rendezvous=data;
+      console.log(this.rendezvous);
+      if(this.rendezvous.arrivee=="arrivee"){
+        console.log( this.statistics[2].amount)
+        this.statistics[2].amount++;
+        console.log( this.statistics[2].amount)
+
+      this.staticService.updateStat(5,this.statistics[2]).subscribe(data=>{
        })
-    }
+      }else if(this.rendezvous.arrivee=="en attente"){
+        this.statistics[3].amount++;
+      this.staticService.updateStat(4,this.statistics[3]).subscribe(data=>{
+       })
+      }else{
+        this.statistics[4].amount++;
+        this.staticService.updateStat(3,this.statistics[4]).subscribe(data=>{
+         })
+      }
+      this.router.navigate(['secretaire']);
+
+      })
+      
+    
   }
 
   onchange() {

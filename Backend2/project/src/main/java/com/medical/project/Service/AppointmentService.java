@@ -14,6 +14,8 @@ public interface AppointmentService {
     public appointment findAppointmentById(Long id);
     public appointment createAppointment(appointment appoint);
     public List<appointment> getArrive();
+    public List<appointment> findAppointByEmail(String email );
+
 
 
         public void deleteAppointment(Long id);

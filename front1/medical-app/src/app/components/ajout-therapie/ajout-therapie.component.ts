@@ -43,7 +43,7 @@ export class AjoutTherapieComponent implements OnInit {
         } else {
           this.message = 'Image not uploaded successfully';
         }
-       // this.router.navigate(['medecinPrincipal']);
+       this.router.navigate(['doctor']);
 
       }
       );

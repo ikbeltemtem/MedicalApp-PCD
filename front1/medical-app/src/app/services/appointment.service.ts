@@ -32,6 +32,9 @@ export class AppointmentService {
   public getAppointmentById(id:number):Observable<Appointment>{
     return this.httpClient.get<Appointment>(`${this.baseUrl}/find/${id}`);
   }
+  public findAppointByEmail(email:string):Observable<Appointment[]>{
+    return this.httpClient.get<Appointment[]>(`${this.baseUrl}/findmail/${email}`);
+  }
 }
   
   

@@ -2,7 +2,7 @@
 <div class="detail-section">
     <div class="container-fluid">
       
-        <img src="{{ therapie.imageUrl }}" class="detail-img">
+        <img src="assets/image/{{ therapie.imageUrl }}" class="detail-img">
 
         <h3>{{ therapie.name }}</h3>
         <div *ngIf="islogged">
@@ -12,7 +12,7 @@
         <h4>Description</h4>
         <p>{{ therapie.description }}</p>
 
-        <a routerLink="/therapies" class="mt-5">Back to Therapie List</a>
+        <a (click)="cancel()" class="mt-5">Back to Therapie List</a>
     </div>
 
     

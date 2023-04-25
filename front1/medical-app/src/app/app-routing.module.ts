@@ -15,6 +15,7 @@ import { ModifMedsComponent } from "./components/modif-meds/modif-meds.component
 import { ModifRdvComponent } from "./components/modif-rdv/modif-rdv.component";
 import { ModifSecComponent } from "./components/modif-sec/modif-sec.component";
 import { ModifTherapieComponent } from "./components/modif-therapie/modif-therapie.component";
+import { MyRdvComponent } from "./components/my-rdv/my-rdv.component";
 import { NavComponent } from "./components/nav/nav.component";
 import { PatientComponent } from "./components/patient/patient.component";
 import { ProfileComponent } from "./components/profile/profile.component";
@@ -49,6 +50,7 @@ const routes: Routes = [
     {path:'appointment',component:AppointmentComponent},
     {path:'navbar',component:NavComponent},
     {path:'therapie/:id',component:TherapieComponent},
+    {path:'myRdv',component:MyRdvComponent},
     {path: '',component:TherapieListComponent},]
 },
   {path:'doctor',component:MedPComponent,canActivate:[MedAuthGuard],

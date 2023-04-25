@@ -54,6 +54,8 @@ public class TherapieController {
 
     @PostMapping("/createTherapie")
     public Therapie createTherapie(@RequestBody Therapie therapie) {
+
+        therapie.setImageUrl("assets/image/"+therapie.getImageUrl());
         return therapieRepository.save(therapie);
     }
 

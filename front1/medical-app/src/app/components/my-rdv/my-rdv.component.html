@@ -1,0 +1,60 @@
+<div class="col mb-2">
+    <div class="e-tabs mb-3 px-3">
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" href="#">Liste des Rendez-vous</a></li>
+      </ul>
+    </div>
+
+    <div class="row flex-lg-nowrap">
+      <div class="col col-xxl-auto mb-3">
+        <div class="e-panel card">
+          <div class="card-body">
+            <div class="card-title">
+              <h6 class="mr-2"><span>Users</span><small class="px-1">Liste</small></h6>
+            </div>
+            <div class="e-table">
+              <div class="table-responsive table-lg mt-3">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      
+
+                      <th class="max-width">Nom</th>
+                      <th class="max-width">Prénom</th>
+                      <th class="max-width">Téléphone</th>
+                      <th class="max-width">description</th>
+                      <th class="sortable">premiére disponiblité</th>
+                      <th class="sortable">deuxiéme disponiblité</th>
+                      <th class="max-width">Etat Rendez-vous</th>
+
+                  
+                     
+                   
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let rendezvou of appointments ">
+                    
+                      <td class="text-nowrap align-middle">{{rendezvou.name}}</td>
+                      <td class="text-nowrap align-middle">{{rendezvou.prenom}}</td>
+                      <td class="text-nowrap align-middle">{{rendezvou.number}}</td>
+                      <td class="text-nowrap align-middle">{{rendezvou.symptoms}}</td>
+                      
+
+                      <td class="text-nowrap align-middle"><span>{{rendezvou.dispo1}}</span></td>
+                      <td class="text-nowrap align-middle"><span>{{rendezvou.dispo2}}</span></td>
+                      
+                      <td class="text-nowrap align-middle"><span>{{rendezvou.arrivee}}</span></td>
+
+                    </tr>
+          
+                  </tbody>
+                </table>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -18,7 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ToastrModule } from 'ngx-toastr';
-
+import { MyRdvComponent } from './components/my-rdv/my-rdv.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModifRdvComponent } from './components/modif-rdv/modif-rdv.component';
@@ -113,7 +113,8 @@ const routes: Routes = [
     TherapieListModifComponent,
     FooterComponent,
     CommentComponent,
-    ModifRdvComponent
+    ModifRdvComponent,
+    MyRdvComponent
   ],
   imports: [
     AppRoutingModule,

@@ -1,6 +1,7 @@
 package com.medical.project.Service;
 
 import com.medical.project.Dao.appointmentRepository;
+import com.medical.project.Entity.Doctor;
 import com.medical.project.Entity.appointment;
 import com.medical.project.Exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
@@ -28,6 +29,10 @@ public class AppointmentServiceImp  implements AppointmentService{
 
         return appRepo.findAll();
     }
+    public List<appointment> findAppointByEmail(String email ){
+        return appRepo.findByEmail(email);
+
+    }
     public List<appointment> getArrive(){
         appRepo=null;
         String arrivee = "arrivee";
@@ -52,6 +57,7 @@ public class AppointmentServiceImp  implements AppointmentService{
         return appRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException ("patient non trouvé avec l'id :"+id));
 
     }
+
     public void deleteAppointment(Long id){
         appRepo.deleteAppointmentById(id);
     }

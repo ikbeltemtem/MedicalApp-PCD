@@ -2,6 +2,7 @@ package com.medical.project.Controller;
 
 
 import com.medical.project.Dao.appointmentRepository;
+import com.medical.project.Entity.Doctor;
 import com.medical.project.Entity.appointment;
 import com.medical.project.Service.AppointmentService;
 import com.medical.project.Service.AppointmentServiceImp;
@@ -31,6 +32,12 @@ public class AppointmentController {
 
         return appointmentService.getAppointments();
     }
+    @GetMapping("/findmail/{email}")
+    public List<appointment> findAppointByEmail(@PathVariable String email ){
+        return appointmentService.findAppointByEmail(email);
+
+    }
+
 
     @GetMapping("/getAllArrive")
     public List<appointment> getArriv(){
@@ -62,5 +69,6 @@ public class AppointmentController {
         appointmentService.deleteAppointment(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
 
 }

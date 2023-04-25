@@ -63,7 +63,7 @@ message:string="";
           this.getPatient();
           this.router.navigate(['/patient']);
     
-          this.toastr.success('Welcome!!!!!  '+this.patient.firstname)}
+          this.toastr.success('Welcome!!!!! ')}
           else if(rl == 'MEDS'){
           
             this.router.navigate(['/doctorsec'])}
@@ -99,7 +99,7 @@ logout(){
   localStorage.removeItem('role');
 
   localStorage.setItem('isLoggedIn',String(this.isLoggedIn));
-  this.router.navigate(['./navbar']);
+  //this.router.navigate(['./']);
 
 
 }

@@ -5,8 +5,8 @@
           <div class="product-grid4">
               <div class="product-image4">
                   <a href="#">
-                      <img class="pic-1" src="{{ therapie.imageUrl }}">
-                      <img class="pic-2" src="{{ therapie.imageUrl }}">
+                      <img class="pic-1" src="assets/image/{{ therapie.imageUrl }}">
+                      <img class="pic-2" src="assets/image/{{ therapie.imageUrl }}">
                   </a>
                   <ul class="social">
                       <li><a (click)="viewprofil(therapie.id_t)" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
@@ -19,9 +19,10 @@
                   <h3 class="title"><a  (click)="viewprofil(therapie.id_t)">{{ therapie.name }}</a></h3>
                   <div class="price">
                     {{therapie.description.substr(0,40)}}
+                    <br>
                     <ngb-rating [max]="5" [resettable]="true" [(rate)]="therapie.star" [(ngModel)]="therapie.star" (click)="afficher(therapie.id_t,therapie.star)" [readonly]="false"></ngb-rating>
                   </div>
-                  <a class="add-to-cart"  (click)="add(therapie.id_t)" >Prendre Rendez-Vous</a>
+                  <a class="add-to-cart" *ngIf="islogged" (click)="add(therapie.id_t)" >Prendre Rendez-Vous</a>
               </div>
           </div>
       </div>

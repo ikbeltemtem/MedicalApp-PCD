@@ -13,6 +13,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 import { PatientService } from 'src/app/services/patient.service';
 import { Patient } from 'src/app/common/patient';
 import { map } from 'rxjs';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-therapie',
   templateUrl: './therapie.component.html',
@@ -25,7 +26,7 @@ export class TherapieComponent implements OnInit {
   id!:number;
   islogged:Boolean=false;
   patient:Patient=new Patient();
-  constructor(private therapiService: TherapieService,private appointmentService:AppointmentService,private commentService:CommentService,
+  constructor(private location:Location,private therapiService: TherapieService,private appointmentService:AppointmentService,private commentService:CommentService,
     private route: ActivatedRoute,private router:Router,private loginService:LoginService,private login:UserServiceService,private patientService:PatientService) { this.getPatient()}
 
 
@@ -68,6 +69,9 @@ export class TherapieComponent implements OnInit {
     this.router.navigate(['../../appointment'], { relativeTo: this.route });
    
        
+    }
+    cancel() {
+      this.location.back(); // <-- go back to previous location on cancel
     }
 
   getPatient(){
