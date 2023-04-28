@@ -1,7 +1,12 @@
 <div id="haut" class=" card bg-light mb-3 ">
     <div class="card-header ">
-        <h2>Formulaire de prise de rendez-vous</h2>
+        <h2 class="text-blue">Formulaire de prise de rendez-vous</h2>
     </div>
+    <style>
+        .text-blue {
+  color: #188ef4;
+}
+    </style>
     <div class="card-body ">
         <form (ngSubmit)="onSubmit(addForm)"  #addForm="ngForm">
             <input class="form-control" type="text" placeholder="nom du patient " ngModel required name="name">
@@ -9,7 +14,7 @@
 
             <input class="form-control" type="text" placeholder="prénom du patient " ngModel required name="prenom">
             <input class="form-control" type="text" placeholder="age du patient " ngModel required name="age">
-            <input class="form-control" type="text" placeholder="téléphone du patient " ngModel required name="number" >
+            <input class="form-control" type="text" placeholder="N°téléphone du patient " ngModel required name="number" >
             <input class="form-control" type="text" placeholder="email du patient " ngModel name="email" >
             <textarea class="form-control" type="text " placeholder="description de l 'état du patient" ngModel name="symptoms" ></textarea>
             <small><u>Première disponibilité</u></small>
@@ -23,9 +28,11 @@
 
           
             <br>
-
+          
            <select id="selectTherapie" [(ngModel)]="rendezvous.therapie" name="selectTherapie" class="form-select" aria-label="Default select example">
-                <option selected>Thérapie que vous plait</option>
+            <!-- <option selected disabled>Choisir votre thérapie</option>     -->
+           
+            <option>Thérapie que vous plait</option>
                 <option *ngFor="let therapie of therapies" [value]="therapie.name">{{therapie.name}}</option>
         </select>
 
@@ -33,12 +40,10 @@
                           <input class="form-control" type="text " placeholder="therapie " required name="therapie "[(ngModel)]="rendezvous.therapie">
 
         -->
-            <button [disabled]="addForm.invalid" style="margin-bottom: 10px; margin-left: 270px; width: 200px;" class="btn btn-success" type="submit">Envoyer</button>
+            <button [disabled]="addForm.invalid" style="margin-bottom: 10px; margin-left: 270px; width: 200px; " class="btn btn-primary" type="submit">Envoyer</button>
         </form>
     </div>
-    <div class="card-footer text-muted">
-        <a href="#bas">Aperçu du contenu</a>
-    </div>
+   
 
 </div>
 

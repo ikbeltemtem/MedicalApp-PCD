@@ -51,7 +51,7 @@ const routes: Routes = [
     {path:'navbar',component:NavComponent},
     {path:'therapie/:id',component:TherapieComponent},
     {path:'myRdv',component:MyRdvComponent},
-    {path: '',component:TherapieListComponent},]
+    {path: 'therapies',component:TherapieListComponent},]
 },
   {path:'doctor',component:MedPComponent,canActivate:[MedAuthGuard],
   children:[

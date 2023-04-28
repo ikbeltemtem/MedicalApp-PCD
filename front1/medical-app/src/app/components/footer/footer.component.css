@@ -1,9 +1,9 @@
 body{margin-top:20px;}
 .bg-footer {
-    background-color: #3b4757 !important;
+    background-color: #74869c !important;
 }
 .footer {
-  padding: 60px 0;
+  padding: 50px 0;
   position: relative;
   color: #adb5bd;
 }
@@ -20,6 +20,7 @@ body{margin-top:20px;}
   letter-spacing: 0.8px;
   font-weight: 600;
 }
+
 
 .footer .text-foot {
   color: #adb5bd;

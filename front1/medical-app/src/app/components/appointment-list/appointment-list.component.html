@@ -25,7 +25,10 @@
         <div class="e-panel card">
           <div class="card-body">
             <div class="card-title">
-              <h6 class="mr-2"><span>Users</span><small class="px-1">Liste</small></h6>
+              <div class="d-flex align-items-center">
+                <h5 class="mr-2">Liste des</h5>
+                <h2><small class="px-1">Patients</small></h2>
+              </div>
             </div>
             <div class="e-table">
               <div class="table-responsive table-lg mt-3">
@@ -67,8 +70,21 @@
                          <a (click)="onOpenModal(rendezvou,'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
 
                             <a (click)="edit(rendezvou.id)" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-                            <button (click)="onOpenModal(rendezvou,'delete')" class="btn btn-sm btn-outline-secondary badge" type="button"><i class="fa fa-trash"></i></button>
-                        </div>
+                            <!-- <button (click)="onOpenModal(rendezvou,'delete')" class="btn btn-sm btn-outline-secondary badge" type="button"><i class="fa fa-trash"></i></button> -->
+                            <button (click)="onOpenModal(rendezvou,'delete')" class="btn btn-sm btn-primary delete-but" type="button"><i class="fa fa-trash"></i></button>
+                            <style>
+                              .delete-but {
+  font-size: 18px;
+  padding: 5px 12px;
+  background-color: #f51717;
+  color: rgb(51, 48, 48);
+  border: none;
+}
+
+
+
+                            </style>
+                          </div>
                       </td>
                     </tr>
           
@@ -91,59 +107,29 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-lg-3 mb-3">
+      <!-- <div class="col-12 col-lg-3 mb-3">
         <div class="card">
           <div class="card-body">
             <div class="text-center px-xl-3">
-             <!--<button class="btn btn-success btn-block" (click)="onOpenModal(null, 'add')" type="button" >creer Rendez-vous</button>-->
-              <button class="btn btn-success btn-block"  type="button"  (click)="add()">creer Rendez-vous</button>
-            </div>
-            <!--<hr class="my-3">
-            <div class="e-navlist e-navlist--active-bold">
-              <ul class="nav">
-                <li class="nav-item active"><a href="" class="nav-link"><span>All</span>&nbsp;<small>/&nbsp;32</small></a></li>
-                <li class="nav-item"><a href="" class="nav-link"><span>Active</span>&nbsp;<small>/&nbsp;16</small></a></li>
-                <li class="nav-item"><a href="" class="nav-link"><span>Selected</span>&nbsp;<small>/&nbsp;0</small></a></li>
-              </ul>
-            </div>-->
-           <!--- <hr class="my-3">
-            <div>
-              <div class="form-group">
-                <label>Date from - to:</label>
-                <div>
-                  <input id="dates-range" class="form-control flatpickr-input" placeholder="01 Dec 17 - 27 Jan 18" type="text" readonly="readonly">
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Search by Name:</label>
-                <div><input class="form-control w-100" type="text" placeholder="Name" value=""></div>
-              </div>
-            </div>-->
-            <!--<hr class="my-3">
-            <div class="">
-              <label>Status:</label>
-              <div class="px-2">
-                <div class="custom-control custom-radio">
-                  <input type="radio" class="custom-control-input" name="user-status" id="users-status-disabled">
-                  <label class="custom-control-label" for="users-status-disabled">Disabled</label>
-                </div>
-              </div>
-              <div class="px-2">
-                <div class="custom-control custom-radio">
-                  <input type="radio" class="custom-control-input" name="user-status" id="users-status-active">
-                  <label class="custom-control-label" for="users-status-active">Active</label>
-                </div>
-              </div>
-              <div class="px-2">
-                <div class="custom-control custom-radio">
-                  <input type="radio" class="custom-control-input" name="user-status" id="users-status-any" checked="">
-                  <label class="custom-control-label" for="users-status-any">Any</label>
-                </div>
-              </div>
-            </div> -->
-          </div>
-        </div>
-      </div>
+              <style>
+              .btn-success {
+                background-color: #188ef4;
+                border-color: #188ef7;
+              }
+              .btn-success,
+.btn-success:hover,
+.btn-success:focus {
+  background-color: #188ef4 !important;
+  border-color: blue !important;
+}
+              </style>
+             
+              <button class="btn btn-success btn-block" (click)="onOpenModal(null, 'add')" type="button" >creer Rendez-vous</button> -->
+              <!-- <button class="btn btn-success btn-block"  type="button"  (click)="add()">creer Rendez-vous</button> -->
+            <!-- </div> -->
+          <!-- </div> -->
+        <!-- </div> -->
+      <!-- </div>  -->
     </div>
 
     <!-- Edit Modal -->
@@ -153,7 +139,7 @@
           <div class="modal-header">
             <h5 class="modal-title"id="editAppointmentModalLabel">Editer Appointment{{editAppointment?.name}}</h5>
             <button type="button" class="btn btn-secondary" id="update-Rdv-form" data-dismiss="modal">
-              <span aria-hidden="true">×</span>
+              <span aria-hidden="true">x</span>
             </button>
           </div>
           <div class="modal-body">
@@ -331,6 +317,12 @@
   <div class="modal-dialog" role="document">
      <div class="modal-content">
         <div class="modal-header">
+          <style>
+            .btn-lg {
+  font-size: 1.5rem;
+  padding: 0.75rem 1.5rem;
+}
+          </style>
            <h5 class="modal-title" id="deleteModelLabel">Delete Appointment</h5>
            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
            <span aria-hidden="true">&times;</span>
@@ -346,6 +338,48 @@
      </div>
   </div>
 </div>
+<div class="d-flex justify-content-center">
+<div class="col-12 col-lg-3 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="text-center ">
+        <style>
+        .btn-success {
+          background-color: #188ef4;
+          border-color: #188ef7;
+        }
+        .btn-success,
+.btn-success:hover,
+.btn-success:focus {
+background-color: #188ef4 !important;
+border-color: blue !important;
+}
+        </style>
+       
+       <!-- <button class="btn btn-success btn-block" (click)="onOpenModal(null, 'add')" type="button" >creer Rendez-vous</button> -->
+        <button class="btn btn-success btn-block"  type="button"  (click)="add()">creer Rendez-vous</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- <div class="text-center px-xl-3">
+  <style>
+  .btn-success {
+    background-color: #188ef4;
+    border-color: #188ef7;
+  }
+  .btn-success,
+.btn-success:hover,
+.btn-success:focus {
+background-color: #188ef4 !important;
+border-color: blue !important;
+}
+  </style>
+ 
+ <button class="btn btn-success btn-block" (click)="onOpenModal(null, 'add')" type="button" >creer Rendez-vous</button>-->
+  <!-- <button class="btn btn-success btn-block"  type="button"  (click)="add()">creer Rendez-vous</button> -->
+<!-- </div>  -->
 </div>
   </div>
 </div>

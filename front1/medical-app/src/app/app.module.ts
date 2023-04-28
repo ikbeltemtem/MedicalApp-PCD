@@ -25,7 +25,6 @@ import { ModifRdvComponent } from './components/modif-rdv/modif-rdv.component';
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { SecretaireComponent } from './components/secretaire/secretaire.component';
 import { CommentComponent } from './components/comment/comment.component';
-
 import { TherapieComponent } from './components/therapie/therapie.component';
 import { TherapieListComponent } from './components/therapie-list/therapie-list.component';
 import { AjoutTherapieComponent } from './components/ajout-therapie/ajout-therapie.component';
@@ -60,6 +59,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 const routes: Routes = [
   {
     path: 'login',
@@ -114,6 +114,7 @@ const routes: Routes = [
     FooterComponent,
     CommentComponent,
     ModifRdvComponent,
+   
     MyRdvComponent
   ],
   imports: [
@@ -121,6 +122,7 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    MatIconModule,
     RouterModule.forRoot(routes),
     ToastrModule.forRoot({
       timeOut:20000,

@@ -1,14 +1,57 @@
 <!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
-<nav class="navbar  fixed-top" style="background-color: #8ebcdd;">
+<nav class="navbar  fixed-top" style="background-color: #188ef4;">
     <div class="container-fluid">
-    
-      <a class="navbar-brand">Navbar</a>
+        <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+        <style>
+            .navbar-brand {
+                font-family: 'Pacifico', cursive;
+                font-size: 24px;
+          color: #333333;
+          display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 0;
+                line-height: 1.5em;
+             
+            }
+          
+            .navbar-brand span {
+          color: white;
+        }
+        .navbar-brand span:first-letter {
+        text-transform: uppercase !important;
+    }
+        </style>
+      <a class="navbar-brand"><span>Accueil Patient</span> </a>
       <form class="d-flex" role="search">
-        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; " routerLink="./appointment">Prise Rendez-vous</button>
-        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; " routerLink="./myRdv">Mes rendez-Vous</button>
+        <style>
+            button {
+              margin-right: 15px;
+              border-radius: 20px;
+              font-size: 16px;
+              font-weight: bold;
+              padding: 10px 20px;
+            }
+            .btn-outline-secondary {
+  background-color: #188ef4;
+  border-color: #71deec;
+  color: white;
+}
+        
+        .btn-outline-secondary:hover,
+        .btn-outline-secondary:focus {
+background-color: #1e61b9 !important;
+border-color: #71deec !important;
 
-        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; " routerLink="./">therapies</button>
-        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "(click)="logOut()" routerLink="">Logout</button>
+}
+          </style>
+          <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #ffffff; " routerLink="./home">Accueil</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #ffffff; " routerLink="./appointment">Prise Rendez-vous</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #ffffff; " routerLink="./myRdv">Mes rendez-Vous</button>
+
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #ffffff; " routerLink="./">Thérapies</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #ffffff; "(click)="logOut()" routerLink="">Déconnexion</button>
 
       </form>
     </div>

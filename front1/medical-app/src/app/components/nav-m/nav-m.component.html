@@ -33,15 +33,63 @@
         </ul>
     </div>
   </div>-->
-  <nav class="navbar  fixed-top" style="background-color: #8ebcdd;">
-    <div class="container-fluid">
-      <a class="navbar-brand">Navbar</a>
+  <nav class="navbar  fixed-top" style="background-color: #188ef4;">
+    
+      <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+      <style>
+        .navbar-brand {
+          font-family: 'Pacifico', cursive;
+          font-size: 24px;
+          color: #333333;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 0;
+          line-height: 1.5em;
+        }
+         .navbar-brand span:first-child {
+          margin-bottom: -0.5em;
+          color: white;
+        }
+        .navbar-brand span:last-child {
+          color: white;
+        }
+      </style>
+        <div class="container-fluid">
+          <a class="navbar-brand">
+             <span>Accueil Medecin</span>
+            <span>Secondaire</span>
+          </a>
+          
+      
       <form class="d-flex" role="search">
-        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; " routerLink="./home">home</button>
-        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "routerLink="./profile">Profile</button>
-        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "routerLink="./static">Stitistiques</button>
+        <style>
+          button {
+            margin-right: 15px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+          }
+          .btn-outline-secondary {
+  background-color: #188ef4;
+  border-color: #71deec;
+  color: white;
+}
+        
+        .btn-outline-secondary:hover,
+        .btn-outline-secondary:focus {
+background-color: #1e61b9 !important;
+border-color: #71deec !important;
 
-        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "(click)="logOut()" routerLink="">Logout</button>
+}
+        </style>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #ffffff; " routerLink="./home">Accueil</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #ffffff; "routerLink="./profile">Profil</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #ffffff; "routerLink="./static">Statistiques</button>
+
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #ffffff; "(click)="logOut()" routerLink="">Déconnexion</button>
       </form>
     </div>
   </nav>

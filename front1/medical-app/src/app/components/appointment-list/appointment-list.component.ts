@@ -99,10 +99,12 @@ export class AppointmentListComponent implements OnInit {
     if (mode === 'edit') {
       this.editAppointment = appointment;
       button.setAttribute('data-target', '#editAppointmentModal');
+     
     }
     if (mode === 'delete') {
       this.deleteAppointment = appointment;
       button.setAttribute('data-target', '#deleteAppointmentModal');
+      
     }
     container!.appendChild(button);
     button.click();

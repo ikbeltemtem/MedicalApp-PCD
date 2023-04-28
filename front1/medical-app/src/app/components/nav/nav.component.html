@@ -1,10 +1,62 @@
-<nav class="navbar fixed-top" style="background-color: #8ebcdd;">
+<nav class="navbar fixed-top" style="background-color: #188ef4;">
+  
+<!-- <nav class="navbar fixed-top" style="background-color: #8ebcdd;"> -->
+ 
+  <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+	<style>
+		.navbar-brand {
+			font-family: 'Pacifico', cursive;
+			font-size: 24px;
+      color: #333333;
+      display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			padding: 0;
+			line-height: 1.5em;
+		}
+    .navbar-brand span:first-child {
+			margin-bottom: -0.5em;
+      color: white;
+		}
+    .navbar-brand span:last-child {
+			color: white;
+		}
+	</style>
     <div class="container-fluid">
-      <a class="navbar-brand">Navbar</a>
+      <a class="navbar-brand">
+         <span>Le Chemin</span>
+        <span>du Bien-Être</span>
+      </a>
+      <style>
+        button {
+          margin-right: 20px;
+          border-radius: 20px;
+          font-size: 16px;
+          font-weight: bold;
+          padding: 10px 20px;
+        }
+        .btn-outline-secondary {
+  background-color: #188ef4;
+  border-color: #71deec;
+  color: white;
+}
+        
+        .btn-outline-secondary:hover,
+        .btn-outline-secondary:focus {
+background-color: #1e61b9 !important;
+border-color: #71deec !important;
+
+}
+      
+    
+  </style>
       <form class="d-flex" role="search">
-        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; " routerLink="">home</button>
-        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "routerLink="/login">Login</button>
-        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #000; "routerLink="/therapies">Services</button>
+     
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #ffffff; " routerLink="">Accueil</button>
+       
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #ffffff; "routerLink="/therapies">Services</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" style="color: #ffffff; "routerLink="/login">Connexion</button>
       </form>
     </div>
   </nav>
