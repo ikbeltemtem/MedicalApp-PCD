@@ -197,6 +197,7 @@ a,a:hover{
 }
 
 /*Layout Css*/
+/*
 .section-content-p35{
   padding:0 35px
 }
@@ -229,7 +230,7 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
 * Header Desktop Section
 * ----------------------------
 */
-
+/*
 .header-desktop{
   background:#ce9135;
   -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
@@ -409,7 +410,7 @@ input.au-input.au-input-xl{
 * Left Menu Bar
 * ----------------------------
 */
-
+/*
 .menu-sidebar{
   width:200px;
   position:fixed;
@@ -483,7 +484,7 @@ input.au-input.au-input-xl{
 * Header Mobile Section
 * ----------------------------
 */
-
+/*
 .header-mobile{
   position:absolute;
   top:0;
@@ -620,7 +621,7 @@ input.au-input.au-input-xl{
 * Products List
 * ----------------------------
 */
-
+/*
 .product-box img {
   width: 150px;
 }
@@ -662,7 +663,7 @@ input.au-input.au-input-xl{
 * Shopping Cart Checkout
 * ----------------------------
 */
-
+/*
 .form-area{
   background:#e5e5e5;
   position:relative;
@@ -776,7 +777,7 @@ select{
 * Shopping Cart Details
 * ----------------------------
 */
-
+/*
 .table{
   margin:0
 }
@@ -811,7 +812,7 @@ table.table.table-bordered th{
 * Product Details
 * ----------------------------
 */
-
+/*
 .price{
   margin:15px 0 0;
   font-weight:800;
@@ -830,7 +831,7 @@ table.table.table-bordered th{
 * Buttons
 * ----------------------------
 */
-
+/*
 .btn-info{
   color:#fff;
   background-color:#4e370d!important;
@@ -860,7 +861,7 @@ font-weight: bold;
 * Footer section
 * ----------------------------
 */
-
+/*
 footer ul li a{
   color:#fff
 }
@@ -885,7 +886,7 @@ footer ul li{
 * Media Queries
 * ----------------------------
 */
-
+/*
 @media (max-width:1600px){
   .au-input-xl{
       min-width:290px
@@ -1135,4 +1136,113 @@ footer ul li{
       border:0;
       padding:8px 0
   }
+}*/
+
+
+
+body{margin-top:20px;}
+.card-style1 {
+    box-shadow: 0px 0px 10px 0px rgba(115, 98, 160, 0.09);
+}
+.border-0 {
+    border: 0!important;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+svg {
+  color: #15395A !important;
+}
+section {
+    padding: 120px 0;
+    overflow: hidden;
+    background: #fff;
+}
+.mb-2-3, .my-2-3 {
+    margin-bottom: 2.3rem;
+}
+
+.section-title {
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+.text-primary {
+    color: #ceaa4d !important;
+}
+.text-secondary {
+    color: #15395A !important;
+}
+.font-weight-600 {
+    font-weight: 600;
+}
+.display-26 {
+    font-size: 1.3rem;
+}
+
+@media screen and (min-width: 992px){
+    .p-lg-7 {
+        padding: 4rem;
+    }
+}
+@media screen and (min-width: 768px){
+    .p-md-6 {
+        padding: 3.5rem;
+    }
+}
+@media screen and (min-width: 576px){
+    .p-sm-2-3 {
+        padding: 2.3rem;
+    }
+}
+.p-1-9 {
+    padding: 1.9rem;
+}
+
+.bg-secondary {
+    background: #295c8d !important;
+}
+@media screen and (min-width: 576px){
+    .pe-sm-6, .px-sm-6 {
+        padding-right: 3.5rem;
+    }
+}
+@media screen and (min-width: 576px){
+    .ps-sm-6, .px-sm-6 {
+        padding-left: 3.5rem;
+    }
+}
+.pe-1-9, .px-1-9 {
+    padding-right: 1.9rem;
+}
+.ps-1-9, .px-1-9 {
+    padding-left: 1.9rem;
+}
+.pb-1-9, .py-1-9 {
+    padding-bottom: 1.9rem;
+}
+.pt-1-9, .py-1-9 {
+    padding-top: 1.9rem;
+}
+.mb-1-9, .my-1-9 {
+    margin-bottom: 1.9rem;
+}
+@media (min-width: 992px){
+    .d-lg-inline-block {
+        display: inline-block!important;
+    }
+}
+.rounded {
+    border-radius: 0.25rem!important;
 }

@@ -1,5 +1,14 @@
-<div class="container">
-  <h3 class="h3">shopping Demo-4 </h3>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container" >
   <div class="row">
       <div class="col-md-3 col-sm-6" *ngFor="let therapie of therapies">
           <div class="product-grid4">
@@ -9,16 +18,16 @@
                       <img class="pic-2" src="assets/image/{{ therapie.imageUrl }}">
                   </a>
                   <ul class="social">
-                      <li><a (click)="viewprofil(therapie.id_t)" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                      <li><a (click)="viewprofil(therapie.id_t)" data-tip="voir"><i class="fa fa-eye"></i></a></li>
                      
                    
                   </ul>
                 
               </div>
               <div class="product-content">
-                  <h3 class="title"><a  (click)="viewprofil(therapie.id_t)">{{ therapie.name }}</a></h3>
+                  <h3 class="price"><a  (click)="viewprofil(therapie.id_t)">{{ therapie.name }}</a></h3>
                   <div class="price">
-                    {{therapie.description.substr(0,40)}}
+                  <p style="color: rgb(78, 77, 77);">{{therapie.description.substr(0,60)}}</p>
                     <br>
                     <ngb-rating [max]="5" [resettable]="true" [(rate)]="therapie.star" [(ngModel)]="therapie.star" (click)="afficher(therapie.id_t,therapie.star)" [readonly]="false"></ngb-rating>
                   </div>

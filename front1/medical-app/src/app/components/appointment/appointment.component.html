@@ -1,27 +1,36 @@
+<br>
+<br>
+
+
 <div id="haut" class=" card bg-light mb-3 ">
     <div class="card-header ">
         <h2 class="text-blue">Formulaire de prise de rendez-vous</h2>
     </div>
     <style>
         .text-blue {
-  color: #188ef4;
+  color: #02203a;
 }
     </style>
     <div class="card-body ">
         <form (ngSubmit)="onSubmit(addForm)"  #addForm="ngForm">
             <input class="form-control" type="text" placeholder="nom du patient " ngModel required name="name">
-
+            <br>
 
             <input class="form-control" type="text" placeholder="prénom du patient " ngModel required name="prenom">
+            <br>
             <input class="form-control" type="text" placeholder="age du patient " ngModel required name="age">
+            <br>
             <input class="form-control" type="text" placeholder="N°téléphone du patient " ngModel required name="number" >
+            <br>
             <input class="form-control" type="text" placeholder="email du patient " ngModel name="email" >
+            <br>
             <textarea class="form-control" type="text " placeholder="description de l 'état du patient" ngModel name="symptoms" ></textarea>
+            <br>
             <small><u>Première disponibilité</u></small>
             <input class="form-control" name="dispo1" ngModel type="date">
            
          
-
+            <br>
             <small><u>Deuxième disponibilité</u></small>
             <input class="form-control" name="dispo2" ngModel type="date" >
           

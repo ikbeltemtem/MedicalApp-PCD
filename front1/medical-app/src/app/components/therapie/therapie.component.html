@@ -1,12 +1,12 @@
 
-<div class="detail-section">
+<!--<div class="detail-section">
     <div class="container-fluid">
       
         <img src="assets/image/{{ therapie.imageUrl }}" class="detail-img">
 
         <h3>{{ therapie.name }}</h3>
         <div *ngIf="islogged">
-        <button (click)="add()" class="btn btn-primary btn-sm">Prendre Rendez-vous</button>
+        <button  class="btn btn-primary btn-sm">Prendre Rendez-vous</button>
 </div>
         <hr>
         <h4>Description</h4>
@@ -48,4 +48,88 @@
     </div>
   </div>
   </div>
-  
+
+-->
+  <!--*********************************************************************************************-->
+
+
+  <section class="bg-light" >
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-12 mb-4 mb-sm-5">
+                <div class="card card-style1 border-0">
+                    <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 mb-4 mb-lg-0">
+                                <img src="assets/image/{{ therapie.imageUrl }}"  style="  width: 500px; " alt="...">
+
+                               
+                            </div>
+                            <div class="col-lg-6 px-xl-10">
+                              <h3 class="h2 text-bg-primary mb-0" style=" background: #295c8d !important;">{{therapie.name}}</h3>
+                                  <br>
+                                  
+                                <div>
+                                  <span class="section-title text-primary mb-3 mb-sm-4">Description</span>
+                                 <p>{{ therapie.description }}</p>
+                              </div>
+
+                               <!-- <button style=" width: 210px ;margin-top:10px; " (click)="add()" class="btn btn-outline-success mx-3 "><svg xmlns="http://www.w3.org/2000/svg " style="margin-right: 10px;color: #15395A !important; " width="16 " height="16 " fill="currentColor " class="bi bi-pen 
+                                    " viewBox="0 0 16 16 ">
+                                                        <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5
+                                    0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z "/>
+                                                      </svg>Prendre Rendez-vous</button> -->
+                                                      <a class="btn btn-info-gradiant btn-md rounded-pill mt-3" style="	background: #295c8d; "(click)="add()" ><span style="color: azure;">Prendre Rendez-vous</span></a> 
+                            
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="bg-secondary d-lg-inline-block py-0 px-1-9 px-sm-6 mb-1-9 rounded">
+                          <a (click)="cancel()" class=" text-white mb-0 " >Revenir à la liste</a>
+                      </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 mb-4 mb-sm-5">
+            
+            </div>
+            <div class="card card-style1 border-0">
+            <div class="comments">
+              <h3 class="comments-title">Commentaires</h3>
+              <br>
+              <form *ngIf="islogged" class="example-form" (ngSubmit)="onSubmit(addForm)"  #addForm="ngForm">
+          
+            
+                  <mat-form-field class="example-full-width" >
+                    <mat-label>Laisser un commentaire</mat-label>
+                    <textarea matInput placeholder="Ex. It makes me feel..." class="form-control " type="text " [(ngModel)]="comment.text" name="text"></textarea>
+                  </mat-form-field>
+                  <button [disabled]="addForm.invalid" style="background-color:#295c8d;" class="btn btn-success " type="submit">Envoyer</button>
+                </form>
+                <div *ngIf="comments?.length ==0" class="alert alert-warning col-md-12" role="alert">
+                  pas de commentaires
+                  
+                  </div>
+                  <br>
+            <div class="comment" *ngFor="let com of comments">
+              <div class="comment-image-container">
+                <img src="../../../assets/user-icon.png" />
+              </div>
+              <div class="comment-right-part">
+                <div class="comment-content">
+                  <div class="comment-author">{{ patient.firstname }}</div>
+                  <div>{{ com.createdDate }}</div>
+                </div>
+                <div class="comment-text">{{ com.text }}</div>
+              </div>
+            </div>
+            </div>
+          </div>
+         
+        </div>
+    </div>
+   
+</section>
