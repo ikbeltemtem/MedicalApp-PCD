@@ -65,12 +65,14 @@ const routes: Routes = [
     {path: '',component:TherapieListComponent},
     {path:'static',component:StaticsComponent},
     {path:'therapie/:id',component:TherapieComponent},
-    {path:'doctors/modifierMedecin/:email',component:ModifMedsComponent},
+    {path:'modifierMedecin/:email',component:ModifMedsComponent},
     {path:'doctors',component:DoctorComponent},
     {path:'secretaires/modifierSecretaire/:email',component:ModifSecComponent},
      {path:'therapiesModif',component:TherapieListModifComponent},
     {path:'secretaires',component:SecretaireComponent},
     {path:'updateTherapie/:id',component:ModifTherapieComponent},
+    {path:'doctors/modifierMedecin/:email',component:ModifMedsComponent},
+
 
    ]},
   {path:'doctorsec',component:MedSComponent, canActivate:[MedSAuthGuard],

@@ -1,8 +1,8 @@
-<div style="margin-top: 200px;" class="col-md-6 offset-md-3   border border-success">
+<!--<div style="margin-top: 200px;" class="col-md-6 offset-md-3   border border-success">
     <h3><strong> Ajouter Thérapie </strong></h3>
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <input type="text" class="form-control" id="nom" placeholder="Nom de la thérapie à ajouter" [(ngModel)]="therapie.name" name="nom">
+            <input type="text" class="form-control" id="name" placeholder="Nom de la thérapie à ajouter" [(ngModel)]="therapie.name" name="name">
         </div>
         <div class="form-group">
             <input type="text" class="form-control" id="decription" placeholder="Description de la thérapie à ajouter" [(ngModel)]="therapie.description" name="description">
@@ -12,11 +12,60 @@
             <input class="form-control" type="file" (change)="onSelectFile($event)" id="image" placeholder="image de la thérapie à ajouter" [(ngModel)]="therapie.imageUrl" name="image">
             <img [src]="imgURL" height="200px" *ngIf="imgURL">
         </div>
-       <!-- <div class="form-group">
-            <input type="text" class="form-control" id="video" placeholder="vidéo de la thérapie à ajouter" [(ngModel)]="therapie.video" name="video">
-        </div> -->
+     
         <button style="margin-bottom: 10px; margin-left: 270px; width: 200px;" class="btn btn-success " type="submit">Ajouter</button>
 
     </form>
 
 </div>
+
+<div style="margin-top: 200px;" class="col-md-6 offset-md-3 bg-white p-4 rounded border border-success">
+    <h3 class="text-center mb-4"><strong>Ajouter Thérapie</strong></h3>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="nom">Nom de la thérapie à ajouter:</label>
+            <input type="text" class="form-control" id="name" placeholder="Entrez le nom de la thérapie" [(ngModel)]="therapie.name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description de la thérapie à ajouter:</label>
+            <textarea class="form-control" id="description" placeholder="Entrez la description de la thérapie" [(ngModel)]="therapie.description" name="description" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="image">Image de la thérapie à ajouter:</label>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" (change)="onSelectFile($event)" id="image" [(ngModel)]="therapie.imageUrl" name="image" required>
+              <label class="custom-file-label" for="image">Choisir un fichier...</label>
+            </div>
+            <img [src]="imgURL" height="200px" *ngIf="imgURL">
+        </div>
+        
+        <button class="btn btn-success d-block mx-auto" style="background-color:#188ef4 !important ;"type="submit">Ajouter</button>
+    </form>
+</div>
+-->
+
+
+<div style="margin-top: 200px;" class="col-md-6 offset-md-3 bg-white p-4 rounded border border-success" >
+    <h3 class="text-center mb-4"><strong>Ajouter Thérapie</strong></h3>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nom de la thérapie à ajouter:</label>
+        <input type="text" class="form-control" id="name" placeholder="Entrez le nom de la thérapie" [(ngModel)]="therapie.name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description de la thérapie à ajouter:</label>
+        <textarea class="form-control" id="description" placeholder="Entrez la description de la thérapie" [(ngModel)]="therapie.description" name="description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="imageUrl">Image de la thérapie à ajouter:</label>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" (change)="onSelectFile($event)" id="imageUrl" [(ngModel)]="therapie.imageUrl" name="imageUrl" required>
+          <label class="custom-file-label" for="imageUrl">Choisir un fichier...</label>
+        </div>
+        <img [src]="imgURL" height="200px" *ngIf="imgURL">
+      </div>
+      <button class="btn btn-primary d-block mx-auto" style="background-color: #188ef4 !important; border-color: #188ef4 !important;" type="submit">Ajouter</button>
+    </form>
+  </div>
+  
