@@ -36,10 +36,10 @@ INSERT INTO therapie ( `name` ,`description` , `image_url` , `ratefive` , `ratef
 VALUES ('Phytothérapie' , 'La phytothérapie est une médecine alternative qui utilise les extraits de plantes pour prévenir et traiter les maladies. Elle repose sur l''utilisation de substances naturelles contenues dans les plantes.' , 'phytothérapie.jpg' ,0,0,0,0,0,0,0);
 INSERT INTO therapie ( `name` ,`description` , `image_url` , `ratefive` , `ratefour`,`ratethree`,`ratetwo`,`rateone`,`star`,`rateall`)
 VALUES ('Diététique' , 'Les diététiciens sont des professionnels de la santé qui conseillent les individus sur leur régime alimentaire en fonction de leurs besoins et de leurs objectifs de santé.' , 'nut.jpg' ,0,0,0,0,0,0,0);
-/* INSERT INTO therapie ( `name` ,`description` , `image_url` , `ratefive` , `ratefour`,`ratethree`,`ratetwo`,`rateone`,`star`,`rateall`)
+ INSERT INTO therapie ( `name` ,`description` , `image_url` , `ratefive` , `ratefour`,`ratethree`,`ratetwo`,`rateone`,`star`,`rateall`)
 VALUES ('Sophrologie' , 'La sophrologie est une méthode de développement personnel qui vise à aider les individus à trouver un équilibre entre leur corps et leur esprit en utilisant des techniques de relaxation, de respiration et de visualisation.' , 'sophrologie.jpg' ,0,0,0,0,0,0,0);
 INSERT INTO therapie ( `name` ,`description` , `image_url` , `ratefive` , `ratefour`,`ratethree`,`ratetwo`,`rateone`,`star`,`rateall`)
 VALUES ('Hypnose' , 'L''hypnose peut être utilisée pour traiter une variété de problèmes de santé mentale et physique, tels que l''anxiété, la dépression, les phobies, les troubles du sommeil, les douleurs chroniques et les addictions.' , 'hypnose.jpg' ,0,0,0,0,0,0,0);
 INSERT INTO therapie ( `name` ,`description` , `image_url` , `ratefive` , `ratefour`,`ratethree`,`ratetwo`,`rateone`,`star`,`rateall`)
-VALUES ('Kinésiologie' , ' La pratique de la kinésiologie repose sur le principe que le corps est capable de s''autoréguler et de guérir lui-même, et que l''énergie et l''information circulent dans le corps à travers un système complexe de méridiens et de points d''acupuncture.' , 'kinésiologie.jpg' ,0,0,0,0,0,0,0);*/
+VALUES ('Kinésiologie' , ' La pratique de la kinésiologie repose sur le principe que le corps est capable de s''autoréguler et de guérir lui-même, et que l''énergie et l''information circulent dans le corps à travers un système complexe de méridiens et de points d''acupuncture.' , 'kinésiologie.jpg' ,0,0,0,0,0,0,0);
 

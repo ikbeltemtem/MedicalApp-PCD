@@ -155,6 +155,9 @@ public class AuthenticationService {
         user.setTel(request.getTel());
         user.setEmail(request.getEmail());
         user.setSpeciality(user.getSpeciality());
+        if(request.getEmail() == "admin@gmail.com"){
+            user.setRole(Role.ADMIN);
+        }
         user.setRole(Role.MEDS);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 

@@ -44,7 +44,8 @@ export class TherapieListComponent implements OnInit {
 
   add(id:number){
     if(this.islogged){
- this.router.navigate(['../appointment'])}
+ this.router.navigate(['../appointment'], { relativeTo: this.route })}
+
  else{
   this.router.navigate(['../login'])
  }

@@ -19,15 +19,15 @@ ENGINE=InnoDB
 AUTO_INCREMENT = 1;
 
 INSERT INTO stat (`id`, `nb` ,`amount` , `color` )
-VALUES (1,'nombre de patient' , 100 , 'rgba(202, 246, 253, 0.8)' );
+VALUES (1,'nombre de patient' , 50 , 'rgba(202, 246, 253, 0.8)' );
 
 INSERT INTO stat (`id`, `nb` ,`amount` , `color` )
-VALUES (2,'nombre de rendez-vous' , 120 , 'rgba(202, 253, 205, 0.8)' );
+VALUES (2,'nombre de rendez-vous' , 60 , 'rgba(202, 253, 205, 0.8)' );
 INSERT INTO stat (`id`, `nb` ,`amount` , `color` )
-VALUES (3,'nombre de rendez-vous faites' , 120 , 'rgba(255, 222, 130, 0.61)' );
+VALUES (3,'nombre de rendez-vous faites' , 40 , 'rgba(255, 222, 130, 0.61)' );
 
 INSERT INTO stat (`id`, `nb` ,`amount` , `color` )
-VALUES (4,'nombre de rendez-vous en attente' , 120 , 'rgba(252, 201, 205, 0.82)' );
+VALUES (4,'nombre de rendez-vous en attente' , 10 , 'rgba(252, 201, 205, 0.82)' );
 
 INSERT INTO stat (`id`, `nb` ,`amount` , `color` )
-VALUES (5,'nombre de rendez-vous pas arrivé' , 120 , 'rgba(250, 201, 252, 0.82)' );
+VALUES (5,'nombre de rendez-vous pas arrivé' , 10 , 'rgba(250, 201, 252, 0.82)' );

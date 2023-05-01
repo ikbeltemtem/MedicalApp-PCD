@@ -124,7 +124,7 @@ getNotifs():void{
   }
  getMsg(nott:Notif):string{
  
-     this.message="Un nouveau Rendez-vous pris en: "+nott.daterdv + "\n"
+     this.message="Un nouveau Rendez-vous pris \n"
      + "sous le nom: "+nott.name + " pour le: "+nott.dispo1 + "\n" + "Verifier sa disponibilité!";
   return this.message;
  }
