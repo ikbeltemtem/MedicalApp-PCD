@@ -37,7 +37,7 @@ public class DoctorServiceImp  implements DoctorService{
         doct.setAge(doctor.getAge());
         doct.setAdresse(doctor.getAdresse());
         doct.setEmail(doctor.getEmail());
-        doct.setPassword(doctor.getPassword());
+        doct.setPassword(doct.getPassword());
         return docRepo.save(doct);
     }
 

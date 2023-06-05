@@ -79,6 +79,11 @@ const routes: Routes = [
        children:[
         {path: 'home',component: HomeComponent},
         {path:'ajouterTherapie',component:AjoutTherapieComponent},
+        {path: 'modifierTherapie',component:ModifTherapieComponent},
+        {path:'updateTherapie/:id',component:ModifTherapieComponent},
+        {path:'therapiesModif',component:TherapieListModifComponent},
+        {path:'',component:ProfileComponent},
+
         {path: 'profile',component:ProfileComponent},
         {path:'navbar',component:NavComponent},
         {path: 'therapies',component:TherapieListComponent},

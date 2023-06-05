@@ -29,14 +29,14 @@ export class ModifMedsComponent implements OnInit {
       if(this.userService.isMedP()){
        
         this.userService.updateMed(this.email,this.doctor).subscribe(data=>{
-          this.router.navigate(['doctor']);
+          this.router.navigate(['../../profile'], { relativeTo: this.route });
         })
         
       }
       else{
        
         this.userService.updateMed(this.email,this.doctor).subscribe(data=>{
-          this.router.navigate(['doctorsec']);
+          this.router.navigate(['../../profile'], { relativeTo: this.route });
            })
     
   

@@ -21,4 +21,13 @@ public class Comment {
     @Column(columnDefinition = "TEXT")
     private String text;
 
+    public Comment(String therapie, String email, String createdDate, String text) {
+        this.therapie = therapie;
+        this.email = email;
+        this.createdDate = createdDate;
+        this.text = text;
+    }
+
+    public Comment() {
+    }
 }

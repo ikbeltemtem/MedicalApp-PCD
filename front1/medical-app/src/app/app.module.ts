@@ -15,7 +15,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 
 import { MatInputModule } from '@angular/material/input';
-
+import { EmailComponent } from './components/email/email.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ToastrModule } from 'ngx-toastr';
 import { MyRdvComponent } from './components/my-rdv/my-rdv.component';
@@ -114,7 +114,7 @@ const routes: Routes = [
     FooterComponent,
     CommentComponent,
     ModifRdvComponent,
-   
+   EmailComponent,
     MyRdvComponent
   ],
   imports: [

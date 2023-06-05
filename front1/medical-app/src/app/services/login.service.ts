@@ -75,6 +75,7 @@ message:string="";
               for(let nt of this.notifs){
                 this.toastr.success(this.getMsg(nt) );
               }
+              console.log(this.notifs);
               this.notifs=[];
              
               } 

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Therapie } from 'src/app/common/therapie';
 import { TherapieService } from 'src/app/services/therapie.service';
 
@@ -18,7 +18,7 @@ export class AjoutTherapieComponent implements OnInit {
   file!: File;
   message!: string;
  
-  constructor(private therapieService: TherapieService, private router: Router, private httpClient: HttpClient) { }
+  constructor(private therapieService: TherapieService, private route:ActivatedRoute,private router: Router, private httpClient: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -43,7 +43,7 @@ export class AjoutTherapieComponent implements OnInit {
         } else {
           this.message = 'Image not uploaded successfully';
         }
-       this.router.navigate(['doctor']);
+       this.router.navigate(['../therapies'], { relativeTo: this.route });
 
       }
       );

@@ -55,7 +55,7 @@ export class ModifRdvComponent implements OnInit{
         this.staticService.updateStat(3,this.statistics[4]).subscribe(data=>{
          })
       }
-      this.router.navigate(['secretaire']);
+      this.router.navigate(['../../'], { relativeTo: this.route });
 
       })
       

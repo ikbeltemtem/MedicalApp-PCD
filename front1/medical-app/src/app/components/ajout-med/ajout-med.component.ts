@@ -72,7 +72,7 @@ user:User=new User();
 
    // this.form.reset();
     
-    this.router.navigate(['/doctor']);
+    this.router.navigate(['/doctor/doctors']);
   }
 
 }
